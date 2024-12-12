@@ -11,15 +11,14 @@ interface SidebarProps {
 
 const Sidebar = ({className}: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false)
-    const {t} = useTranslation()
+    const {t} = useTranslation('main')
     const onToggle = () => setCollapsed(prev => !prev)
 
     return (
         <div className={classNames(styles.sidebar, {[styles.collapsed]: collapsed}, [className])}>
-            <button onClick={onToggle}>{t('toggle')}</button>
+            <button onClick={onToggle}>{t('Закрыть')}</button>
             <div className={classNames(styles.switchers)}>
                 <ThemeSwitcher/>
-                {t('fsdfsdf')}
                 <LanguageSwitcher/>
             </div>
         </div>

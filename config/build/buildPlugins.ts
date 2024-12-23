@@ -1,3 +1,4 @@
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BuildOptions } from './types/config';
 import HTMLWebpackPlugin from 'html-webpack-plugin'
 import {DefinePlugin, HotModuleReplacementPlugin, ProgressPlugin, WebpackPluginInstance} from 'webpack'
@@ -14,6 +15,7 @@ export function buildPlugins({paths, isDev}: BuildOptions): WebpackPluginInstanc
             __IS_DEV__: JSON.stringify(isDev)
         }),
         new ReactRefreshWebpackPlugin(),
+        new MiniCssExtractPlugin()
     ]
 
     if (isDev) {

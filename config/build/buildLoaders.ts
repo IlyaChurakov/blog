@@ -1,6 +1,8 @@
 import {RuleSetRule} from 'webpack'
+import { buildCssLoader } from './loaders/buildCssLoader'
+import { BuildOptions } from './types/config'
 
-export function buildLoaders(): RuleSetRule[] {
+export function buildLoaders({isDev}: BuildOptions): RuleSetRule[] {
     const fileLoader = {
         test: /\.(png|jpe?g|gif)$/i,
         use: [
@@ -35,17 +37,7 @@ export function buildLoaders(): RuleSetRule[] {
         use: ['@svgr/webpack'],
     }
 
-    const cssLoader = {
-        test: /\.s[ac]ss$/i,
-        use: [
-            // Creates `style` nodes from JS strings
-            "style-loader",
-            // Translates CSS into CommonJS
-            "css-loader",
-            // Compiles Sass to CSS
-            "sass-loader",
-        ],
-    }
+    const cssLoader = buildCssLoader(isDev)
 
     const typescriptLoader = {
         test: /\.tsx?$/, // обрабатываем файлы ts и tsx

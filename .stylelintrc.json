@@ -8,6 +8,9 @@
     "rules": {
         "indentation": 4,
         "no-missing-end-of-source-newline": null,
-        "selector-class-pattern": null
+        "selector-class-pattern": null,
+        "color-hex-case": null,
+        "scss/double-slash-comment-empty-line-before": null,
+        "custom-property-empty-line-before": null
     }
 } 

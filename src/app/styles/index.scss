@@ -11,12 +11,16 @@
 .app {
     font: var(--font-m);
     background: var(--bg-color);
-    color: var(--primary-color);
+    color: var(--text-color);
     min-height: 100vh;
+    display: flex;
+    width: 100%;
 }
 
 .content-page {
     display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .page-wrapper {

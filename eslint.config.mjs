@@ -32,12 +32,21 @@ export default [
       ],
       "react/jsx-uses-react": "off",
       "react/react-in-jsx-scope": "off",
+      "i18next/no-literal-string": ['error', {markupOnly: true, ignoreAttribute: ['data-testid']}]
     },
     settings: {
       react: {
         version: "detect",
       },
     },
+    overrides: [
+        {
+          files: ["**/src/**/*.test.{ts,tsx}"],
+          rules: {
+            "i18next/no-literal-string": "off"
+          }
+        }
+    ],
   },
   {
     languageOptions: { globals: globals.browser },

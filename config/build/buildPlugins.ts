@@ -2,6 +2,7 @@ import { BuildOptions } from './types/config';
 import HTMLWebpackPlugin from 'html-webpack-plugin'
 import {DefinePlugin, HotModuleReplacementPlugin, ProgressPlugin, WebpackPluginInstance} from 'webpack'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer'
 
 export function buildPlugins({paths, isDev}: BuildOptions): WebpackPluginInstance[] {
     return [
@@ -13,6 +14,7 @@ export function buildPlugins({paths, isDev}: BuildOptions): WebpackPluginInstanc
             __IS_DEV__: JSON.stringify(isDev)
         }),
         new HotModuleReplacementPlugin(),
-        new ReactRefreshWebpackPlugin()
+        new ReactRefreshWebpackPlugin(),
+        new BundleAnalyzerPlugin({openAnalyzer: false})
     ]
 }

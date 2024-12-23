@@ -11,9 +11,9 @@ const App = () => {
     return (
         <div className={classNames('app', {}, [theme])}>
             <Suspense fallback=''>
-                <Navbar/>
+                <Sidebar/>
                 <div className='content-page'>
-                    <Sidebar/>
+                    <Navbar/>
                     <AppRouter/>
                 </div>
             </Suspense>

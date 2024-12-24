@@ -10,8 +10,8 @@ describe('button', () => {
 
     test('clear', () => {
         // eslint-disable-next-line i18next/no-literal-string
-        render(<Button variant={ButtonVariants.CLEAR}>test</Button>);
-        expect(screen.getByText('test')).toHaveClass('clear')
+        render(<Button variant={ButtonVariants.TEXT}>test</Button>);
+        expect(screen.getByText('test')).toHaveClass('text')
     })
 
     test('outline', () => {

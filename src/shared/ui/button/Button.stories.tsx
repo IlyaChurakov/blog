@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { Button, ButtonVariants } from './Button';
+import { Button, ButtonSizes, ButtonVariants } from './Button';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 
@@ -8,47 +8,86 @@ const meta = {
     title: 'shared/Button',
     component: Button,
     tags: ['autodocs'],
-    args: { onClick: fn(), children: 'Text', },
+    args: { onClick: fn() },
 } satisfies Meta<typeof Button>;
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Clear: Story = {
+export const Text: Story = {
     args: {
-        variant: ButtonVariants.CLEAR
+        children: 'TEXT',
+        variant: ButtonVariants.TEXT
     },
 };
 
 export const Outline: Story = {
     args: {
+        children: 'OUTLINE',
         variant: ButtonVariants.OUTLINE,
     },
 };
 
-export const Filled: Story = {
+export const Contained: Story = {
     args: {
-        variant: ButtonVariants.FILLED,
+        children: 'CONTAINED',
+        variant: ButtonVariants.CONTAINED,
     },
 };
 
-export const ClearDark: Story = {
+export const TextDark: Story = {
     args: {
-        variant: ButtonVariants.CLEAR
+        children: 'TEXT DARK',
+        variant: ButtonVariants.TEXT
     },
     decorators: [ThemeDecorator(Theme.DARK)]
 };
 
 export const OutlineDark: Story = {
     args: {
+        children: 'OUTLINE DARK',
         variant: ButtonVariants.OUTLINE,
     },
     decorators: [ThemeDecorator(Theme.DARK)]
 };
 
-export const FilledDark: Story = {
+export const ContainedDark: Story = {
     args: {
-        variant: ButtonVariants.FILLED,
+        children: 'CONTAINED DARK',
+        variant: ButtonVariants.CONTAINED,
     },
     decorators: [ThemeDecorator(Theme.DARK)]
+};
+
+export const Square: Story = {
+    args: {
+        square: true,
+        size: ButtonSizes.L,
+        children: 'S',
+        variant: ButtonVariants.OUTLINE,
+    },
+};
+
+export const SizeS: Story = {
+    args: {
+        size: ButtonSizes.S,
+        children: 'S',
+        variant: ButtonVariants.OUTLINE,
+    },
+};
+
+export const SizeM: Story = {
+    args: {
+        size: ButtonSizes.M,
+        children: 'M',
+        variant: ButtonVariants.OUTLINE,
+    },
+};
+
+export const SizeL: Story = {
+    args: {
+        size: ButtonSizes.L,
+        children: 'L',
+        variant: ButtonVariants.OUTLINE,
+    },
 };

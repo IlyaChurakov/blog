@@ -6,14 +6,14 @@ import { Theme } from '../../src/app/providers/ThemeProvider';
 import 'loki/configure-react'
 
 const preview: Preview = {
-  parameters: {
-    controls: {
-      matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/i,
-      },
+    parameters: {
+        controls: {
+            matchers: {
+                color: /(background|color)$/i,
+                date: /Date$/i,
+            },
+        },
     },
-  },
 };
 
 export const decorators = [ThemeDecorator(Theme.LIGHT), StyleDecorator, RouterDecorator];

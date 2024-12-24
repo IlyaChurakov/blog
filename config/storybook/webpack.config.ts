@@ -14,7 +14,7 @@ export default ({config}: {config: Configuration}) => {
     config.resolve?.extensions?.push('.ts', '.tsx')
     
     const fileLoaderRule = config.module?.rules?.find(
-        // @ts-ignore
+        // @ts-expect-error test
         (rule ) => rule && (rule as RuleSetRule).test instanceof RegExp && (rule as RuleSetRule).test.test('.svg')
     );
     if (fileLoaderRule) {

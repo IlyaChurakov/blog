@@ -3,8 +3,8 @@ import 'app/styles/index.scss'
 
 export const StyleDecorator = (Story: StoryFn) => {
     return (
-      <div id="root">
-        <Story />
-      </div>
+        <div id="root">
+            <Story />
+        </div>
     );
-  };
+};

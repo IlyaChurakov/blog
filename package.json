@@ -6,8 +6,8 @@
     "start": "webpack serve --env port=3010 --env production",
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
-    "lint:ts": "eslint \"**/*.{tsx,ts}\"",
-    "lint:ts:fix": "eslint \"**/*.{tsx,ts}\" --fix",
+    "lint:ts": "eslint --config ./config/eslint/eslint.config.mjs \"**/*.{tsx,ts}\"",
+    "lint:ts:fix": "eslint --config ./config/eslint/eslint.config.mjs \"**/*.{tsx,ts}\" --fix",
     "lint:scss": "stylelint \"**/*.scss\"",
     "lint:scss:fix": "stylelint \"**/*.scss\" --fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
@@ -100,9 +100,7 @@
     "react-router-dom": "^6.2.1"
   },
   "eslintConfig": {
-    "extends": [
-      "plugin:storybook/recommended"
-    ]
+    "extends": "./config/eslint/eslint.config.mjs"
   },
   "loki": {
     "configurations": {

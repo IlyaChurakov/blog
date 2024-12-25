@@ -3,7 +3,6 @@ import styles from './Sidebar.module.scss'
 import { useState } from 'react'
 import { ThemeSwitcher } from 'widgets/themeSwitcher'
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher'
-import { useTranslation } from 'react-i18next'
 import { Button, ButtonSizes, ButtonVariants } from 'shared/ui/button/Button'
 import { PanelRightClose, PanelRightOpen } from 'lucide-react'
 
@@ -13,7 +12,6 @@ interface SidebarProps {
 
 const Sidebar = ({className}: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false)
-    const {t} = useTranslation('main')
     const onToggle = () => setCollapsed(prev => !prev)
 
     return (

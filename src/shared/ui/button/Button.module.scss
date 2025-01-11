@@ -18,7 +18,7 @@
     margin: 0;
     outline: none;
     background: none;
-    color: var(--bg-color);
+    color: var(--info-color);
     border: none;
 }
 
@@ -30,18 +30,18 @@
 
 .outline_inverted {
     background: none;
-    color: var(--bg-color);
-    border: 1px solid var(--bg-color);
+    color: var(--info-color);
+    border: 1px solid var(--info-color);
 }
 
 .contained {
     background: var(--text-color);
-    color: var(--bg-color);
+    color: var(--info-color);
     border: none;
 }
 
 .contained_inverted {
-    background: var(--bg-color);
+    background: var(--info-color);
     color: var(--text-color);
     border: none;
 }

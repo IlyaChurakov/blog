@@ -23,11 +23,40 @@
     width: 100%;
 }
 
+.items {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-items: start;
+    gap: 10px;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
 .collapsed {
     width: var(--sidebar-width-collapsed);
+
+    .toggle {
+        margin: 0 auto;
+    }
 
     .switchers {
         flex-direction: column;
         align-items: center;
+    }
+
+    .items {
+        align-items: center;
+    }
+
+    .link > span {
+        opacity: 0;
+        transition: 0.5s opacity;
     }
 }

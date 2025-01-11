@@ -14,6 +14,7 @@ const ThemeSwitcher = ({className}: ThemeSwitcherProps) => {
 
     return (
         <Button 
+            square
             size={ButtonSizes.L} 
             variant={ButtonVariants.OUTLINE_INVERTED} 
             onClick={toggleTheme} 

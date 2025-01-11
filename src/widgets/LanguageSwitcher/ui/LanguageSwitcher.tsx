@@ -13,6 +13,7 @@ const LanguageSwitcher = ({className}: LanguageSwitcherProps) => {
 
     return (
         <Button 
+            square
             size={ButtonSizes.L} 
             variant={ButtonVariants.OUTLINE_INVERTED} 
             onClick={toggle} 

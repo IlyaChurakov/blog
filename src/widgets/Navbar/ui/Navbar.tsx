@@ -4,14 +4,13 @@ import AppLink, { AppLinkVariants } from 'shared/ui/appLink/AppLink'
 import { useTranslation } from 'react-i18next'
 
 const Navbar = () => {
-    const {t: tmain} = useTranslation('main')
-    const {t: tabout} = useTranslation('about')
+    const {t} = useTranslation('main')
 
     return (
         <div className={classNames(styles.navbar)}>
             <div className={classNames(styles.links)}>
-                <AppLink to={'/'} variant={AppLinkVariants.SECONDARY}>{tmain('Главная')}</AppLink>
-                <AppLink to={'/about'} variant={AppLinkVariants.SECONDARY}>{tabout('О сайте')}</AppLink>
+                <AppLink to={'/'} variant={AppLinkVariants.SECONDARY}>{t('Главная')}</AppLink>
+                <AppLink to={'/about'} variant={AppLinkVariants.SECONDARY}>{t('О сайте')}</AppLink>
             </div>
         </div>
     )

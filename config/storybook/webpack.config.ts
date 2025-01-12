@@ -1,6 +1,6 @@
 import path from 'path';
 import { BuildPaths } from './../build/types/config';
-import { Configuration, RuleSetRule } from "webpack";
+import { Configuration, DefinePlugin, RuleSetRule } from "webpack";
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 
 export default ({config}: {config: Configuration}) => {
@@ -12,6 +12,12 @@ export default ({config}: {config: Configuration}) => {
     }
     config.resolve?.modules?.push(paths.src)
     config.resolve?.extensions?.push('.ts', '.tsx')
+
+    // config.plugins?.push(
+    //     new DefinePlugin({
+    //         __IS_DEV__: true
+    //     })
+    // );
     
     const fileLoaderRule = config.module?.rules?.find(
         // @ts-expect-error test

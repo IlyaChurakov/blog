@@ -7,6 +7,10 @@ import reactHooks from 'eslint-plugin-react-hooks'
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
+  i18next.configs['flat/recommended'],
+  pluginJs.configs.recommended,
+  pluginReact.configs.flat.recommended,
+  pluginReact.configs.flat["jsx-runtime"],
   {
     files: ["**/*.{js,cjs,ts,jsx,tsx}"],
     rules: {
@@ -61,9 +65,5 @@ export default [
   {
     languageOptions: { globals: globals.browser },
   },
-  pluginJs.configs.recommended,
-  pluginReact.configs.flat.recommended,
-  pluginReact.configs.flat["jsx-runtime"],
-  i18next.configs['flat/recommended'],
   ...tseslint.configs.recommended,
 ];

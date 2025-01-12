@@ -28,7 +28,7 @@ export const Button: FC<ButtonProps> = ({ className, variant = ButtonVariants.OU
     const mods = {
         [styles[variant]]: true, 
         [styles.square]: square,
-        [styles.size]: true,
+        [styles[size]]: true,
     }
     
     return (

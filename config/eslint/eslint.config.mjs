@@ -3,15 +3,10 @@ import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 import i18next from "eslint-plugin-i18next";
+import reactHooks from 'eslint-plugin-react-hooks'
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-  {
-    files: ["**/src/**/*.test.{ts,tsx}"],
-    rules: {
-      "i18next/no-literal-string": [0]
-    }
-  },
   {
     files: ["**/*.{js,cjs,ts,jsx,tsx}"],
     rules: {
@@ -40,7 +35,7 @@ export default [
       ],
       "react/jsx-uses-react": "off",
       "react/react-in-jsx-scope": "off",
-      "i18next/no-literal-string": ['error', { markupOnly: true, ignoreAttribute: ['data-testid'] }]
+      "i18next/no-literal-string": ['error', { markupOnly: true, ignoreAttribute: ['data-testid'] }],
     },
     settings: {
       react: {
@@ -49,11 +44,26 @@ export default [
     },
   },
   {
+    files: ["**/src/**/*.test.{ts,tsx}", "**/src/**/*.stories.{ts,tsx}"],
+    rules: {
+      "i18next/no-literal-string": [0]
+    }
+  },
+  {
+    plugins: {
+      'react-hooks': reactHooks,
+    },
+    rules: {
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+    },
+  },
+  {
     languageOptions: { globals: globals.browser },
   },
   pluginJs.configs.recommended,
   pluginReact.configs.flat.recommended,
   pluginReact.configs.flat["jsx-runtime"],
-  i18next.configs['flat/recommended'], // Плагин корректно подключён
+  i18next.configs['flat/recommended'],
   ...tseslint.configs.recommended,
 ];

@@ -8,10 +8,13 @@
     padding: 0;
 }
 
-.app {
+body {
     font: var(--font-m);
-    background: var(--bg-color);
     color: var(--text-color);
+}
+
+.app {
+    background: var(--bg-color);
     min-height: 100vh;
     display: flex;
     width: 100%;

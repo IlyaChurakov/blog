@@ -20,16 +20,17 @@ const Sidebar = ({className}: SidebarProps) => {
 
     return (
         <div data-testid={'sidebar'} className={classNames(styles.sidebar, {[styles.collapsed]: collapsed}, [className])}>
-            <Button 
-                size={ButtonSizes.S}
-                square 
-                className={styles.toggle} 
-                variant={ButtonVariants.TEXT_INVERTED} 
-                data-testid='sidebar-toggle' 
-                onClick={onToggle}
-            >
-                {collapsed ? <PanelRightClose/> : <PanelRightOpen/>}
-            </Button>
+            <div className={styles.toggle}>
+                <Button 
+                    size={ButtonSizes.S}
+                    square 
+                    variant={ButtonVariants.TEXT_INVERTED} 
+                    data-testid='sidebar-toggle' 
+                    onClick={onToggle}
+                >
+                    {collapsed ? <PanelRightClose/> : <PanelRightOpen/>}
+                </Button>
+            </div>
 
             <div className={styles.items}>
                 <AppLink variant={AppLinkVariants.SECONDARY} to={RoutePath.main} className={styles.link}>

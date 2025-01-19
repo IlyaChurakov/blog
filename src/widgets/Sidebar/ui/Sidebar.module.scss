@@ -4,33 +4,35 @@
     background: var(--accent-color);
     position: relative;
     transition: all 0.3s ease-out;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .toggle {
-    display: block;
-    margin-left: auto !important;
-}
-
-.switchers {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    gap: 5px;
+    padding: 0 20px;
+    height: var(--navbar-height);
     display: flex;
-    justify-content: center;
-    width: 100%;
+    justify-content: end;
+    align-items: center;
 }
 
 .items {
+    flex: 1;
     width: 100%;
-    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-items: start;
     gap: 10px;
+    padding: 20px;
+}
+
+.switchers {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
 }
 
 .link {

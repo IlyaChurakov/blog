@@ -4,13 +4,18 @@ import { useTranslation } from 'react-i18next'
 import { Modal } from 'shared/ui/modal/Modal'
 import { useCallback, useState } from 'react'
 import { Button, ButtonSizes, ButtonVariants } from 'shared/ui/button/Button'
+import { LoginModal } from 'features'
 
 const Navbar = () => {
     const {t} = useTranslation('main')
     const [isOpenModal, setIsOpenModal] = useState(false)
 
-    const onToggleModal = useCallback(() => {
-        setIsOpenModal(isOpenModal => !isOpenModal)
+    const onCloseModal = useCallback(() => {
+        setIsOpenModal(false)
+    }, [])
+
+    const onOpenModal = useCallback(() => {
+        setIsOpenModal(true)
     }, [])
 
     return (
@@ -19,23 +24,11 @@ const Navbar = () => {
                 <Button 
                     size={ButtonSizes.M} 
                     variant={ButtonVariants.TEXT_INVERTED} 
-                    onClick={onToggleModal}
+                    onClick={onOpenModal}
                 >
                     {t('Войти')}
                 </Button>
-                <Modal isOpen={isOpenModal} onClose={onToggleModal}>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                        <input type="email" placeholder='Email' />
-                        <input type="password" placeholder='Password' />
-                        <Button 
-                            size={ButtonSizes.M} 
-                            variant={ButtonVariants.OUTLINE} 
-                            onClick={onToggleModal}
-                        >
-                            {t('Войти')}
-                        </Button>
-                    </div>
-                </Modal>
+                <LoginModal isOpen={isOpenModal} onClose={onCloseModal}/>
             </div>
         </div>
     )

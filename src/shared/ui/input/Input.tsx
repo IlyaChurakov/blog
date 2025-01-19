@@ -1,4 +1,4 @@
-import { ChangeEvent, FocusEvent, InputHTMLAttributes, memo, ReactEventHandler, SyntheticEvent, useEffect, useRef, useState } from "react"
+import { ChangeEvent, FocusEvent, InputHTMLAttributes, memo, useEffect, useRef, useState } from "react"
 import { classNames } from "shared/lib/classNames/classNames"
 import styles from './Input.module.scss'
 
@@ -43,6 +43,7 @@ export const Input = memo(({
         onBlur?.(e)
         setIsCaretShowing(false)
     }
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     const selectHandler = (e: any) => {
         onSelect?.(e)
         setCaretPosition(e?.target?.selectionStart || 0)

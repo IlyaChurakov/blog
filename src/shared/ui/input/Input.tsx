@@ -26,6 +26,7 @@ export const Input = memo(({
     const [isCaretShowing, setIsCaretShowing] = useState<boolean>(false)
     const [caretPosition, setCaretPosition] = useState<number>(0)
     const [caretWidth, setCaretWidth] = useState<number>(0)
+    const [scrollOffset, setScrollOffset] = useState<number>(0);
     
     useEffect(() => {
         const letterWidth = parseFloat( window.getComputedStyle(inputRef.current).fontSize) * FONT_LETTER_WIDTH_COEF
@@ -34,6 +35,7 @@ export const Input = memo(({
 
     const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value)
+        setScrollOffset(inputRef.current?.scrollLeft || 0);
     }
     const focusHandler = (e: FocusEvent<HTMLInputElement>) => {
         onFocus?.(e)
@@ -47,6 +49,7 @@ export const Input = memo(({
     const selectHandler = (e: any) => {
         onSelect?.(e)
         setCaretPosition(e?.target?.selectionStart || 0)
+        setScrollOffset(inputRef.current?.scrollLeft || 0);
     }
 
     return (
@@ -72,7 +75,7 @@ export const Input = memo(({
                         className={styles.caret} 
                         style={{ 
                             width: `${caretWidth}px`, 
-                            left: `${caretPosition * caretWidth}px` 
+                            left: `${caretPosition * caretWidth - scrollOffset}px` 
                         }}
                     />
                 }

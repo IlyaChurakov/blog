@@ -4,21 +4,21 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from 'app/providers/ThemeProvider';
 
 const meta = {
-    title: 'widget/Sidebar',
-    component: Sidebar,
-    tags: ['autodocs'],
+  title: 'widget/Sidebar',
+  component: Sidebar,
+  tags: ['autodocs'],
 } satisfies Meta<typeof Sidebar>;
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-    args: {
+  args: {
     
-    },
-    decorators: [ThemeDecorator(Theme.LIGHT)]
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)]
 };
 
 export const DefaultDark: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)]
+  decorators: [ThemeDecorator(Theme.DARK)]
 };

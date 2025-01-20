@@ -4,18 +4,18 @@ import { Theme } from 'app/providers/ThemeProvider';
 import PageError from './PageError';
 
 const meta = {
-    title: 'widget/PageError',
-    component: PageError,
-    tags: ['autodocs'],
+  title: 'widget/PageError',
+  component: PageError,
+  tags: ['autodocs'],
 } satisfies Meta<typeof PageError>;
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-    decorators: [ThemeDecorator(Theme.LIGHT)]
+  decorators: [ThemeDecorator(Theme.LIGHT)]
 };
 
 export const DefaultDark: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)]
+  decorators: [ThemeDecorator(Theme.DARK)]
 };

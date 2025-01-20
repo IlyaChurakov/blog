@@ -8,23 +8,23 @@ interface ThemeProviderProps {
 const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.LIGHT
 
 const ThemeProvider: FC<ThemeProviderProps> = ({ children, initialTheme }) => {
-    const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme)
+  const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme)
 
-    useEffect(() => {
-        localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme)
-        document.body.className = theme
-    }, [theme])
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme)
+    document.body.className = theme
+  }, [theme])
     
-    const defaultValue = useMemo(() => ({
-        theme,
-        setTheme
-    }), [theme])
+  const defaultValue = useMemo(() => ({
+    theme,
+    setTheme
+  }), [theme])
 
-    return (
-        <ThemeContext.Provider value={defaultValue}>
-            {children}
-        </ThemeContext.Provider>
-    )
+  return (
+    <ThemeContext.Provider value={defaultValue}>
+      {children}
+    </ThemeContext.Provider>
+  )
 }
 
 export default ThemeProvider

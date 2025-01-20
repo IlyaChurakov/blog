@@ -4,18 +4,18 @@ import { Theme } from 'app/providers/ThemeProvider';
 import AboutPage from './AboutPage';
 
 const meta = {
-    title: 'pages/AboutPage',
-    component: AboutPage,
-    tags: ['autodocs'],
+  title: 'pages/AboutPage',
+  component: AboutPage,
+  tags: ['autodocs'],
 } satisfies Meta<typeof AboutPage>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-    decorators: [ThemeDecorator(Theme.LIGHT)]
+  decorators: [ThemeDecorator(Theme.LIGHT)]
 };
 
 export const DefaultDark: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)]
+  decorators: [ThemeDecorator(Theme.DARK)]
 };

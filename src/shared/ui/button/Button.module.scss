@@ -1,68 +1,72 @@
 .button {
-    font: inherit;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
+  font: inherit;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.disabled {
+  opacity: 0.5;
 }
 
 .text {
-    margin: 0;
-    outline: none;
-    background: none;
-    color: var(--text-color);
-    border: none;
+  margin: 0;
+  outline: none;
+  background: none;
+  color: var(--text-color);
+  border: none;
 }
 
 .text_inverted {
-    margin: 0;
-    outline: none;
-    background: none;
-    color: var(--info-color);
-    border: none;
+  margin: 0;
+  outline: none;
+  background: none;
+  color: var(--info-color);
+  border: none;
 }
 
 .outline {
-    background: none;
-    color: var(--text-color);
-    border: 1px solid var(--text-color);
+  background: none;
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
 }
 
 .outline_inverted {
-    background: none;
-    color: var(--info-color);
-    border: 1px solid var(--info-color);
+  background: none;
+  color: var(--info-color);
+  border: 1px solid var(--info-color);
 }
 
 .contained {
-    background: var(--text-color);
-    color: var(--info-color);
-    border: none;
+  background: var(--text-color);
+  color: var(--info-color);
+  border: none;
 }
 
 .contained_inverted {
-    background: var(--info-color);
-    color: var(--text-color);
-    border: none;
+  background: var(--info-color);
+  color: var(--text-color);
+  border: none;
 }
 
 .size_s {
-    height: var(--font-line-s);
-    font: var(--font-s);
+  height: var(--font-line-s);
+  font: var(--font-s);
 }
 
 .size_m {
-    height: var(--font-line-m);
-    font: var(--font-m);
+  height: var(--font-line-m);
+  font: var(--font-m);
 }
 
 .size_l {
-    height: var(--font-line-l);
-    font: var(--font-l);
+  height: var(--font-line-l);
+  font: var(--font-l);
 }
 
 .square {
-    padding: 0;
-    aspect-ratio: 1 / 1;
+  padding: 0;
+  aspect-ratio: 1 / 1;
 }

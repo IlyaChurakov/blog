@@ -5,23 +5,23 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from 'app/providers/ThemeProvider';
 
 const meta = {
-    title: 'shared/Modal',
-    component: Modal,
-    tags: ['autodocs'],
-    args: {
-        isOpen: true,
-        onClose: fn(),
-        children: <div>Some content</div>,
-    }
+  title: 'shared/Modal',
+  component: Modal,
+  tags: ['autodocs'],
+  args: {
+    isOpen: true,
+    onClose: fn(),
+    children: <div>Some content</div>,
+  }
 } satisfies Meta<typeof Modal>;
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
-    decorators: [ThemeDecorator(Theme.LIGHT)]
+  decorators: [ThemeDecorator(Theme.LIGHT)]
 };
 
 export const Dark: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)]
+  decorators: [ThemeDecorator(Theme.DARK)]
 };

@@ -10,19 +10,19 @@ interface ThemeSwitcherProps {
 }
 
 const ThemeSwitcher = ({className}: ThemeSwitcherProps) => {
-    const {theme, toggleTheme} = useTheme()
+  const {theme, toggleTheme} = useTheme()
 
-    return (
-        <Button 
-            square
-            size={ButtonSizes.L} 
-            variant={ButtonVariants.OUTLINE_INVERTED} 
-            onClick={toggleTheme} 
-            className={classNames(styles.themeSwitcher, {}, [className])}
-        >
-            {theme === Theme.LIGHT ? <Sun/> : <Moon/>}
-        </Button>
-    )
+  return (
+    <Button 
+      square
+      size={ButtonSizes.L} 
+      variant={ButtonVariants.OUTLINE_INVERTED} 
+      onClick={toggleTheme} 
+      className={classNames(styles.themeSwitcher, {}, [className])}
+    >
+      {theme === Theme.LIGHT ? <Sun/> : <Moon/>}
+    </Button>
+  )
 }
 
 export default ThemeSwitcher

@@ -7,11 +7,11 @@ interface NotFoundPageProps {
 }
 
 const NotFoundPage = ({className}: NotFoundPageProps) => {
-    const {t} = useTranslation()
+  const {t} = useTranslation()
 
-    return (
-        <div className={classNames(styles.notFoundPage, {}, [className])}>{t('Страница не найдена')}</div>
-    )
+  return (
+    <div className={classNames(styles.notFoundPage, {}, [className])}>{t('Страница не найдена')}</div>
+  )
 }
 
 export default NotFoundPage

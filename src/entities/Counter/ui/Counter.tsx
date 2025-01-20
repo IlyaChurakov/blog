@@ -5,23 +5,23 @@ import { getCounterValue } from '../model/selectors/getCounterValue/getCounterVa
 import { useTranslation } from 'react-i18next'
 
 export const Counter = () => {
-    const { t } = useTranslation('main')
+  const { t } = useTranslation('main')
 
-    const dispatch = useDispatch()
-    const value = useSelector(getCounterValue)
+  const dispatch = useDispatch()
+  const value = useSelector(getCounterValue)
 
-    const increment = () => {
-        dispatch(counterActions.increment())
-    }
-    const decrement = () => {
-        dispatch(counterActions.decrement())
-    }
+  const increment = () => {
+    dispatch(counterActions.increment())
+  }
+  const decrement = () => {
+    dispatch(counterActions.decrement())
+  }
 
-    return (
-        <div>
-            <h1 data-testid='value-title'>{value}</h1>
-            <Button data-testid='increment' onClick={increment}>{t('Увеличить')}</Button>
-            <Button data-testid='decrement' onClick={decrement}>{t('Уменьшить')}</Button>
-        </div>
-    )
+  return (
+    <div>
+      <h1 data-testid='value-title'>{value}</h1>
+      <Button data-testid='increment' onClick={increment}>{t('Увеличить')}</Button>
+      <Button data-testid='decrement' onClick={decrement}>{t('Уменьшить')}</Button>
+    </div>
+  )
 }

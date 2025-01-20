@@ -1,15 +1,16 @@
 {
-    "extends": "stylelint-config-standard-scss",
-    "ignoreFiles": [
-        "./node_modules/**/*.css",
-        "./dist/**/*.css",
-        "./coverage/**/*.css"
-    ],
-    "rules": {
-        "indentation": 4,
-        "no-missing-end-of-source-newline": null,
-        "selector-class-pattern": null,
-        "color-hex-case": null,
-        "scss/double-slash-comment-empty-line-before": null
-    }
-} 
+  "extends": "stylelint-config-standard-scss",
+  "ignoreFiles": [
+    "./node_modules/**/*.css",
+    "./dist/**/*.css",
+    "./coverage/**/*.css"
+  ],
+  "rules": {
+    "indentation": 2,
+    "no-missing-end-of-source-newline": null,
+    "selector-class-pattern": null,
+    "color-hex-case": null,
+    "scss/double-slash-comment-empty-line-before": null,
+    "string-quotes": null
+  }
+}

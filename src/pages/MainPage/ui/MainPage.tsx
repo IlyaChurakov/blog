@@ -4,19 +4,19 @@ import { useState } from "react";
 import { Counter } from "../../../entities/Counter";
 
 const MainPage = () => {
-    const {t} = useTranslation('main')
+  const {t} = useTranslation('main')
     
-    const [value, setValue] = useState<string>('')
+  const [value, setValue] = useState<string>('')
 
-    const onChange = (val: string) => setValue(val)
+  const onChange = (val: string) => setValue(val)
 
-    return (
-        <div>
-            {t('Главная')}
-            <Counter/>
-            <Input placeholder="Placeholder" value={value} onChange={onChange} type="email" autoFocus />
-        </div>
-    );
+  return (
+    <div>
+      {t('Главная')}
+      <Counter/>
+      <Input placeholder="Placeholder" value={value} onChange={onChange} type="email" autoFocus />
+    </div>
+  );
 };
 
 export default MainPage;

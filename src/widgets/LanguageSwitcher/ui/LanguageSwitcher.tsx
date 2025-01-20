@@ -8,20 +8,20 @@ interface LanguageSwitcherProps {
 }
 
 const LanguageSwitcher = ({className}: LanguageSwitcherProps) => {
-    const {i18n} = useTranslation()
-    const toggle = () => i18n.changeLanguage(i18n.language === 'en' ? 'ru' : 'en')
+  const {i18n} = useTranslation()
+  const toggle = () => i18n.changeLanguage(i18n.language === 'en' ? 'ru' : 'en')
 
-    return (
-        <Button 
-            square
-            size={ButtonSizes.L} 
-            variant={ButtonVariants.OUTLINE_INVERTED} 
-            onClick={toggle} 
-            className={classNames(styles.languageSwitcher, {}, [className])}
-        >
-            {i18n.language}
-        </Button>
-    )
+  return (
+    <Button 
+      square
+      size={ButtonSizes.L} 
+      variant={ButtonVariants.OUTLINE_INVERTED} 
+      onClick={toggle} 
+      className={classNames(styles.languageSwitcher, {}, [className])}
+    >
+      {i18n.language}
+    </Button>
+  )
 }
 
 export default LanguageSwitcher

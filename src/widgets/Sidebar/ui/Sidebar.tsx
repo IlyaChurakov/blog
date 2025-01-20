@@ -14,41 +14,41 @@ interface SidebarProps {
 }
 
 const Sidebar = ({className}: SidebarProps) => {
-    const [collapsed, setCollapsed] = useState(false)
-    const onToggle = () => setCollapsed(prev => !prev)
-    const { t } = useTranslation('main')
+  const [collapsed, setCollapsed] = useState(false)
+  const onToggle = () => setCollapsed(prev => !prev)
+  const { t } = useTranslation('main')
 
-    return (
-        <div data-testid={'sidebar'} className={classNames(styles.sidebar, {[styles.collapsed]: collapsed}, [className])}>
-            <div className={styles.toggle}>
-                <Button 
-                    size={ButtonSizes.S}
-                    square 
-                    variant={ButtonVariants.TEXT_INVERTED} 
-                    data-testid='sidebar-toggle' 
-                    onClick={onToggle}
-                >
-                    {collapsed ? <PanelRightClose/> : <PanelRightOpen/>}
-                </Button>
-            </div>
+  return (
+    <div data-testid={'sidebar'} className={classNames(styles.sidebar, {[styles.collapsed]: collapsed}, [className])}>
+      <div className={styles.toggle}>
+        <Button 
+          size={ButtonSizes.S}
+          square 
+          variant={ButtonVariants.TEXT_INVERTED} 
+          data-testid='sidebar-toggle' 
+          onClick={onToggle}
+        >
+          {collapsed ? <PanelRightClose/> : <PanelRightOpen/>}
+        </Button>
+      </div>
 
-            <div className={styles.items}>
-                <AppLink variant={AppLinkVariants.SECONDARY} to={RoutePath.main} className={styles.link}>
-                    <Home /> 
-                    {!collapsed && t('Главная')}
-                </AppLink>
-                <AppLink variant={AppLinkVariants.SECONDARY} to={RoutePath.about} className={styles.link} >
-                    <Info/>
-                    {!collapsed && t('О сайте')}
-                </AppLink>
-            </div>
+      <div className={styles.items}>
+        <AppLink variant={AppLinkVariants.SECONDARY} to={RoutePath.main} className={styles.link}>
+          <Home /> 
+          {!collapsed && t('Главная')}
+        </AppLink>
+        <AppLink variant={AppLinkVariants.SECONDARY} to={RoutePath.about} className={styles.link} >
+          <Info/>
+          {!collapsed && t('О сайте')}
+        </AppLink>
+      </div>
 
-            <div className={classNames(styles.switchers)}>
-                <ThemeSwitcher/>
-                <LanguageSwitcher/>
-            </div>
-        </div>
-    )
+      <div className={classNames(styles.switchers)}>
+        <ThemeSwitcher/>
+        <LanguageSwitcher/>
+      </div>
+    </div>
+  )
 }
 
 export default Sidebar

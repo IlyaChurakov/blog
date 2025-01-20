@@ -1,9 +1,10 @@
 {
-    "Главная": "Main",
-    "Закрыть": "Close",
-    "Открыть": "Open",
-    "О сайте": "About",
-    "Войти": "Log In",
-    "Увеличить": "Increment",
-    "Уменьшить": "Decrement"
+  "Главная": "Main",
+  "Закрыть": "Close",
+  "Открыть": "Open",
+  "О сайте": "About",
+  "Войти": "Login",
+  "Увеличить": "Increment",
+  "Уменьшить": "Decrement",
+  "Неверный логин или пароль": "Invalid username or password"
 }

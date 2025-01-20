@@ -4,19 +4,19 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from 'app/providers/ThemeProvider';
 
 const meta = {
-    title: 'shared/Input',
-    component: Input,
-    tags: ['autodocs'],
-    args: { placeholder: "Terminal input" },
+  title: 'shared/Input',
+  component: Input,
+  tags: ['autodocs'],
+  args: { placeholder: "Terminal input" },
 } satisfies Meta<typeof Input>;
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-    decorators: [ThemeDecorator(Theme.LIGHT)]
+  decorators: [ThemeDecorator(Theme.LIGHT)]
 };
 
 export const DefaultDark: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)]
+  decorators: [ThemeDecorator(Theme.DARK)]
 };

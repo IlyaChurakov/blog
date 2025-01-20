@@ -4,18 +4,18 @@ import { Theme } from 'app/providers/ThemeProvider';
 import ThemeSwitcher from './ThemeSwitcher';
 
 const meta = {
-    title: 'widget/ThemeSwitcher',
-    component: ThemeSwitcher,
-    tags: ['autodocs'],
+  title: 'widget/ThemeSwitcher',
+  component: ThemeSwitcher,
+  tags: ['autodocs'],
 } satisfies Meta<typeof ThemeSwitcher>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-    decorators: [ThemeDecorator(Theme.LIGHT)]
+  decorators: [ThemeDecorator(Theme.LIGHT)]
 };
 
 export const DefaultDark: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)]
+  decorators: [ThemeDecorator(Theme.DARK)]
 };

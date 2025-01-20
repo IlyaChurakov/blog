@@ -1,4 +1,3 @@
-import { TranslationDecorator } from './../../src/shared/config/storybook/TranslationDecorator/TranslationDecorator';
 import { StoreDecorator } from './../../src/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { RouterDecorator } from './../../src/shared/config/storybook/RouterDecorator/RouterDecorator';
 import { ThemeDecorator } from './../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator';
@@ -23,7 +22,6 @@ export const decorators = [
   ThemeDecorator(Theme.LIGHT),
   StyleDecorator,
   RouterDecorator,
-  TranslationDecorator,
 ];
 
 export default preview;

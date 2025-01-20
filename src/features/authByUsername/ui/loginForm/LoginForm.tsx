@@ -35,7 +35,9 @@ export const LoginForm = memo(() => {
   return (
     <div className={classNames(styles.loginForm)}>
       <Text title={t('Войти')} />
-      {!!error && <Text text={error} color={TextColors.ERROR} />}
+      {!!error && (
+        <Text text={t('Неверный логин или пароль')} color={TextColors.ERROR} />
+      )}
       <Input
         value={username}
         onChange={(value) => setUsername(value)}

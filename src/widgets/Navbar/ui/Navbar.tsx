@@ -52,7 +52,9 @@ const Navbar = () => {
         >
           {t('Войти')}
         </Button>
-        <LoginModal isOpen={isOpenModal} onClose={onCloseModal} />
+        {isOpenModal && (
+          <LoginModal isOpen={isOpenModal} onClose={onCloseModal} />
+        )}
       </div>
     </div>
   );

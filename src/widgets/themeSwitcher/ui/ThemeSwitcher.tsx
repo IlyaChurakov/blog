@@ -1,28 +1,29 @@
-import { classNames } from "shared/lib/classNames/classNames"
-import styles from './ThemeSwitcher.module.scss'
-import useTheme from "app/providers/ThemeProvider/lib/useTheme"
-import { Theme } from "app/providers/ThemeProvider/lib/ThemeContext"
-import {Button, ButtonSizes, ButtonVariants} from "shared/ui/button/Button"
-import { Moon, Sun} from "lucide-react"
+import { classNames } from 'shared/lib/classNames/classNames';
+import styles from './ThemeSwitcher.module.scss';
+import useTheme from 'app/providers/ThemeProvider/lib/useTheme';
+import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
+import { Button, ButtonSizes, ButtonVariants } from 'shared/ui/button/Button';
+import { Moon, Sun } from 'lucide-react';
+import { memo } from 'react';
 
 interface ThemeSwitcherProps {
-    className?: string
+  className?: string;
 }
 
-const ThemeSwitcher = ({className}: ThemeSwitcherProps) => {
-  const {theme, toggleTheme} = useTheme()
+const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
+  const { theme, toggleTheme } = useTheme();
 
   return (
-    <Button 
+    <Button
       square
-      size={ButtonSizes.L} 
-      variant={ButtonVariants.OUTLINE_INVERTED} 
-      onClick={toggleTheme} 
+      size={ButtonSizes.L}
+      variant={ButtonVariants.OUTLINE_INVERTED}
+      onClick={toggleTheme}
       className={classNames(styles.themeSwitcher, {}, [className])}
     >
-      {theme === Theme.LIGHT ? <Sun/> : <Moon/>}
+      {theme === Theme.LIGHT ? <Sun /> : <Moon />}
     </Button>
-  )
-}
+  );
+});
 
-export default ThemeSwitcher
+export default ThemeSwitcher;

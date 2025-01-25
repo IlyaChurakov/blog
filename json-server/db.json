@@ -6,5 +6,15 @@
       "username": "admin",
       "password": "1234"
     }
-  ]
+  ],
+  "profile": {
+    "name": "Paul",
+    "surname": "Smith",
+    "age": 32,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Moscow",
+    "username": "admin",
+    "avatar": "https://plus.unsplash.com/premium_photo-1673028716315-f9cc6a3154f6?q=80&w=2835&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  }
 }

@@ -1,54 +1,56 @@
-import { classNames } from 'shared/lib/classNames/classNames'
-import styles from './Sidebar.module.scss'
-import { useState } from 'react'
-import { ThemeSwitcher } from 'widgets/themeSwitcher'
-import { LanguageSwitcher } from 'widgets/LanguageSwitcher'
-import { Button, ButtonSizes, ButtonVariants } from 'shared/ui/button/Button'
-import { Home, Info, PanelRightClose, PanelRightOpen } from 'lucide-react'
-import AppLink, { AppLinkVariants } from 'shared/ui/appLink/AppLink'
-import { useTranslation } from 'react-i18next'
-import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+import { classNames } from 'shared/lib/classNames/classNames';
+import styles from './Sidebar.module.scss';
+import { memo, useMemo, useState } from 'react';
+import { ThemeSwitcher } from 'widgets/themeSwitcher';
+import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
+import { Button, ButtonSizes, ButtonVariants } from 'shared/ui/button/Button';
+import { PanelRightClose, PanelRightOpen } from 'lucide-react';
+import { sidebarItemsList } from '../model/items';
+import { SidebarItem } from './components/sidebarItem/SidebarItem';
 
 interface SidebarProps {
-    className?: string
+  className?: string;
 }
 
-const Sidebar = ({className}: SidebarProps) => {
-  const [collapsed, setCollapsed] = useState(false)
-  const onToggle = () => setCollapsed(prev => !prev)
-  const { t } = useTranslation('main')
+const Sidebar = memo(({ className }: SidebarProps) => {
+  const [collapsed, setCollapsed] = useState(false);
+  const onToggle = () => setCollapsed((prev) => !prev);
+
+  const items = useMemo(
+    () =>
+      sidebarItemsList.map((item) => (
+        <SidebarItem key={item.path} item={item} collapsed={collapsed} />
+      )),
+    [collapsed],
+  );
 
   return (
-    <div data-testid={'sidebar'} className={classNames(styles.sidebar, {[styles.collapsed]: collapsed}, [className])}>
+    <div
+      data-testid={'sidebar'}
+      className={classNames(styles.sidebar, { [styles.collapsed]: collapsed }, [
+        className,
+      ])}
+    >
       <div className={styles.toggle}>
-        <Button 
+        <Button
           size={ButtonSizes.S}
-          square 
-          variant={ButtonVariants.TEXT_INVERTED} 
-          data-testid='sidebar-toggle' 
+          square
+          variant={ButtonVariants.TEXT_INVERTED}
+          data-testid="sidebar-toggle"
           onClick={onToggle}
         >
-          {collapsed ? <PanelRightClose/> : <PanelRightOpen/>}
+          {collapsed ? <PanelRightClose /> : <PanelRightOpen />}
         </Button>
       </div>
 
-      <div className={styles.items}>
-        <AppLink variant={AppLinkVariants.SECONDARY} to={RoutePath.main} className={styles.link}>
-          <Home /> 
-          {!collapsed && t('Главная')}
-        </AppLink>
-        <AppLink variant={AppLinkVariants.SECONDARY} to={RoutePath.about} className={styles.link} >
-          <Info/>
-          {!collapsed && t('О сайте')}
-        </AppLink>
-      </div>
+      <div className={styles.items}>{items}</div>
 
       <div className={classNames(styles.switchers)}>
-        <ThemeSwitcher/>
-        <LanguageSwitcher/>
+        <ThemeSwitcher />
+        <LanguageSwitcher />
       </div>
     </div>
-  )
-}
+  );
+});
 
-export default Sidebar
+export default Sidebar;

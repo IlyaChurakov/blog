@@ -3,11 +3,11 @@ import { AppRouter } from 'app/providers/router';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { Suspense, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { userActions } from 'entities/User/model/slice/userSlice';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 
 const App = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(userActions.initAuthData());

@@ -1,5 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import styles from './Text.module.scss';
+import { memo } from 'react';
 
 export enum TextColors {
   PRIMARY = 'primary',
@@ -13,20 +14,17 @@ interface TextProps {
   color?: TextColors;
 }
 
-export const Text = ({
-  className,
-  title,
-  text,
-  color = TextColors.PRIMARY,
-}: TextProps) => {
-  return (
-    <div
-      className={classNames(styles.textWrapper, { [styles[color]]: true }, [
-        className,
-      ])}
-    >
-      {!!title && <p className={styles.title}>{title}</p>}
-      {!!text && <p className={styles.text}>{text}</p>}
-    </div>
-  );
-};
+export const Text = memo(
+  ({ className, title, text, color = TextColors.PRIMARY }: TextProps) => {
+    return (
+      <div
+        className={classNames(styles.textWrapper, { [styles[color]]: true }, [
+          className,
+        ])}
+      >
+        {!!title && <p className={styles.title}>{title}</p>}
+        {!!text && <p className={styles.text}>{text}</p>}
+      </div>
+    );
+  },
+);

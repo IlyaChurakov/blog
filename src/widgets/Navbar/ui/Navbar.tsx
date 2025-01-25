@@ -1,18 +1,19 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import styles from './Navbar.module.scss';
 import { useTranslation } from 'react-i18next';
-import { useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { Button, ButtonSizes, ButtonVariants } from 'shared/ui/button/Button';
 import { LoginModal } from 'features';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getUserAuthData } from '../../../entities/User';
 import { userActions } from '../../../entities/User/model/slice/userSlice';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 
-const Navbar = () => {
+const Navbar = memo(() => {
   const { t } = useTranslation('main');
   const [isOpenModal, setIsOpenModal] = useState(false);
   const authData = useSelector(getUserAuthData);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const onCloseModal = useCallback(() => {
     setIsOpenModal(false);
@@ -58,6 +59,6 @@ const Navbar = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Navbar;

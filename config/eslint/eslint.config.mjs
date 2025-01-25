@@ -14,6 +14,7 @@ export default [
   {
     files: ['**/*.{js,cjs,ts,jsx,tsx}'],
     rules: {
+      'react/prop-types': 'off',
       'no-unused-vars': 'error',
       'no-undef': 'error',
       'react/jsx-indent': [2, 2],

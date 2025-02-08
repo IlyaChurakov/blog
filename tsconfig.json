@@ -1,29 +1,29 @@
 {
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "strict": true,
+    "noImplicitAny": true, // обязывает указывать any
+    "module": "ESNext", // как компилируем
+    "target": "ES5", // в какую версию компилируем код
+    "jsx": "react-jsx",
+    "allowJs": true, // позволяет компилятору обрабатывать не только ts файлы но и js
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./src/*"]
+    },
+    "esModuleInterop": true, // позволяет работать с common js пакетами используя import
+    "allowSyntheticDefaultImports": true // позволяет импортировать по дефолту из библиотек которые не имеют дефолтных импортов
+  },
+  "ts-node": {
     "compilerOptions": {
-        "outDir": "./dist/",
-        "noImplicitAny": true, // обязывает указывать any 
-        "module": "ESNext", // как компилируем
-        "target": "ES5", // в какую версию компилируем код
-        "jsx": "react-jsx",
-        "allowJs": true, // позволяет компилятору обрабатывать не только ts файлы но и js
-        "moduleResolution": "node",
-        "baseUrl": ".",
-        "paths": {
-            "*": ["./src/*"]
-        },
-        "esModuleInterop": true, // позволяет работать с common js пакетами используя import
-        "allowSyntheticDefaultImports": true, // позволяет импортировать по дефолту из библиотек которые не имеют дефолтных импортов
-    },
-    "ts-node": {
-        "compilerOptions": {
-            "module": "CommonJS"
-        }
-    },
-    "include": [
-        "./config/jest/setupTests.ts", 
-        "./src/**/*.ts",
-        "./src/**/*.tsx",
-        "./config/jest/jestEmptyComponent.tsx"
-    ]
+      "module": "CommonJS"
+    }
+  },
+  "include": [
+    "./config/jest/setupTests.ts",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./config/jest/jestEmptyComponent.tsx"
+  ]
 }
-

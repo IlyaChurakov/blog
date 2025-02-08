@@ -1,0 +1,18 @@
+{
+  "Профиль": "Profile",
+  "Редактировать": "Edit",
+  "Произошла ошибка при загрузке профиля": "An error occurred when loading the profile",
+  "Поробуйте обновить страницу": "Try refreshing the page",
+  "Сохранить": "Save",
+  "Отменить": "Cancel",
+  "Ссылка на аватар": "Avatar link",
+  "Логин": "Login",
+  "Страна": "Country",
+  "Город": "City",
+  "Возраст": "Age",
+  "Фамилия": "Surname",
+  "Имя": "Name",
+  "Валюта": "Currency",
+  "Поле должно быть числом": "The field must be a number",
+  "Возрастное ограничение 18+": "Age limit 18+"
+}

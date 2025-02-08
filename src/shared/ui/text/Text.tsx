@@ -12,14 +12,23 @@ interface TextProps {
   title?: string;
   text?: string;
   color?: TextColors;
+  justify?: 'left' | 'center' | 'right';
 }
 
 export const Text = memo(
-  ({ className, title, text, color = TextColors.PRIMARY }: TextProps) => {
+  ({
+    className,
+    title,
+    text,
+    color = TextColors.PRIMARY,
+    justify = 'left',
+  }: TextProps) => {
     return (
       <div
-        className={classNames(styles.textWrapper, { [styles[color]]: true }, [
+        className={classNames(styles.textWrapper, {}, [
           className,
+          styles[color],
+          styles[justify],
         ])}
       >
         {!!title && <p className={styles.title}>{title}</p>}

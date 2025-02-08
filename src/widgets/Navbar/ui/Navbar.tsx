@@ -3,10 +3,10 @@ import styles from './Navbar.module.scss';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
 import { Button, ButtonSizes, ButtonVariants } from 'shared/ui/button/Button';
-import { LoginModal } from 'features';
+import { LoginModal } from 'features/authByUsername';
 import { useSelector } from 'react-redux';
-import { getUserAuthData } from '../../../entities/User';
-import { userActions } from '../../../entities/User/model/slice/userSlice';
+import { getUserAuthData } from 'entities/User';
+import { userActions } from 'entities/User/model/slice/userSlice';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 
 const Navbar = memo(() => {

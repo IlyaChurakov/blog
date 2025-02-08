@@ -1,7 +1,6 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { StoryFn } from '@storybook/react';
 import { StateSchema, StoreProvider } from 'app/providers/storeProvider';
-import { loginReducer } from 'features';
+import { loginReducer } from 'features/authByUsername';
 
 const defaultAsyncReducers = { login: loginReducer };
 

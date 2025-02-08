@@ -1,5 +1,6 @@
 .inputWrapper {
   display: flex;
+  width: 100%;
 }
 
 .input {
@@ -18,6 +19,7 @@
 
 .placeholder {
   margin-right: 5px;
+  color: var(--accent-color);
 }
 
 .caretWrapper {
@@ -32,19 +34,11 @@
   background: var(--text-color);
   bottom: 0;
   left: 0;
-  animation: 1s blink forwards infinite;
+  animation: blink 1s step-start infinite;
 }
 
 @keyframes blink {
-  0% {
-    opacity: 0;
-  }
-
   50% {
-    opacity: 0.01;
-  }
-
-  100% {
-    opacity: 1;
+    opacity: 0;
   }
 }

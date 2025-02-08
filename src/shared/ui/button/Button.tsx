@@ -11,6 +11,12 @@ export enum ButtonVariants {
   CONTAINED_INVERTED = 'contained_inverted',
 }
 
+export enum ButtonColors {
+  PRIMARY = 'primary',
+  DANGER = 'danger',
+  ACCENT = 'accent',
+}
+
 export enum ButtonSizes {
   S = 'size_s',
   M = 'size_m',
@@ -23,6 +29,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   square?: boolean;
   size?: ButtonSizes;
   disabled?: boolean;
+  color?: ButtonColors;
 }
 
 export const Button: FC<ButtonProps> = memo(
@@ -30,15 +37,14 @@ export const Button: FC<ButtonProps> = memo(
     className,
     variant = ButtonVariants.OUTLINE,
     size = ButtonSizes.M,
+    color = ButtonColors.PRIMARY,
     children,
     square,
     disabled,
     ...props
   }) => {
     const mods = {
-      [styles[variant]]: true,
       [styles.square]: square,
-      [styles[size]]: true,
       [styles.disabled]: disabled,
     };
 
@@ -48,6 +54,7 @@ export const Button: FC<ButtonProps> = memo(
           className,
           styles[variant],
           styles[size],
+          styles[color],
         ])}
         disabled={disabled}
         {...props}

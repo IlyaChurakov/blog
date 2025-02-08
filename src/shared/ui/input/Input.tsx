@@ -12,12 +12,13 @@ import styles from './Input.module.scss';
 
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
-  'value' | 'onChange'
+  'value' | 'onChange' | 'readOnly'
 >;
 
 interface InputProps extends HTMLInputProps {
-  value?: string;
+  value?: string | number;
   onChange?: (value: string) => void;
+  readonly?: boolean;
 }
 
 const FONT_LETTER_WIDTH_COEF = 0.6;
@@ -32,6 +33,7 @@ export const Input = memo(
     onBlur,
     onSelect,
     autoFocus,
+    readonly,
   }: InputProps) => {
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -41,10 +43,12 @@ export const Input = memo(
     const [scrollOffset, setScrollOffset] = useState<number>(0);
 
     useEffect(() => {
-      const letterWidth =
-        parseFloat(window.getComputedStyle(inputRef.current).fontSize) *
-        FONT_LETTER_WIDTH_COEF;
-      setCaretWidth(letterWidth);
+      if (inputRef.current) {
+        const letterWidth =
+          parseFloat(window.getComputedStyle(inputRef.current).fontSize) *
+          FONT_LETTER_WIDTH_COEF;
+        setCaretWidth(letterWidth);
+      }
     }, []);
 
     const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -53,7 +57,9 @@ export const Input = memo(
     };
     const focusHandler = (e: FocusEvent<HTMLInputElement>) => {
       onFocus?.(e);
-      setIsCaretShowing(true);
+      if (!readonly) {
+        setIsCaretShowing(true);
+      }
     };
     const blurHandler = (e: FocusEvent<HTMLInputElement>) => {
       onBlur?.(e);
@@ -62,8 +68,10 @@ export const Input = memo(
     /* eslint-disable @typescript-eslint/no-explicit-any */
     const selectHandler = (e: any) => {
       onSelect?.(e);
-      setCaretPosition(e?.target?.selectionStart || 0);
-      setScrollOffset(inputRef.current?.scrollLeft || 0);
+      if (!readonly) {
+        setCaretPosition(e?.target?.selectionStart || 0);
+        setScrollOffset(inputRef.current?.scrollLeft || 0);
+      }
     };
 
     return (
@@ -74,6 +82,7 @@ export const Input = memo(
 
         <div className={styles.caretWrapper}>
           <input
+            readOnly={readonly}
             autoFocus={autoFocus}
             ref={inputRef}
             value={value}

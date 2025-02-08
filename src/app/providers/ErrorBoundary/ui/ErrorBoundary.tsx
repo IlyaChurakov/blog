@@ -1,42 +1,49 @@
-import React, { ErrorInfo, ReactNode, Suspense } from "react";
-import PageError from "widgets/PageError/ui/PageError";
-import PageLoader from "widgets/PageLoader/ui/PageLoader";
+import React, { ErrorInfo, ReactNode, Suspense } from 'react';
+import PageError from 'widgets/PageError/ui/PageError';
+import PageLoader from 'widgets/PageLoader/ui/PageLoader';
 
 interface ErrorBoundaryProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 interface ErrorBoundaryState {
-  hasError: boolean
+  hasError: boolean;
 }
 
-export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
+export class ErrorBoundary extends React.Component<
+  ErrorBoundaryProps,
+  ErrorBoundaryState
+> {
   constructor(props: ErrorBoundaryProps) {
     super(props);
     this.state = { hasError: false };
   }
-  
+
   static getDerivedStateFromError(_: Error) {
     // Update state so the next render will show the fallback UI.
     return { hasError: true };
   }
-  
+
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     // You can also log the error to an error reporting service
     console.log(error, errorInfo);
   }
-  
+
   render() {
-    const {hasError} = this.state
-    const {children} = this.props
+    const { hasError } = this.state;
+    const { children } = this.props;
 
     if (hasError) {
       // You can render any custom fallback UI
-      return <Suspense fallback={<PageLoader/>}><PageError/></Suspense>;
+      return (
+        <Suspense fallback={<PageLoader />}>
+          <PageError />
+        </Suspense>
+      );
     }
-  
-    return children; 
+
+    return children;
   }
 }
 
-export default ErrorBoundary
+export default ErrorBoundary;

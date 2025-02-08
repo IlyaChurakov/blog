@@ -13,6 +13,8 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 export function buildPlugins({
   paths,
   isDev,
+  apiUrl,
+  project,
 }: BuildOptions): WebpackPluginInstance[] {
   const plugins = [
     new HTMLWebpackPlugin({
@@ -21,6 +23,8 @@ export function buildPlugins({
     new ProgressPlugin(),
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
+      __API__: JSON.stringify(apiUrl),
+      __PROJECT__: JSON.stringify(project),
     }),
     new ReactRefreshWebpackPlugin(),
     new MiniCssExtractPlugin(),

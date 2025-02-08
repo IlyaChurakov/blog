@@ -1,0 +1,28 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.select {
+  font: inherit;
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  color: transparent;
+  text-shadow: 0 0 0 var(--text-color);
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.option {
+  background: white;
+  color: black;
+}
+
+.placeholder {
+  margin-right: 5px;
+  color: var(--accent-color);
+}

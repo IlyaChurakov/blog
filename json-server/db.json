@@ -1,5 +1,11 @@
 {
-  "posts": [{ "id": 1, "title": "json-server", "author": "typicode" }],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
   "users": [
     {
       "id": "1",
@@ -8,13 +14,13 @@
     }
   ],
   "profile": {
-    "name": "Paul",
-    "surname": "Smith",
-    "age": 32,
+    "name": "j",
+    "surname": "Smith1",
+    "age": 21,
     "currency": "RUB",
-    "country": "Russia",
+    "country": "Armenia",
     "city": "Moscow",
     "username": "admin",
-    "avatar": "https://plus.unsplash.com/premium_photo-1673028716315-f9cc6a3154f6?q=80&w=2835&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "avatar": "https://plus.unsplash.com/premium_photo-1693011116387-7734a423545b?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   }
 }

@@ -1,7 +1,9 @@
-import { Country, Currency } from 'shared/const/common';
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
+import { ErrorTypes } from 'shared/lib/checkErrorType/types';
 
 export interface Profile {
-  username: string;
+  username?: string;
   name?: string;
   surname?: string;
   age?: number;
@@ -13,7 +15,8 @@ export interface Profile {
 
 export interface ProfileSchema {
   data?: Profile;
+  form?: Profile;
   isLoading: boolean;
-  error?: string;
+  error?: ErrorTypes;
   readonly: boolean;
 }

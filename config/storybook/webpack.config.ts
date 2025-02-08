@@ -10,8 +10,14 @@ export default ({ config }: { config: Configuration }) => {
     entry: '',
     src: path.resolve(__dirname, '..', '..', 'src'),
   };
+
   config.resolve?.modules?.push(paths.src);
   config.resolve?.extensions?.push('.ts', '.tsx');
+  if (!config.resolve) config.resolve = {};
+  if (!config.resolve.alias) config.resolve.alias = {};
+
+  config.resolve.alias['entities'] = path.resolve(paths.src, 'entities');
+  config.resolve.alias['shared'] = path.resolve(paths.src, 'shared');
 
   const fileLoaderRule = config.module?.rules?.find(
     (rule) =>
@@ -31,7 +37,13 @@ export default ({ config }: { config: Configuration }) => {
 
   config.module?.rules?.push(buildCssLoader(true));
 
-  config.plugins?.push(new DefinePlugin({ __IS_DEV__: true }));
+  config.plugins?.push(
+    new DefinePlugin({
+      __IS_DEV__: true,
+      __API__: JSON.stringify(''),
+      __PROJECT__: JSON.stringify('storybook'),
+    }),
+  );
 
   return config;
 };

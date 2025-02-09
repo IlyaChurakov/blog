@@ -19,7 +19,7 @@ export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
 
   return (
     <AppLink
-      variant={AppLinkVariants.SECONDARY}
+      variant={AppLinkVariants.PRIMARY}
       to={item.path}
       className={styles.sidebarItem}
     >

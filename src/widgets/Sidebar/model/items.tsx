@@ -1,4 +1,4 @@
-import { Home, Info, User } from 'lucide-react';
+import { Home, Info, Notebook, User } from 'lucide-react';
 import { ReactElement } from 'react';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
@@ -19,6 +19,11 @@ export const sidebarItemsList: SidebarItemType[] = [
     path: RoutePath.about,
     icon: <Info />,
     text: 'О сайте',
+  },
+  {
+    path: RoutePath.articles,
+    icon: <Notebook />,
+    text: 'Статьи',
   },
   {
     path: RoutePath.profile,

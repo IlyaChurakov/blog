@@ -11,6 +11,7 @@ export default [
   pluginJs.configs.recommended,
   pluginReact.configs.flat.recommended,
   pluginReact.configs.flat['jsx-runtime'],
+
   {
     files: ['**/*.{js,cjs,ts,jsx,tsx}'],
     rules: {
@@ -73,4 +74,8 @@ export default [
     languageOptions: { globals: globals.browser },
   },
   ...tseslint.configs.recommended,
+  {
+    files: ['../../.templates/**/*.*'],
+    rules: {},
+  },
 ];

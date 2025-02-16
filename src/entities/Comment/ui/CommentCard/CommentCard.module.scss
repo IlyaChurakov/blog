@@ -1,0 +1,20 @@
+.commentCard {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  padding: 10px;
+}
+
+.user {
+  display: flex;
+  gap: 10px;
+}
+
+.commentCardSkeleton {
+  height: 70px;
+  width: 100%;
+}

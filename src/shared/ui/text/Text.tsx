@@ -5,6 +5,7 @@ import { memo } from 'react';
 export enum TextColors {
   PRIMARY = 'primary',
   ERROR = 'error',
+  ACCENT = 'accent',
 }
 
 interface TextProps {
@@ -13,6 +14,7 @@ interface TextProps {
   text?: string;
   color?: TextColors;
   justify?: 'left' | 'center' | 'right';
+  size?: 's' | 'm' | 'l';
 }
 
 export const Text = memo(
@@ -22,6 +24,7 @@ export const Text = memo(
     text,
     color = TextColors.PRIMARY,
     justify = 'left',
+    size = 'm',
   }: TextProps) => {
     return (
       <div
@@ -29,6 +32,7 @@ export const Text = memo(
           className,
           styles[color],
           styles[justify],
+          styles[`size_${size}`],
         ])}
       >
         {!!title && <p className={styles.title}>{title}</p>}

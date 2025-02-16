@@ -41,3 +41,18 @@ export const TextOnly: Story = {
   args: { text: 'Some example text' },
   decorators: [ThemeDecorator(Theme.LIGHT)],
 };
+
+export const SizeS: Story = {
+  args: { title: 'Title', text: 'text', size: 's' },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+};
+
+export const SizeM: Story = {
+  args: { title: 'Title', text: 'text', size: 'm' },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+};
+
+export const SizeL: Story = {
+  args: { title: 'Title', text: 'text', size: 'l' },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+};

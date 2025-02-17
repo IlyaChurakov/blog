@@ -5,6 +5,7 @@ import { updateProfileData } from './updateProfileData';
 describe('updateProfileData', () => {
   test('updated', async () => {
     const profile: Profile = {
+      id: '1',
       name: 'john doe',
       age: 20,
     };
@@ -23,6 +24,7 @@ describe('updateProfileData', () => {
 
   test('server error', async () => {
     const profile: Profile = {
+      id: '1',
       name: 'john doe',
       age: 20,
     };
@@ -41,6 +43,7 @@ describe('updateProfileData', () => {
 
   test('client error', async () => {
     const profile: Profile = {
+      id: '1',
       name: 'john doe',
       age: 15,
     };

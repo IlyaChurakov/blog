@@ -21,7 +21,6 @@ export const componentRender = (
       <StoreProvider initialState={initialState as StateSchema}>
         <I18nextProvider i18n={i18nForTests}>{component}</I18nextProvider>
       </StoreProvider>
-      ,
     </MemoryRouter>,
   );
 };

@@ -10,9 +10,15 @@ import {
 } from 'entities/Profile';
 import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { getUserAuthData } from 'entities/User';
 
 export const ProfilePageHeader = () => {
   const { t } = useTranslation('profile');
+  const authData = useSelector(getUserAuthData);
+  const profileData = useSelector(getUserAuthData);
+
+  const canEdit = authData?.id === profileData?.id;
+
   const readonly = useSelector(getProfileReadonly);
   const dispatch = useAppDispatch();
 
@@ -30,32 +36,33 @@ export const ProfilePageHeader = () => {
 
   return (
     <div className={classNames(styles.profilePageHeader, {})}>
-      {readonly ? (
-        <Button
-          onClick={edit}
-          color={ButtonColors.ACCENT}
-          variant={ButtonVariants.OUTLINE}
-        >
-          {t('Редактировать')}
-        </Button>
-      ) : (
-        <>
+      {canEdit &&
+        (readonly ? (
           <Button
-            onClick={save}
+            onClick={edit}
             color={ButtonColors.ACCENT}
             variant={ButtonVariants.OUTLINE}
           >
-            {t('Сохранить')}
+            {t('Редактировать')}
           </Button>
-          <Button
-            onClick={cancel}
-            color={ButtonColors.DANGER}
-            variant={ButtonVariants.OUTLINE}
-          >
-            {t('Отменить')}
-          </Button>
-        </>
-      )}
+        ) : (
+          <>
+            <Button
+              onClick={save}
+              color={ButtonColors.ACCENT}
+              variant={ButtonVariants.OUTLINE}
+            >
+              {t('Сохранить')}
+            </Button>
+            <Button
+              onClick={cancel}
+              color={ButtonColors.DANGER}
+              variant={ButtonVariants.OUTLINE}
+            >
+              {t('Отменить')}
+            </Button>
+          </>
+        ))}
     </div>
   );
 };

@@ -5,6 +5,7 @@ import { Avatar } from 'shared/ui/avatar/Avatar';
 import { Text } from 'shared/ui/text/Text';
 import { Comment } from 'entities/Comment/model/types/comment';
 import Skeleton from 'shared/ui/skeleton/Skeleton';
+import AppLink from 'shared/ui/appLink/AppLink';
 
 interface CommentCardProps {
   comment: Comment;
@@ -14,20 +15,23 @@ interface CommentCardProps {
 export const CommentCard = memo(({ comment, isLoading }: CommentCardProps) => {
   return (
     <div className={classNames(styles.commentCard)}>
-      <div className={classNames(styles.user)}>
-        {isLoading ? (
-          <CommentCardSkeleton />
-        ) : (
-          <>
+      {isLoading ? (
+        <CommentCardSkeleton />
+      ) : (
+        <>
+          <AppLink
+            to={`/profile/${comment.user.id}`}
+            className={styles.profileLink}
+          >
             {!!comment.user.avatar && (
               <Avatar src={comment.user.avatar} size={30} />
             )}
             <Text text={comment.user.username} />
-          </>
-        )}
-      </div>
+          </AppLink>
 
-      <Text text={comment.text} />
+          <Text text={comment.text} />
+        </>
+      )}
     </div>
   );
 });

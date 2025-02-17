@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
   fetchProfileData,
@@ -15,12 +15,15 @@ import { useSelector } from 'react-redux';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
+import { useParams } from 'react-router-dom';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 
 const reducers = {
   profile: profileReducer,
 };
 
 const ProfilePage = memo(() => {
+  const { id } = useParams();
   const dispatch = useAppDispatch();
 
   const form = useSelector(getProfileForm);
@@ -28,11 +31,7 @@ const ProfilePage = memo(() => {
   const isLoading = useSelector(getProfileIsLoading);
   const readonly = useSelector(getProfileReadonly);
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData());
-    }
-  }, []);
+  useInitialEffect(() => dispatch(fetchProfileData(id)));
 
   const onChangeUsername = useCallback(
     (value?: string) => {

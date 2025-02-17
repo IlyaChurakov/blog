@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import styles from './ArticleDetailsPage.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ArticleDetails } from 'entities/Article';
@@ -20,6 +20,9 @@ import {
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { fetchCommentsByArticleId } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { CommentForm } from 'features/addNewComment';
+import { Text } from 'shared/ui/text/Text';
+import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/services/addCommentForArticle';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -39,15 +42,24 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
   const isLoading = useSelector(getArticleDetailsCommentsIsLoading);
   const error = useSelector(getArticleDetailsCommentsError);
 
+  const onSendComment = useCallback(
+    (text: string) => {
+      dispatch(addCommentForArticle(text));
+    },
+    [dispatch],
+  );
+
   if (!id) return null;
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div
-        data-testid="articleDetailsPage"
+        data-testid="articlesDetailsPage"
         className={classNames(styles.articleDetailsPage, {}, [className])}
       >
-        <ArticleDetails id={id} />
+        <ArticleDetails id={id!} />
+        <Text title="Комментарии" className={styles.commentsBlock} />
+        <CommentForm onSendComment={onSendComment} />
         <CommentList comments={comments} isLoading={isLoading} error={error} />
       </div>
     </DynamicModuleLoader>

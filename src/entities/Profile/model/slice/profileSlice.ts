@@ -12,8 +12,8 @@ const profileSlice = createSlice({
   name: 'profile',
   initialState,
   reducers: {
-    setForm: (state, action: PayloadAction<Profile>) => {
-      state.form = { ...state.form, ...action.payload };
+    setForm: (state, action: PayloadAction<Omit<Profile, 'id'>>) => {
+      state.form = { ...state.form, ...action.payload } as Profile;
     },
     cancelEdit: (state) => {
       state.readonly = true;

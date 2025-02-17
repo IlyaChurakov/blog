@@ -4,7 +4,7 @@ import styles from './CommentList.module.scss';
 import Skeleton from 'shared/ui/skeleton/Skeleton';
 import { CommentCard } from '../CommentCard/CommentCard';
 import { Comment } from 'entities/Comment/model/types/comment';
-import { Text } from 'shared/ui/text/Text';
+import { Text, TextColors } from 'shared/ui/text/Text';
 
 interface CommentListProps {
   comments?: Comment[];
@@ -16,31 +16,39 @@ export const CommentList = memo(
   ({ comments, isLoading, error }: CommentListProps) => {
     return (
       <div className={classNames(styles.commentsList)}>
-        <Text title="Комментарии" />
-
         {isLoading ? (
-          <CommentsSkeleton />
+          <CommentsSkeleton count={comments?.length || 1} />
         ) : !!error ? (
-          <Text text={error} />
+          <Text color={TextColors.ERROR} text={error} />
         ) : !comments?.length ? (
           <Text text="Комментариев нет" />
         ) : (
-          comments.map((comment) => (
-            <CommentCard key={comment.id} comment={comment} isLoading={false} />
-          ))
+          comments
+            .reverse()
+            .map((comment) => (
+              <CommentCard
+                key={comment.id}
+                comment={comment}
+                isLoading={false}
+              />
+            ))
         )}
       </div>
     );
   },
 );
 
-function CommentsSkeleton() {
+function CommentsSkeleton({ count }: { count: number }) {
   return (
     <div className={styles.commentsSkeleton}>
-      <Skeleton width="100%" height={70} borderRadius={0} />
-      <Skeleton width="100%" height={70} borderRadius={0} />
-      <Skeleton width="100%" height={70} borderRadius={0} />
-      <Skeleton width="100%" height={70} borderRadius={0} />
+      {Array.from({ length: count }).map((item) => (
+        <Skeleton
+          key={String(item)}
+          width="100%"
+          height={100}
+          borderRadius={0}
+        />
+      ))}
     </div>
   );
 }

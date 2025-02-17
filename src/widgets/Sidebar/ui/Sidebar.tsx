@@ -5,8 +5,9 @@ import { ThemeSwitcher } from 'widgets/themeSwitcher';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
 import { Button, ButtonSizes, ButtonVariants } from 'shared/ui/button/Button';
 import { PanelRightClose, PanelRightOpen } from 'lucide-react';
-import { sidebarItemsList } from '../model/items';
 import { SidebarItem } from './components/sidebarItem/SidebarItem';
+import { getSidebarItems } from '../model/selectors/getSidebarItems';
+import { useSelector } from 'react-redux';
 
 interface SidebarProps {
   className?: string;
@@ -16,12 +17,14 @@ const Sidebar = memo(({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
   const onToggle = () => setCollapsed((prev) => !prev);
 
+  const sidebarItemsList = useSelector(getSidebarItems);
+
   const items = useMemo(
     () =>
       sidebarItemsList.map((item) => (
         <SidebarItem key={item.path} item={item} collapsed={collapsed} />
       )),
-    [collapsed],
+    [collapsed, sidebarItemsList],
   );
 
   return (

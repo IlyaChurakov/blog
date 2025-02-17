@@ -5,6 +5,7 @@ import { fetchProfileData } from './fetchProfileData';
 describe('validateProdileData', () => {
   test('fetched', async () => {
     const profile: Profile = {
+      id: '1',
       name: 'john doe',
       age: 20,
     };
@@ -12,7 +13,7 @@ describe('validateProdileData', () => {
     const thunk = new TestAsyncThunk(fetchProfileData);
     thunk.api.get.mockReturnValue(Promise.resolve({ data: profile }));
 
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk('1');
 
     expect(result.payload).toEqual(profile);
   });
@@ -21,7 +22,7 @@ describe('validateProdileData', () => {
     const thunk = new TestAsyncThunk(fetchProfileData);
     thunk.api.get.mockReturnValue(Promise.resolve({ error: 'Some error' }));
 
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk(undefined);
 
     expect(result.payload).toBe('error');
     expect(result.meta.requestStatus).toBe('rejected');

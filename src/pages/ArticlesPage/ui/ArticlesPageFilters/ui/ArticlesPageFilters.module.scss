@@ -1,0 +1,18 @@
+.ArticlesPageFilters {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sortWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.search {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+}

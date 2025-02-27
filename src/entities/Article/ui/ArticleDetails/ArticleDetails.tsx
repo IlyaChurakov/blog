@@ -1,27 +1,27 @@
 import { memo, useEffect } from 'react';
-import { articleDetailsReducer } from 'entities/Article/model/slices/articleDetailsSlice';
-import {
-  DynamicModuleLoader,
-  ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
 import { useSelector } from 'react-redux';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from 'entities/Article/model/selectors/articleDetails';
-import { Text, TextColors } from 'shared/ui/text/Text';
-import { classNames } from 'shared/lib/classNames/classNames';
-import styles from './ArticleDetails.module.scss';
-import Skeleton from 'shared/ui/skeleton/Skeleton';
-import { Avatar } from 'shared/ui/avatar/Avatar';
-import { Calendar1Icon, EyeIcon } from 'lucide-react';
+import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
+import { articleDetailsReducer } from 'entities/Article/model/slices/articleDetailsSlice';
 import {
   ArticleBlock,
   ArticleBlockType,
 } from 'entities/Article/model/types/article';
+import { classNames } from 'shared/lib/classNames/classNames';
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { Avatar } from 'shared/ui/avatar/Avatar';
+import Skeleton from 'shared/ui/skeleton/Skeleton';
+import { Text, TextColors } from 'shared/ui/text/Text';
+import { Calendar1Icon, EyeIcon } from 'lucide-react';
+import styles from './ArticleDetails.module.scss';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
@@ -79,8 +79,8 @@ export const ArticleDetails = memo(({ id }: ArticleDetailsProps) => {
   );
 });
 
-function Block({ block }: { block: ArticleBlock }) {
-  switch (block.type) {
+export function Block({ block }: { block?: ArticleBlock }) {
+  switch (block?.type) {
     case ArticleBlockType.CODE:
       return <ArticleCodeBlockComponent block={block} />;
     case ArticleBlockType.IMAGE:

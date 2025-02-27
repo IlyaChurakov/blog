@@ -1,0 +1,12 @@
+.Tabs {
+  display: flex;
+  gap: 10px;
+}
+
+.card {
+  cursor: pointer;
+}
+
+.active {
+  font: var(--font-l);
+}

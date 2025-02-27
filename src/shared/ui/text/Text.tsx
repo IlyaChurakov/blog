@@ -15,6 +15,7 @@ interface TextProps {
   color?: TextColors;
   justify?: 'left' | 'center' | 'right';
   size?: 's' | 'm' | 'l';
+  truncate?: boolean;
 }
 
 export const Text = memo(
@@ -25,6 +26,7 @@ export const Text = memo(
     color = TextColors.PRIMARY,
     justify = 'left',
     size = 'm',
+    truncate = false,
   }: TextProps) => {
     return (
       <div
@@ -35,8 +37,24 @@ export const Text = memo(
           styles[`size_${size}`],
         ])}
       >
-        {!!title && <p className={styles.title}>{title}</p>}
-        {!!text && <p className={styles.text}>{text}</p>}
+        {!!title && (
+          <p
+            className={classNames(styles.title, {
+              [styles.truncate]: truncate,
+            })}
+          >
+            {title}
+          </p>
+        )}
+        {!!text && (
+          <p
+            className={classNames(styles.text, {
+              [styles.truncate]: truncate,
+            })}
+          >
+            {text}
+          </p>
+        )}
       </div>
     );
   },

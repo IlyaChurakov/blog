@@ -1,0 +1,63 @@
+.description {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 100%;
+  height: min-content;
+
+  &_meta {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &_badge {
+      flex: 1;
+    }
+
+    &_views {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+  }
+}
+
+.image {
+  object-fit: cover;
+}
+
+.tile {
+  .image {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+  }
+}
+
+.list {
+  .image {
+    width: 100%;
+    max-height: 200px;
+  }
+
+  .description {
+    height: min-content;
+  }
+}
+
+.isHover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.button {
+  margin-top: 20px;
+  width: min-content;
+  text-wrap: nowrap;
+}
+
+.textBlock {
+  max-height: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

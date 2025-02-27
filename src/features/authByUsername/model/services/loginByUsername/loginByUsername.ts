@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { ThunkConfig } from 'app/providers/storeProvider';
 import { User } from 'entities/User';
 import { userActions } from 'entities/User/model/slice/userSlice';
 import { USER_LS_KEY } from 'shared/const/localstorage';
-import { ThunkConfig } from 'app/providers/storeProvider';
 
 interface LoginByUsernameProps {
   username: string;
@@ -26,7 +26,7 @@ export const loginByUsername = createAsyncThunk<
       localStorage.setItem(USER_LS_KEY, JSON.stringify(response.data));
       dispatch(userActions.setAuthData(response.data));
 
-      extra?.navigate?.('/about');
+      // extra?.navigate?.('/about');
       return response.data;
     } catch (e) {
       console.error(e);

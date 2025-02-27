@@ -1,5 +1,14 @@
+import { User } from 'entities/User';
+
+export enum ArticleSortField {
+  VIEWS = 'views',
+  TITLE = 'title',
+  CREATED = 'createdAt',
+}
+
 export interface Article {
   id: string;
+  user: User;
   title: string;
   subtitle: string;
   img: string;
@@ -44,4 +53,9 @@ export enum ArticleType {
   IT = 'IT',
   SCIENCE = 'SCIENCE',
   ECONOMICS = 'ECONOMICS',
+  SPORT = 'SPORT',
+  POLITIC = 'POLITIC',
+  GAMING = 'GAMING',
 }
+
+export type ArticleView = 'list' | 'tile';

@@ -5,11 +5,11 @@ import {
   useCallback,
   useMemo,
 } from 'react';
-import styles from './Select.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
+import styles from './Select.module.scss';
 
-export interface SelectOption {
-  value: string;
+export interface SelectOption<T extends string> {
+  value: T;
   content: string;
 }
 
@@ -18,58 +18,62 @@ type HTMLSelectProps = Omit<
   'value' | 'onChange' | 'readOnly'
 >;
 
-interface SelectProps extends HTMLSelectProps {
-  value?: string | number;
-  onChange?: (value: string) => void;
-  options?: SelectOption[];
+interface SelectProps<T extends string> extends HTMLSelectProps {
+  value?: T;
+  onChange?: (value: T) => void;
+  options?: SelectOption<T>[];
 }
 
-export const Select = memo(
-  ({ disabled, options, value, onChange, placeholder }: SelectProps) => {
-    const selectMods = {
-      [styles.disabled]: disabled,
-    };
-    const placeholderMods = {
-      [styles.disabled]: disabled,
-    };
+export const Select = <T extends string>({
+  disabled,
+  options,
+  value,
+  onChange,
+  placeholder,
+}: SelectProps<T>) => {
+  const selectMods = {
+    [styles.disabled]: disabled,
+  };
+  const placeholderMods = {
+    [styles.disabled]: disabled,
+  };
 
-    const optionsList = useMemo(
-      () =>
-        options?.map((option) => {
-          return (
-            <option
-              key={option.value}
-              value={option.value}
-              className={classNames(styles.option)}
-            >
-              {option.content}
-            </option>
-          );
-        }),
-      [options],
-    );
+  const optionsList = useMemo(
+    () =>
+      options?.map((option) => {
+        return (
+          <option
+            key={option.value}
+            value={option.value}
+            className={classNames(styles.option)}
+          >
+            {option.content}
+          </option>
+        );
+      }),
+    [options],
+  );
 
-    const onChangeHandler = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
-      onChange?.(e.target.value);
-    }, []);
+  const onChangeHandler = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
+    onChange?.(e.target.value as T);
+  }, []);
 
-    return (
-      <div className={classNames(styles.wrapper)}>
-        {!!placeholder && (
-          <span className={classNames(styles.placeholder, placeholderMods)}>
-            {placeholder + '>'}
-          </span>
-        )}
+  return (
+    <div className={classNames(styles.wrapper)}>
+      {!!placeholder && (
+        <span className={classNames(styles.placeholder, placeholderMods)}>
+          {placeholder + '>'}
+        </span>
+      )}
 
-        <select
-          disabled={disabled}
-          onChange={onChangeHandler}
-          value={value}
-          className={classNames(styles.select, selectMods)}
-        >
-          {optionsList}
-        </select>
-      </div>
-    );
-  },
-);
+      <select
+        disabled={disabled}
+        onChange={onChangeHandler}
+        value={value}
+        className={classNames(styles.select, selectMods)}
+      >
+        {optionsList}
+      </select>
+    </div>
+  );
+};

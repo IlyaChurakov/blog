@@ -1,7 +1,8 @@
-import { Input } from 'shared/ui/input/Input';
-import { useTranslation } from 'react-i18next';
 import { memo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Page } from 'widgets/Page/ui/Page';
 import { Counter } from 'entities/Counter';
+import { Input } from 'shared/ui/input/Input';
 
 const MainPage = memo(() => {
   const { t } = useTranslation('main');
@@ -11,7 +12,7 @@ const MainPage = memo(() => {
   const onChange = (val: string) => setValue(val);
 
   return (
-    <div>
+    <Page>
       {t('Главная')}
       <Counter />
       <Input
@@ -21,7 +22,7 @@ const MainPage = memo(() => {
         type="email"
         autoFocus
       />
-    </div>
+    </Page>
   );
 });
 

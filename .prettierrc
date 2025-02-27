@@ -1,12 +1,27 @@
 {
-    "semi": true,
-    "tabWidth": 2,
-    "singleQuote": true,
-    "trailingComma": "all",
-    "printWidth": 80,
-    "bracketSameLine": false,
-    "useTabs": false,
-    "arrowParens": "always",
-    "endOfLine": "auto",
-    "editor.formatOnSave": true
+  "semi": true,
+  "tabWidth": 2,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "printWidth": 80,
+  "bracketSameLine": false,
+  "useTabs": false,
+  "arrowParens": "always",
+  "endOfLine": "auto",
+  "editor.formatOnSave": true,
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
+  "importOrder": [
+    "^react$",
+    "^react*",
+    "^app*",
+    "^pages*",
+    "^widgets*",
+    "^features*",
+    "^entities*",
+    "^shared*",
+    "^[a-z]",
+    "^[.]/[^.]",
+    "^[.][.]/[^.]",
+    "^[.][.][/][.][.]"
+  ]
 }

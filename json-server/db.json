@@ -14,19 +14,18 @@
   "articles": [
     {
       "id": "1",
+      "userId": "1",
       "title": "Javascript news",
-      "subtitle": "Что нового в JS за 2022 год?",
+      "subtitle": "Что нового в JS за 2024 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
-      "type": [
-        "IT"
-      ],
+      "views": 1021,
+      "createdAt": "12.02.2024",
+      "type": ["ECONOMICS"],
       "blocks": [
         {
           "id": "1",
           "type": "TEXT",
-          "title": "Заголовок этого блока",
+          "title": "Javascript",
           "paragraphs": [
             "Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.",
             "JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.",
@@ -82,6 +81,150 @@
           ]
         }
       ]
+    },
+    {
+      "id": "2",
+      "userId": "2",
+      "title": "Python news",
+      "subtitle": "Что нового в Python за 2022 год?",
+      "img": "https://hr-profi.ru/img/podbor-it/python/image_python_01.jpg",
+      "views": 109,
+      "createdAt": "15.02.2023",
+      "type": ["IT", "GAMING"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Python",
+          "paragraphs": ["Что-то очень интересное про Python"]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "userId": "2",
+      "title": "Golang news",
+      "subtitle": "Что нового в Golang за 2024 год?",
+      "img": "https://lms-api.ycla-coding.com/image/98a24711-1c94-4e4a-89a7-ff4e9a56d2bd.png",
+      "views": 10,
+      "createdAt": "18.02.2024",
+      "type": ["IT", "POLITIC"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Golang",
+          "paragraphs": ["Что-то очень интересное про Golang"]
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "userId": "1",
+      "title": "Java news",
+      "subtitle": "Что нового в Java за 2024 год?",
+      "img": "https://www.besplatnyeprogrammy.ru/wp-content/uploads/Java.png",
+      "views": 101,
+      "createdAt": "22.02.2024",
+      "type": ["IT", "SPORT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Java",
+          "paragraphs": ["Что-то очень интересное про Java"]
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "userId": "1",
+      "title": "Kotlin news",
+      "subtitle": "Что нового в Kotlin за 2024 год?",
+      "img": "https://cms-assets.tutsplus.com/cdn-cgi/image/width=360/uploads/users/1499/posts/29328/preview_image/kotlin.jpg",
+      "views": 210,
+      "createdAt": "21.02.2024",
+      "type": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Kotlin",
+          "paragraphs": ["Что-то очень интересное про Kotlin"]
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "userId": "1",
+      "title": "Swift news",
+      "subtitle": "Что нового в Swift за 2024 год?",
+      "img": "https://media.tproger.ru/uploads/2024/09/859a6ffa-4300-4fdb-8e17-a5f5c93b197b.png",
+      "views": 2210,
+      "createdAt": "28.02.2024",
+      "type": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Swift",
+          "paragraphs": ["Что-то очень интересное про Swift"]
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "userId": "1",
+      "title": "Delphi news",
+      "subtitle": "Что нового в Delphi за 2024 год?",
+      "img": "https://images-cdn.onlinetestpad.net/56/a4/d231821d48618c953585eae95303.png",
+      "views": 310,
+      "createdAt": "29.02.2024",
+      "type": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Delphi",
+          "paragraphs": ["Что-то очень интересное про Delphi"]
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "userId": "1",
+      "title": "C++ news",
+      "subtitle": "Что нового в C++ за 2024 год?",
+      "img": "https://cs14.pikabu.ru/post_img/big/2023/08/02/8/1690984318216853840.png",
+      "views": 410,
+      "createdAt": "23.02.2024",
+      "type": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "C++",
+          "paragraphs": ["Что-то очень интересное про C++"]
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "userId": "1",
+      "title": "Pascal news",
+      "subtitle": "Что нового в Pascal за 2024 год?",
+      "img": "https://cdn-irec.r-99.com/sites/default/files/imagecache/300o/product-images/2770222/SAwNgLUzM3xnbnWFLE4Q.png",
+      "views": 510,
+      "createdAt": "27.02.2024",
+      "type": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Pascal",
+          "paragraphs": ["Что-то очень интересное про Pascal"]
+        }
+      ]
     }
   ],
   "comments": [
@@ -132,6 +275,60 @@
       "articleId": "1",
       "userId": "1",
       "id": "ds6fZJZ"
+    },
+    {
+      "text": "7",
+      "articleId": "1",
+      "userId": "2",
+      "id": "ZDhjWlq"
+    },
+    {
+      "text": "Отличная статья!",
+      "articleId": "1",
+      "userId": "2",
+      "id": "L9JO8gX"
+    },
+    {
+      "text": "Автор не рассказал ничего нового!",
+      "articleId": "3",
+      "userId": "2",
+      "id": "aPH_uQH"
+    },
+    {
+      "text": "Почему логотип Python Украинский?",
+      "articleId": "2",
+      "userId": "2",
+      "id": "iiNnXN-"
+    },
+    {
+      "text": "Java уже устарела, что может быть нового?",
+      "articleId": "4",
+      "userId": "2",
+      "id": "9Rs9EjA"
+    },
+    {
+      "text": "Он всегда был таким",
+      "articleId": "2",
+      "userId": "1",
+      "id": "o1UoqsV"
+    },
+    {
+      "text": "Потому что ничего нового нет",
+      "articleId": "3",
+      "userId": "1",
+      "id": "3xRJtzH"
+    },
+    {
+      "text": "Язык все равно обновляется",
+      "articleId": "4",
+      "userId": "1",
+      "id": "d5MiZRv"
+    },
+    {
+      "text": "э че за кресты",
+      "articleId": "8",
+      "userId": "1",
+      "id": "Ao7TuIl"
     }
   ],
   "users": [
@@ -171,7 +368,8 @@
       "country": "Russia",
       "city": "Moscow",
       "username": "admin213",
-      "avatar": "https://images.unsplash.com/photo-1734360659832-6ec810b0334e?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "avatar": "https://images.unsplash.com/photo-1734532873375-574fd74045c5?q=80&w=3136&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "name": "ilya"
     }
   ]
 }

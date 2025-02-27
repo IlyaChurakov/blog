@@ -4,30 +4,29 @@ import {
   Reducer,
   ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { StateSchema } from './StateSchema';
-import { userReducer } from 'entities/User';
+import { scrollReducer } from 'widgets/Page';
 import { counterReducer } from 'entities/Counter';
-import { createReducerManager } from './reducerManager';
+import { userReducer } from 'entities/User';
 import { $api } from 'shared/api/api';
-import { NavigateFunction } from 'react-router-dom';
+import { StateSchema, ThunkExtraArg } from './StateSchema';
+import { createReducerManager } from './reducerManager';
 
 export function createReduxStore(
   initialState?: StateSchema,
   asyncReducers?: DeepPartial<ReducersMapObject>,
-  navigate?: NavigateFunction,
 ) {
   const rootReducers: ReducersMapObject = {
     ...asyncReducers, // нужны для storybook
     counter: counterReducer,
     user: userReducer,
+    scroll: scrollReducer,
   };
 
   const reducerManager = createReducerManager(rootReducers); // нужен для управления динамическими редюсерами
 
-  // const extraArgument: ThunkExtraArg = {
-  //   api: $api,
-  //   navigate,
-  // };
+  const extraArgument: ThunkExtraArg = {
+    api: $api,
+  };
 
   const store = configureStore({
     reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
@@ -36,10 +35,7 @@ export function createReduxStore(
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
         thunk: {
-          extraArgument: {
-            api: $api,
-            navigate,
-          },
+          extraArgument,
         },
       }),
   });

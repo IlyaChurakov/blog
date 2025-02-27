@@ -1,10 +1,19 @@
 import { screen } from '@testing-library/react';
-import ArticleDetailsPage from './ArticleDetailsPage';
-import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
-import { Route, Routes } from 'react-router-dom';
 import { Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
+import ArticleDetailsPage from './ArticleDetailsPage';
 
 describe('articleDetailsPage', () => {
+  beforeAll(() => {
+    global.IntersectionObserver = class {
+      constructor() {}
+      observe() {}
+      unobserve() {}
+      disconnect() {}
+    } as any;
+  });
+
   test('render', () => {
     componentRender(
       <Routes>

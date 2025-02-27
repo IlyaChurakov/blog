@@ -1,34 +1,46 @@
-import { UserSchema } from 'entities/User';
-import { CounterSchema } from 'entities/Counter';
-import { LoginSchema } from 'features/authByUsername';
-import { EnhancedStore } from '@reduxjs/toolkit';
-import { ReducerManager } from './reducerManager';
-import { ProfileSchema } from 'entities/Profile';
-import { AxiosInstance } from 'axios';
-import { NavigateFunction } from 'react-router-dom';
-import { ArticleDetailsSchema } from 'entities/Article';
+import {
+  AnyAction,
+  CombinedState,
+  EnhancedStore,
+  Reducer,
+  ReducersMapObject,
+} from '@reduxjs/toolkit';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
+import { ArticlesPageSchema } from 'pages/ArticlesPage/model/types/articlesPage';
+import { ScrollSchema } from 'widgets/Page';
 import { NewCommentSchema } from 'features/addNewComment';
+import { LoginSchema } from 'features/authByUsername';
+import { ArticleDetailsSchema } from 'entities/Article';
+import { CounterSchema } from 'entities/Counter';
+import { ProfileSchema } from 'entities/Profile';
+import { UserSchema } from 'entities/User';
+import { AxiosInstance } from 'axios';
 
+export type StateSchemaKey = keyof StateSchema;
+export interface ReducerManager {
+  getReducerMap: () => ReducersMapObject<StateSchema>;
+  reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>;
+  add: (key: StateSchemaKey, reducer: Reducer) => void;
+  remove: (key: StateSchemaKey) => void;
+}
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  scroll: ScrollSchema;
   login?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
   articleDetailsComments?: ArticleDetailsCommentsSchema;
   newComment?: NewCommentSchema;
+  articlesPageSlice?: ArticlesPageSchema;
 }
-
-export type StateSchemaKey = keyof StateSchema;
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
   reducerManager: ReducerManager;
 }
 
-interface ThunkExtraArg {
+export interface ThunkExtraArg {
   api: AxiosInstance;
-  navigate?: NavigateFunction;
 }
 
 export interface ThunkConfig<T> {

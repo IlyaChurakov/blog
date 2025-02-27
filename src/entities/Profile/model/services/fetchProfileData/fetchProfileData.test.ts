@@ -1,8 +1,8 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { Profile } from '../../types/profile';
 import { fetchProfileData } from './fetchProfileData';
+import { Profile } from '../../types/profile';
 
-describe('validateProdileData', () => {
+describe('fetchProdileData', () => {
   test('fetched', async () => {
     const profile: Profile = {
       id: '1',

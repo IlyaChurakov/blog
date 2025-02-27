@@ -1,0 +1,14 @@
+.Card {
+  display: flex;
+  background: var(--regular-color);
+  height: min-content;
+}
+
+.tile {
+  flex-direction: column;
+}
+
+.list {
+  max-width: 100%;
+  flex-direction: column;
+}

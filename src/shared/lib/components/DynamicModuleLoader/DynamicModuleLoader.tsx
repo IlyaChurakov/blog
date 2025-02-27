@@ -1,10 +1,11 @@
-import { Reducer } from '@reduxjs/toolkit';
-import {
-  ReduxStoreWithManager,
-  StateSchemaKey,
-} from 'app/providers/storeProvider/config/StateSchema';
+import { Action, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { FC, useEffect } from 'react';
 import { useStore } from 'react-redux';
+import {
+  ReduxStoreWithManager,
+  StateSchema,
+  StateSchemaKey,
+} from 'app/providers/storeProvider/config/StateSchema';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 
 export type ReducersList = {
@@ -25,11 +26,16 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = ({
   const store = useStore() as ReduxStoreWithManager;
 
   useEffect(() => {
+    const mountedReducers = store.reducerManager.getReducerMap();
+
     const entries = Object.entries(reducers);
 
     entries.forEach(([key, reducer]) => {
-      store.reducerManager.add(key as StateSchemaKey, reducer);
-      dispatch({ type: `@INIT ${key} reducer` });
+      const mounted = mountedReducers[key as StateSchemaKey];
+      if (!mounted) {
+        store.reducerManager.add(key as StateSchemaKey, reducer);
+        dispatch({ type: `@INIT ${key} reducer` });
+      }
     });
 
     return () => {

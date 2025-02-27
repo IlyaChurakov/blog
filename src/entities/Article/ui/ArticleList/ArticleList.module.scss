@@ -1,0 +1,12 @@
+.ArticleList {
+  display: grid;
+  gap: 1em;
+}
+
+.tile {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.list {
+  grid-template-columns: 1fr !important;
+}

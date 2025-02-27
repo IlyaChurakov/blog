@@ -1,13 +1,13 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import styles from './Sidebar.module.scss';
 import { memo, useMemo, useState } from 'react';
-import { ThemeSwitcher } from 'widgets/themeSwitcher';
+import { useSelector } from 'react-redux';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
+import { ThemeSwitcher } from 'widgets/themeSwitcher';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonSizes, ButtonVariants } from 'shared/ui/button/Button';
 import { PanelRightClose, PanelRightOpen } from 'lucide-react';
+import styles from './Sidebar.module.scss';
 import { SidebarItem } from './components/sidebarItem/SidebarItem';
 import { getSidebarItems } from '../model/selectors/getSidebarItems';
-import { useSelector } from 'react-redux';
 
 interface SidebarProps {
   className?: string;
@@ -28,7 +28,7 @@ const Sidebar = memo(({ className }: SidebarProps) => {
   );
 
   return (
-    <div
+    <menu
       data-testid={'sidebar'}
       className={classNames(styles.sidebar, { [styles.collapsed]: collapsed }, [
         className,
@@ -52,7 +52,7 @@ const Sidebar = memo(({ className }: SidebarProps) => {
         <ThemeSwitcher />
         <LanguageSwitcher />
       </div>
-    </div>
+    </menu>
   );
 });
 

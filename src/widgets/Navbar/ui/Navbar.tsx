@@ -1,13 +1,13 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import styles from './Navbar.module.scss';
-import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
-import { Button, ButtonSizes, ButtonVariants } from 'shared/ui/button/Button';
-import { LoginModal } from 'features/authByUsername';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { LoginModal } from 'features/authByUsername';
 import { getUserAuthData } from 'entities/User';
 import { userActions } from 'entities/User/model/slice/userSlice';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { Button, ButtonSizes, ButtonVariants } from 'shared/ui/button/Button';
+import styles from './Navbar.module.scss';
 
 const Navbar = memo(() => {
   const { t } = useTranslation('main');
@@ -29,7 +29,7 @@ const Navbar = memo(() => {
 
   if (authData) {
     return (
-      <div className={classNames(styles.navbar)}>
+      <header className={classNames(styles.navbar)}>
         <div className={classNames(styles.links)}>
           <Button
             size={ButtonSizes.M}
@@ -39,12 +39,12 @@ const Navbar = memo(() => {
             {t('Выйти')}
           </Button>
         </div>
-      </div>
+      </header>
     );
   }
 
   return (
-    <div className={classNames(styles.navbar)}>
+    <header className={classNames(styles.navbar)}>
       <div className={classNames(styles.links)}>
         <Button
           size={ButtonSizes.M}
@@ -57,7 +57,7 @@ const Navbar = memo(() => {
           <LoginModal isOpen={isOpenModal} onClose={onCloseModal} />
         )}
       </div>
-    </div>
+    </header>
   );
 });
 

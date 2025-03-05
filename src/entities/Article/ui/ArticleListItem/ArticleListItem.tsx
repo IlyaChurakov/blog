@@ -1,8 +1,8 @@
-import { memo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useHover } from 'shared/lib/hooks/useHover';
+import AppLink from 'shared/ui/appLink/AppLink';
 import { Button, ButtonVariants } from 'shared/ui/button/Button';
 import { Card } from 'shared/ui/card/Card';
 import { Text } from 'shared/ui/text/Text';
@@ -19,26 +19,21 @@ import {
 interface ArticleListItemProps {
   article: Article;
   view: ArticleView;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem = memo(
-  ({ article, view }: ArticleListItemProps) => {
+  ({ article, view, target }: ArticleListItemProps) => {
     const { isHover, onMouseEnter, onMouseLeave } = useHover();
-    const navigate = useNavigate();
 
-    const onOpenArticle = () => {
-      navigate(RoutePath.article_details + '/' + article.id);
-    };
-
-    return (
+    const content = (
       <Card
+        view={view}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
-        view={view}
         className={classNames('', { [styles.isHover]: isHover }, [
           styles[view],
         ])}
-        onClick={view === 'tile' ? onOpenArticle : undefined}
       >
         <img src={article.img} className={styles.image} />
 
@@ -66,16 +61,29 @@ export const ArticleListItem = memo(
           )}
 
           {view === 'list' && (
-            <Button
-              variant={ButtonVariants.CONTAINED}
+            <AppLink
+              target={target}
+              to={RoutePath.article_details + '/' + article.id}
               className={styles.button}
-              onClick={onOpenArticle}
             >
-              Читать далее...
-            </Button>
+              <Button variant={ButtonVariants.CONTAINED}>
+                Читать далее...
+              </Button>
+            </AppLink>
           )}
         </div>
       </Card>
+    );
+
+    return view === 'tile' ? (
+      <AppLink
+        target={target}
+        to={RoutePath.article_details + '/' + article.id}
+      >
+        {content}
+      </AppLink>
+    ) : (
+      content
     );
   },
 );

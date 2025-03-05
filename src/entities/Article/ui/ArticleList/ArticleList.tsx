@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import Skeleton from 'shared/ui/skeleton/Skeleton';
 import { Text, TextColors } from 'shared/ui/text/Text';
@@ -10,6 +10,7 @@ interface ArticleListProps {
   articles: Article[];
   isLoading?: boolean;
   view?: ArticleView;
+  target?: HTMLAttributeAnchorTarget;
   className?: string;
   error?: string;
 }
@@ -19,6 +20,7 @@ export const ArticleList = memo(
     className,
     articles,
     view = 'tile',
+    target,
     isLoading,
     error,
   }: ArticleListProps) => {
@@ -41,7 +43,12 @@ export const ArticleList = memo(
           <Text color={TextColors.ACCENT} title="Статей еще нет" />
         ) : (
           articles.map((article) => (
-            <ArticleListItem key={article.id} article={article} view={view} />
+            <ArticleListItem
+              target={target}
+              key={article.id}
+              article={article}
+              view={view}
+            />
           ))
         )}
 

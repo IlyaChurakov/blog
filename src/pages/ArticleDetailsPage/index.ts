@@ -1,3 +1,5 @@
+export { ArticleDetailsPageSchema } from './model/types/index';
+export { ArticleDetailsRecommendationsSchema } from 'pages/ArticleDetailsPage/model/types/articleDetailsRecommendationsSchema';
 export {
   articleDetailsActions,
   articleDetailsReducer,

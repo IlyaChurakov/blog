@@ -5,15 +5,25 @@ import {
   getArticleDetailsCommentsError,
   getArticleDetailsCommentsIsLoading,
 } from 'pages/ArticleDetailsPage/model/selectors/articleDetailsComment';
+import {
+  getArticleDetailsRecommendationsError,
+  getArticleDetailsRecommendationsIsLoading,
+} from 'pages/ArticleDetailsPage/model/selectors/articleDetailsRecommendations';
 import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/services/addCommentForArticle';
+import { fetchArticleRecommendations } from 'pages/ArticleDetailsPage/model/services/fetchArticleRecommendations';
 import { fetchCommentsByArticleId } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId';
+import { ArticleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slice';
 import {
   articleDetailsCommentsReducer,
   getArticleDetailsComments,
 } from 'pages/ArticleDetailsPage/model/slice/articleDetailsCommentsSlice';
+import {
+  articleDetailsRecommendationsReducer,
+  getArticleRecommendations,
+} from 'pages/ArticleDetailsPage/model/slice/articleDetailsRecommendationsSlice';
 import { Page } from 'widgets/Page/ui/Page';
 import { CommentForm } from 'features/addNewComment';
-import { ArticleDetails } from 'entities/Article';
+import { ArticleDetails, ArticleList } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
@@ -32,7 +42,7 @@ interface ArticleDetailsPageProps {
 }
 
 const reducers: ReducersList = {
-  articleDetailsComments: articleDetailsCommentsReducer,
+  articleDetailsPage: ArticleDetailsPageReducer,
 };
 
 const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
@@ -40,11 +50,22 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  useInitialEffect(() => dispatch(fetchCommentsByArticleId(id)));
+  useInitialEffect(() => {
+    dispatch(fetchCommentsByArticleId(id));
+    dispatch(fetchArticleRecommendations());
+  });
 
   const comments = useSelector(getArticleDetailsComments.selectAll);
   const isLoading = useSelector(getArticleDetailsCommentsIsLoading);
   const error = useSelector(getArticleDetailsCommentsError);
+
+  const recommedations = useSelector(getArticleRecommendations.selectAll);
+  const recommedationsIsLoading = useSelector(
+    getArticleDetailsRecommendationsIsLoading,
+  );
+  const recommedationsError = useSelector(
+    getArticleDetailsRecommendationsError,
+  );
 
   const onSendComment = useCallback(
     (text: string) => {
@@ -65,6 +86,14 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
           <ArrowLeft />
         </Button>
         <ArticleDetails id={id!} />
+        <Text title="Рекомендуем" className={styles.commentsBlock} />
+        <ArticleList
+          target="_blank"
+          articles={recommedations}
+          isLoading={recommedationsIsLoading}
+          error={recommedationsError}
+          className={styles.recommendations}
+        />
         <Text title="Комментарии" className={styles.commentsBlock} />
         <CommentForm onSendComment={onSendComment} />
         <CommentList comments={comments} isLoading={isLoading} error={error} />

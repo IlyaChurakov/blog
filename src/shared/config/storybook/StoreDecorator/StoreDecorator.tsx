@@ -1,15 +1,15 @@
 import { StoryFn } from '@storybook/react';
 import { StateSchema, StoreProvider } from 'app/providers/storeProvider';
-import { articleDetailsReducer } from 'entities/Article/model/slices/articleDetailsSlice';
+import { ArticleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slice';
 import { newCommentReducer } from 'features/addNewComment/model/slice/newCommentSlice';
 import { loginReducer } from 'features/authByUsername';
-import { articleDetailsCommentsReducer } from 'pages/ArticleDetailsPage/model/slice/articleDetailsCommentsSlice';
+import { articleDetailsReducer } from 'entities/Article/model/slices/articleDetailsSlice';
 
 const defaultAsyncReducers = {
   login: loginReducer,
   articleDetails: articleDetailsReducer,
   newComment: newCommentReducer,
-  articleDetailsComments: articleDetailsCommentsReducer,
+  articleDetailsPage: ArticleDetailsPageReducer,
 };
 
 export const StoreDecorator =

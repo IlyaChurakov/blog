@@ -5,7 +5,7 @@ import {
   Reducer,
   ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
+import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage/model/types/articlesPage';
 import { ScrollSchema } from 'widgets/Page';
 import { NewCommentSchema } from 'features/addNewComment';
@@ -30,9 +30,9 @@ export interface StateSchema {
   login?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
-  articleDetailsComments?: ArticleDetailsCommentsSchema;
   newComment?: NewCommentSchema;
   articlesPageSlice?: ArticlesPageSchema;
+  articleDetailsPage?: ArticleDetailsPageSchema;
 }
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {

@@ -5,6 +5,11 @@ export {
   articleDetailsActions,
   articleDetailsReducer,
 } from 'pages/ArticleDetailsPage';
+export {
+  getArticleDetailsData,
+  getArticleDetailsIsLoading,
+  getArticleDetailsError,
+} from './model/selectors/articleDetails';
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 export { ArticleList } from './ui/ArticleList/ArticleList';
 export { ArticleListItem } from './ui/ArticleListItem/ArticleListItem';

@@ -4,9 +4,12 @@ import { useSelector } from 'react-redux';
 import { LoginModal } from 'features/authByUsername';
 import { getUserAuthData } from 'entities/User';
 import { userActions } from 'entities/User/model/slice/userSlice';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import AppLink, { AppLinkVariants } from 'shared/ui/appLink/AppLink';
 import { Button, ButtonSizes, ButtonVariants } from 'shared/ui/button/Button';
+import { Text, TextColors } from 'shared/ui/text/Text';
 import styles from './Navbar.module.scss';
 
 const Navbar = memo(() => {
@@ -30,7 +33,15 @@ const Navbar = memo(() => {
   if (authData) {
     return (
       <header className={classNames(styles.navbar)}>
+        <Text className={styles.logo} title="Blog" color={TextColors.ACCENT} />
+
         <div className={classNames(styles.links)}>
+          <AppLink
+            variant={AppLinkVariants.SECONDARY}
+            to={RoutePath.article_create}
+          >
+            Создать статью
+          </AppLink>
           <Button
             size={ButtonSizes.M}
             variant={ButtonVariants.TEXT_INVERTED}
@@ -46,6 +57,7 @@ const Navbar = memo(() => {
   return (
     <header className={classNames(styles.navbar)}>
       <div className={classNames(styles.links)}>
+        <Text title="Blog" color={TextColors.ACCENT} />
         <Button
           size={ButtonSizes.M}
           variant={ButtonVariants.TEXT_INVERTED}

@@ -1,14 +1,15 @@
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { BuildOptions } from './types/config';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import {
   DefinePlugin,
   HotModuleReplacementPlugin,
   ProgressPlugin,
   WebpackPluginInstance,
 } from 'webpack';
-import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import { BuildOptions } from './types/config';
 
 export function buildPlugins({
   paths,
@@ -27,6 +28,9 @@ export function buildPlugins({
       __PROJECT__: JSON.stringify(project),
     }),
     new MiniCssExtractPlugin(),
+    new CopyPlugin({
+      patterns: [{ from: paths.locales, to: paths.buildLocales }],
+    }),
   ];
 
   if (isDev) {

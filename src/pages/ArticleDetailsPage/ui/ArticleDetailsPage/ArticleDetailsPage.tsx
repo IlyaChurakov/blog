@@ -36,6 +36,7 @@ import { Button } from 'shared/ui/button/Button';
 import { Text } from 'shared/ui/text/Text';
 import { ArrowLeft } from 'lucide-react';
 import styles from './ArticleDetailsPage.module.scss';
+import ArticleDetailsPageHeader from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -82,9 +83,7 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
         data-testid="articlesDetailsPage"
         className={classNames(styles.articleDetailsPage, {}, [className])}
       >
-        <Button onClick={() => navigate('/articles')}>
-          <ArrowLeft />
-        </Button>
+        <ArticleDetailsPageHeader />
         <ArticleDetails id={id!} />
         <Text title="Рекомендуем" className={styles.commentsBlock} />
         <ArticleList

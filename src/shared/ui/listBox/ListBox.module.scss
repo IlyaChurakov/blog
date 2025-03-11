@@ -1,0 +1,28 @@
+.ListBox {
+  position: relative;
+}
+
+.options {
+  background-color: var(--accent-color);
+  z-index: 10;
+  margin-top: 20px;
+  position: absolute;
+}
+
+.top {
+  bottom: 100%;
+}
+
+.option {
+  padding: 10px 20px;
+  color: var(--text-color);
+}
+
+.active {
+  background-color: var(--text-color);
+  color: var(--accent-color);
+}
+
+.unavailable {
+  opacity: 0.5;
+}

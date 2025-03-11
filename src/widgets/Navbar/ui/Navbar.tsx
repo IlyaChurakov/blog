@@ -7,7 +7,9 @@ import { userActions } from 'entities/User/model/slice/userSlice';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { Dropdown } from 'shared/ui/Dropdown/ui/Dropdown';
 import AppLink, { AppLinkVariants } from 'shared/ui/appLink/AppLink';
+import { Avatar } from 'shared/ui/avatar/Avatar';
 import { Button, ButtonSizes, ButtonVariants } from 'shared/ui/button/Button';
 import { Text, TextColors } from 'shared/ui/text/Text';
 import styles from './Navbar.module.scss';
@@ -42,13 +44,20 @@ const Navbar = memo(() => {
           >
             {t('Создать статью')}
           </AppLink>
-          <Button
-            size={ButtonSizes.M}
-            variant={ButtonVariants.TEXT_INVERTED}
-            onClick={onLogout}
-          >
-            {t('Выйти')}
-          </Button>
+          <Dropdown
+            trigger={<Avatar size={40} src={authData.avatar} />}
+            items={[
+              {
+                content: <p>Профиль</p>,
+                href: RoutePath.profile + '/' + authData.id,
+              },
+              {
+                content: <p>Выход</p>,
+                onClick: () => onLogout(),
+              },
+            ]}
+            direction="bottom left"
+          />
         </div>
       </header>
     );

@@ -1,6 +1,7 @@
 import { Listbox as HListBox } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { DropdownDirection } from 'shared/types/ui';
 import { Check } from 'lucide-react';
 import styles from './ListBox.module.scss';
 import { Button } from '../button/Button';
@@ -11,8 +12,6 @@ export interface ListBoxItem {
   disabled?: boolean;
 }
 
-type DropdownDirection = 'top' | 'bottom';
-
 interface ListBoxProps {
   className?: string;
   items?: ListBoxItem[];
@@ -22,13 +21,20 @@ interface ListBoxProps {
   direction?: DropdownDirection;
 }
 
+const mapDirections: Record<DropdownDirection, string> = {
+  'bottom left': styles.bottomLeft,
+  'bottom right': styles.bottomRight,
+  'top left': styles.topLeft,
+  'top right': styles.topRight,
+};
+
 export function ListBox({
   className,
   items,
   value,
   defaultValue,
   onChange,
-  direction = 'bottom',
+  direction = 'top right',
 }: ListBoxProps) {
   return (
     <HListBox
@@ -41,7 +47,7 @@ export function ListBox({
         <Button>{value ?? defaultValue}</Button>
       </HListBox.Button>
       <HListBox.Options
-        className={classNames(styles.options, {}, [styles[direction]])}
+        className={classNames(styles.options, {}, [mapDirections[direction]])}
       >
         {items?.map((item) => (
           <HListBox.Option

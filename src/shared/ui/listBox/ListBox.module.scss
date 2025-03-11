@@ -9,8 +9,24 @@
   position: absolute;
 }
 
-.top {
+.topLeft {
   bottom: 100%;
+  right: 100%;
+}
+
+.topRight {
+  bottom: 100%;
+  left: 100%;
+}
+
+.bottomLeft {
+  top: 100%;
+  right: 100%;
+}
+
+.bottomRight {
+  top: 100%;
+  left: 100%;
 }
 
 .option {

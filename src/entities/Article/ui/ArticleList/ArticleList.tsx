@@ -1,4 +1,6 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
+import { List, ListRowProps, WindowScroller } from 'react-virtualized';
+import { PAGE_ID } from 'widgets/Page/ui/Page';
 import { classNames } from 'shared/lib/classNames/classNames';
 import Skeleton from 'shared/ui/skeleton/Skeleton';
 import { Text, TextColors } from 'shared/ui/text/Text';
@@ -28,32 +30,79 @@ export const ArticleList = memo(
     const isEmpty = !articles?.length;
     const isNextPageLoading = isLoading && !!articles?.length;
 
-    return (
-      <div
-        className={classNames(styles.ArticleList, {}, [
-          className,
-          styles[view],
-        ])}
-      >
-        {isInitLoading ? (
-          <ArticleListSkeleton view={view} />
-        ) : !!error ? (
-          <Text color={TextColors.ERROR} title={error} />
-        ) : isEmpty ? (
-          <Text color={TextColors.ACCENT} title="Статей еще нет" />
-        ) : (
-          articles.map((article) => (
-            <ArticleListItem
-              target={target}
-              key={article.id}
-              article={article}
-              view={view}
-            />
-          ))
-        )}
+    const isList = view === 'list';
 
-        {isNextPageLoading && <ArticleListNextPage />}
-      </div>
+    const itemsPerRow = isList ? 1 : 3;
+    const rowCount = isList ? articles.length : Math.ceil(articles.length / 3);
+
+    const rowRenderer = ({ index, style, key }: ListRowProps) => {
+      const items = [];
+      const fromIndex = index * itemsPerRow;
+      const toIndex = Math.min(fromIndex + itemsPerRow, articles.length);
+
+      for (let i = fromIndex; i < toIndex; i++) {
+        items.push(
+          <ArticleListItem
+            key={i}
+            view={view}
+            target={target}
+            article={articles[i]}
+          />,
+        );
+      }
+
+      return (
+        <div
+          key={key}
+          style={style}
+          className={classNames(styles.ArticleList, {}, [
+            className,
+            styles[view],
+          ])}
+        >
+          {items}
+        </div>
+      );
+    };
+
+    const page = document.getElementById(PAGE_ID);
+    if (!page) return null;
+
+    return (
+      <WindowScroller scrollElement={page}>
+        {({
+          width,
+          height,
+          registerChild,
+          onChildScroll,
+          isScrolling,
+          scrollTop,
+        }) => (
+          <div ref={registerChild}>
+            {isInitLoading ? (
+              <ArticleListSkeleton view={view} />
+            ) : error ? (
+              <Text color={TextColors.ERROR} title={error} />
+            ) : isEmpty ? (
+              <Text color={TextColors.ACCENT} title="Статей еще нет" />
+            ) : (
+              <List
+                height={height}
+                width={width ? width - 50 : 700}
+                rowCount={rowCount}
+                rowHeight={isList ? 500 : 370}
+                autoHeight
+                onScroll={onChildScroll}
+                scrollTop={scrollTop}
+                isScrolling={isScrolling}
+                rowRenderer={rowRenderer}
+              />
+            )}
+
+            {isNextPageLoading && <ArticleListNextPage />}
+          </div>
+        )}
+      </WindowScroller>
     );
   },
 );

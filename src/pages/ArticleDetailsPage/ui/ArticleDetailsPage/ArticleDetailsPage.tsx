@@ -1,26 +1,6 @@
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
-import {
-  getArticleDetailsCommentsError,
-  getArticleDetailsCommentsIsLoading,
-} from 'pages/ArticleDetailsPage/model/selectors/articleDetailsComment';
-import {
-  getArticleDetailsRecommendationsError,
-  getArticleDetailsRecommendationsIsLoading,
-} from 'pages/ArticleDetailsPage/model/selectors/articleDetailsRecommendations';
-import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/services/addCommentForArticle';
-import { fetchArticleRecommendations } from 'pages/ArticleDetailsPage/model/services/fetchArticleRecommendations';
-import { fetchCommentsByArticleId } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId';
-import { ArticleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slice';
-import {
-  articleDetailsCommentsReducer,
-  getArticleDetailsComments,
-} from 'pages/ArticleDetailsPage/model/slice/articleDetailsCommentsSlice';
-import {
-  articleDetailsRecommendationsReducer,
-  getArticleRecommendations,
-} from 'pages/ArticleDetailsPage/model/slice/articleDetailsRecommendationsSlice';
+import { useParams } from 'react-router-dom';
 import { Page } from 'widgets/Page/ui/Page';
 import { CommentForm } from 'features/addNewComment';
 import { ArticleDetails, ArticleList } from 'entities/Article';
@@ -32,11 +12,23 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { Button } from 'shared/ui/button/Button';
 import { Text } from 'shared/ui/text/Text';
-import { ArrowLeft } from 'lucide-react';
 import styles from './ArticleDetailsPage.module.scss';
-import ArticleDetailsPageHeader from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import {
+  getArticleDetailsCommentsError,
+  getArticleDetailsCommentsIsLoading,
+} from '../../model/selectors/articleDetailsComment';
+import {
+  getArticleDetailsRecommendationsError,
+  getArticleDetailsRecommendationsIsLoading,
+} from '../../model/selectors/articleDetailsRecommendations';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle';
+import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
+import { ArticleDetailsPageReducer } from '../../model/slice';
+import { getArticleDetailsComments } from '../../model/slice/articleDetailsCommentsSlice';
+import { getArticleRecommendations } from '../../model/slice/articleDetailsRecommendationsSlice';
+import ArticleDetailsPageHeader from '../../ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -49,7 +41,6 @@ const reducers: ReducersList = {
 const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));

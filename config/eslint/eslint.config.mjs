@@ -1,81 +1,72 @@
+import js from '@eslint/js';
+import tseslintPlugin from '@typescript-eslint/eslint-plugin';
+import eslintI18next from 'eslint-plugin-i18next';
+import eslintFsdPathChecker from 'eslint-plugin-ic-fsd-path-checker';
+import eslintReact from 'eslint-plugin-react';
+import eslintReactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
-import pluginJs from '@eslint/js';
 import tseslint from 'typescript-eslint';
-import pluginReact from 'eslint-plugin-react';
-import i18next from 'eslint-plugin-i18next';
-import reactHooks from 'eslint-plugin-react-hooks';
 
-/** @type {import('eslint').Linter.Config[]} */
+/** @type {import('eslint').Linter.Config} */
 export default [
-  i18next.configs['flat/recommended'],
-  pluginJs.configs.recommended,
-  pluginReact.configs.flat.recommended,
-  pluginReact.configs.flat['jsx-runtime'],
-
   {
-    files: ['**/*.{js,cjs,ts,jsx,tsx}'],
-    rules: {
-      'react/prop-types': 'off',
-      'no-unused-vars': 'error',
-      'no-undef': 'error',
-      'react/jsx-indent': [2, 2],
-      'react/jsx-indent-props': [2, 2],
-      indent: [2, 2],
-      'react/jsx-filename-extension': [
-        2,
-        { extensions: ['.js', '.jsx', '.tsx'] },
-      ],
-      'import/no-unresolved': 'off',
-      'import/prefer-default-export': 'off',
-      'react/require-default-props': 'off',
-      '@typescript-eslint/ban-ts-comment': ['off'],
-      'react/display-name': 'off',
-      '@typescript-eslint/no-unused-vars': [
-        'error',
-        {
-          args: 'all',
-          argsIgnorePattern: '^_',
-          caughtErrors: 'all',
-          caughtErrorsIgnorePattern: '^_',
-          destructuredArrayIgnorePattern: '^_',
-          varsIgnorePattern: '^_',
-          ignoreRestSiblings: true,
-        },
-      ],
-      'react/jsx-uses-react': 'off',
-      'react/react-in-jsx-scope': 'off',
-      'i18next/no-literal-string': [
-        'error',
-        { markupOnly: true, ignoreAttribute: ['data-testid'] },
-      ],
+    plugins: {
+      i18next: eslintI18next,
+      react: eslintReact,
+      'react-hooks': eslintReactHooks,
+      'typescript-eslint': tseslintPlugin,
+      'ic-fsd-path-checker': eslintFsdPathChecker,
     },
-    settings: {
-      react: {
-        version: 'detect',
+  },
+  {
+    ignores: [
+      'node_modules',
+      'dist',
+      'build',
+      '.fttemplates',
+      '.github',
+      '.husky',
+      '.loki',
+      '**/src/**/*.test.{ts,tsx}',
+      '**/src/**/*.stories.{ts,tsx}',
+      '**/*.d.ts',
+    ],
+  },
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  {
+    languageOptions: {
+      globals: {
+        ...globals.node,
+        ...globals.browser,
       },
     },
   },
   {
-    files: ['**/src/**/*.test.{ts,tsx}', '**/src/**/*.stories.{ts,tsx}'],
+    files: ['**/*.{js,ts,jsx,tsx}'],
     rules: {
-      'i18next/no-literal-string': [0],
+      indent: ['error', 2],
+      'react/jsx-indent': ['error', 2],
+      'react/prop-types': 'off',
+      'react/display-name': 'off',
+      'react/jsx-uses-react': 'off',
+      'react/jsx-indent-props': ['error', 2],
+      'react/react-in-jsx-scope': 'off',
+      'react/require-default-props': 'off',
+      'import/prefer-default-export': 'off',
+      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/ban-ts-comment': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '_',
+        },
+      ],
+      'i18next/no-literal-string': [
+        'error',
+        { markupOnly: true, ignoreAttribute: 'data-testid' },
+      ],
+      'ic-fsd-path-checker/path-checker': 'error',
     },
-  },
-  {
-    plugins: {
-      'react-hooks': reactHooks,
-    },
-    rules: {
-      'react-hooks/rules-of-hooks': 'error',
-      'react-hooks/exhaustive-deps': 'warn',
-    },
-  },
-  {
-    languageOptions: { globals: globals.browser },
-  },
-  ...tseslint.configs.recommended,
-  {
-    files: ['../../.templates/**/*.*'],
-    rules: {},
   },
 ];

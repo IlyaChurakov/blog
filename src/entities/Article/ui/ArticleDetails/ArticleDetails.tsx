@@ -1,30 +1,27 @@
 import { memo, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import {
-  getArticleDetailsData,
-  getArticleDetailsError,
-  getArticleDetailsIsLoading,
-} from 'entities/Article/model/selectors/articleDetails';
-import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
-import { articleDetailsReducer } from 'entities/Article/model/slices/articleDetailsSlice';
-import {
-  ArticleBlock,
-  ArticleBlockType,
-} from 'entities/Article/model/types/article';
-import { classNames } from 'shared/lib/classNames/classNames';
-import {
   DynamicModuleLoader,
   ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Avatar } from 'shared/ui/avatar/Avatar';
 import Skeleton from 'shared/ui/skeleton/Skeleton';
+import { HStack } from 'shared/ui/stack';
+import { VStack } from 'shared/ui/stack';
 import { Text, TextColors } from 'shared/ui/text/Text';
 import { Calendar1Icon, EyeIcon } from 'lucide-react';
-import styles from './ArticleDetails.module.scss';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import {
+  getArticleDetailsData,
+  getArticleDetailsError,
+  getArticleDetailsIsLoading,
+} from '../../model/selectors/articleDetails';
+import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
+import { articleDetailsReducer } from '../../model/slices/articleDetailsSlice';
+import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 
 const reducers: ReducersList = {
   articleDetails: articleDetailsReducer,
@@ -46,35 +43,33 @@ export const ArticleDetails = memo(({ id }: ArticleDetailsProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(styles.articleDetailsWrapper)}>
-        {isLoading ? (
-          <ArticleDetailsSkeleton />
-        ) : !!error ? (
-          <Text
-            color={TextColors.ERROR}
-            title="Произошла ошибка при загрузке статьи"
-          />
-        ) : (
-          !!data && (
-            <div className={classNames(styles.articleDetails)}>
-              <Avatar src={data.img} />
-              <Text title={data.title} text={data.subtitle} justify="center" />
-              <div className={classNames(styles.views)}>
-                <EyeIcon />
-                <Text title={String(data.views)} justify="center" />
-              </div>
-              <div className={classNames(styles.createdAt)}>
-                <Calendar1Icon />
-                <Text title={data.createdAt} justify="center" />
-              </div>
+      {isLoading ? (
+        <ArticleDetailsSkeleton />
+      ) : error ? (
+        <Text
+          color={TextColors.ERROR}
+          title="Произошла ошибка при загрузке статьи"
+        />
+      ) : (
+        !!data && (
+          <VStack gap="16">
+            <Avatar src={data.img} />
+            <Text title={data.title} text={data.subtitle} justify="center" />
+            <HStack justify="between" gap="16">
+              <EyeIcon />
+              <Text title={String(data.views)} justify="center" />
+            </HStack>
+            <HStack justify="between" gap="16">
+              <Calendar1Icon />
+              <Text title={data.createdAt} justify="center" />
+            </HStack>
 
-              {data.blocks.map((block) => (
-                <Block key={block.id} block={block} />
-              ))}
-            </div>
-          )
-        )}
-      </div>
+            {data.blocks.map((block) => (
+              <Block key={block.id} block={block} />
+            ))}
+          </VStack>
+        )
+      )}
     </DynamicModuleLoader>
   );
 });
@@ -94,7 +89,7 @@ export function Block({ block }: { block?: ArticleBlock }) {
 
 function ArticleDetailsSkeleton() {
   return (
-    <div className={styles.articleDetailsSkeleton}>
+    <VStack gap="16">
       <Skeleton width={100} height={100} borderRadius={50} />
       <Skeleton width="100%" height={70} borderRadius={0} />
       <Skeleton width="100%" height={200} borderRadius={0} />
@@ -102,6 +97,6 @@ function ArticleDetailsSkeleton() {
       <Skeleton width="100%" height={200} borderRadius={0} />
       <Skeleton width="100%" height={70} borderRadius={0} />
       <Skeleton width="100%" height={200} borderRadius={0} />
-    </div>
+    </VStack>
   );
 }

@@ -1,25 +1,26 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonColors, ButtonSizes } from 'shared/ui/button/Button';
-import { Input } from 'shared/ui/input/Input';
-import styles from './CommentForm.module.scss';
-import { useSelector } from 'react-redux';
-import {
-  getNewCommentError,
-  getNewCommentIsLoading,
-  getNewCommentText,
-} from 'features/addNewComment/model/selectors/newComment';
-import {
-  newCommentActions,
-  newCommentReducer,
-} from 'features/addNewComment/model/slice/newCommentSlice';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { checkErrorType } from 'shared/lib/checkErrorType/checkErrorType';
-import { Text, TextColors } from 'shared/ui/text/Text';
 import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { checkErrorType } from 'shared/lib/checkErrorType/checkErrorType';
+import { classNames } from 'shared/lib/classNames/classNames';
 import {
   DynamicModuleLoader,
   ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { Button, ButtonColors, ButtonSizes } from 'shared/ui/button/Button';
+import { Input } from 'shared/ui/input/Input';
+import { Text, TextColors } from 'shared/ui/text/Text';
+import styles from './CommentForm.module.scss';
+import {
+  getNewCommentError,
+  getNewCommentIsLoading,
+  getNewCommentText,
+} from '../../model/selectors/newComment';
+import {
+  newCommentActions,
+  newCommentReducer,
+} from '../../model/slice/newCommentSlice';
 
 const reducers: ReducersList = {
   newComment: newCommentReducer,
@@ -30,6 +31,7 @@ export interface CommentFormProps {
 }
 
 const CommentForm = ({ onSendComment }: CommentFormProps) => {
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const text = useSelector(getNewCommentText);
   const isLoading = useSelector(getNewCommentIsLoading);
@@ -68,7 +70,7 @@ const CommentForm = ({ onSendComment }: CommentFormProps) => {
               size={ButtonSizes.M}
               color={ButtonColors.ACCENT}
             >
-              Отправить
+              {t('Отправить')}
             </Button>
           </>
         )}

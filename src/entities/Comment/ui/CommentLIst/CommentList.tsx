@@ -1,10 +1,10 @@
 import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import styles from './CommentList.module.scss';
 import Skeleton from 'shared/ui/skeleton/Skeleton';
-import { CommentCard } from '../CommentCard/CommentCard';
-import { Comment } from 'entities/Comment/model/types/comment';
 import { Text, TextColors } from 'shared/ui/text/Text';
+import styles from './CommentList.module.scss';
+import { CommentCard } from '../CommentCard/CommentCard';
+import { Comment } from '../../model/types/comment';
 
 interface CommentListProps {
   comments?: Comment[];
@@ -18,7 +18,7 @@ export const CommentList = memo(
       <div className={classNames(styles.commentsList)}>
         {isLoading ? (
           <CommentsSkeleton count={comments?.length || 1} />
-        ) : !!error ? (
+        ) : error ? (
           <Text color={TextColors.ERROR} text={error} />
         ) : !comments?.length ? (
           <Text text="Комментариев нет" />

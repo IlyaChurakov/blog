@@ -4,7 +4,6 @@ import {
   MutableRefObject,
   ReactNode,
   UIEvent,
-  useEffect,
   useRef,
 } from 'react';
 import { useSelector } from 'react-redux';
@@ -24,6 +23,8 @@ interface PageProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   onScrollEnd?: () => void;
 }
+
+export const PAGE_ID = 'PAGE_ID';
 
 export const Page = memo(
   ({ className, children, onScrollEnd, ...props }: PageProps) => {
@@ -61,6 +62,7 @@ export const Page = memo(
 
     return (
       <section
+        id={PAGE_ID}
         ref={wrapperRef}
         className={classNames(styles.Page, {}, [className])}
         {...props}

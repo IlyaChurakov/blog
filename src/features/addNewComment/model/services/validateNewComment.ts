@@ -1,6 +1,5 @@
-import * as yup from 'yup';
-import { NewCommentSchema } from '../types/newComment';
 import { Comment } from 'entities/Comment';
+import * as yup from 'yup';
 
 const newCommentSchema = yup.object({
   text: yup

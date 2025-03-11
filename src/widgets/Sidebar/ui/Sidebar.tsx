@@ -28,7 +28,7 @@ const Sidebar = memo(({ className }: SidebarProps) => {
   );
 
   return (
-    <menu
+    <aside
       data-testid={'sidebar'}
       className={classNames(styles.sidebar, { [styles.collapsed]: collapsed }, [
         className,
@@ -52,7 +52,7 @@ const Sidebar = memo(({ className }: SidebarProps) => {
         <ThemeSwitcher />
         <LanguageSwitcher />
       </div>
-    </menu>
+    </aside>
   );
 });
 

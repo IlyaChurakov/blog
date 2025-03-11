@@ -1,12 +1,5 @@
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import {
-  getArticlesPageError,
-  getArticlesPageIsLoading,
-  getArticlesPageView,
-} from 'pages/ArticlesPage/model/selectors/articlesPage';
-import { fetchNextArticles } from 'pages/ArticlesPage/model/services/fetchNextArticles/fetchNextArticles';
-import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
 import { Page } from 'widgets/Page/ui/Page';
 import { ArticleList } from 'entities/Article';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -19,6 +12,13 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { getQueryParams } from 'shared/lib/url/getQueryParams/getQueryParams';
 import styles from './ArticlesPage.module.scss';
 import { ArticlesPageFilters } from '../ArticlesPageFilters';
+import {
+  getArticlesPageError,
+  getArticlesPageIsLoading,
+  getArticlesPageView,
+} from '../../model/selectors/articlesPage';
+import { fetchNextArticles } from '../../model/services/fetchNextArticles/fetchNextArticles';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import {
   articlesPageReducer,
   getArticles,

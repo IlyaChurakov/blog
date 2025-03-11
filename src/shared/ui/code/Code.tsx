@@ -1,9 +1,9 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import styles from './Code.module.scss';
 import { memo, MouseEvent, useEffect, useState } from 'react';
-import { Button, ButtonColors, ButtonVariants } from '../button/Button';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { Copy } from 'lucide-react';
-import { Text, TextColors } from '../text/Text';
+import styles from './Code.module.scss';
+import { Button, ButtonColors } from '../button/Button';
+import { Text } from '../text/Text';
 
 interface CodeProps {
   className?: string;

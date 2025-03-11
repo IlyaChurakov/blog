@@ -1,15 +1,6 @@
 import { memo, useCallback, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import {
-  getArticlesPageOrder,
-  getArticlesPageSearch,
-  getArticlesPageSort,
-  getArticlesPageType,
-  getArticlesPageView,
-} from 'pages/ArticlesPage/model/selectors/articlesPage';
-import { fetchArticles } from 'pages/ArticlesPage/model/services/fetchArticles';
-import { articlesPageActions } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
-import {
   ArticleSortField,
   ArticleType,
 } from 'entities/Article/model/types/article';
@@ -24,6 +15,15 @@ import { Input } from 'shared/ui/input/Input';
 import { Tabs } from 'shared/ui/tabs/Tabs';
 import { AlignJustify, LayoutGrid } from 'lucide-react';
 import styles from './ArticlesPageFilters.module.scss';
+import {
+  getArticlesPageOrder,
+  getArticlesPageSearch,
+  getArticlesPageSort,
+  getArticlesPageType,
+  getArticlesPageView,
+} from '../../../model/selectors/articlesPage';
+import { fetchArticles } from '../../../model/services/fetchArticles';
+import { articlesPageActions } from '../../../model/slices/articlesPageSlice';
 
 interface ArticlesPageFiltersProps {
   className?: string;

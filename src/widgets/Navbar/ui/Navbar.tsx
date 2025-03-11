@@ -40,7 +40,7 @@ const Navbar = memo(() => {
             variant={AppLinkVariants.SECONDARY}
             to={RoutePath.article_create}
           >
-            Создать статью
+            {t('Создать статью')}
           </AppLink>
           <Button
             size={ButtonSizes.M}

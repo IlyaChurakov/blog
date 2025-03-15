@@ -1,5 +1,5 @@
-import { Profile } from '../../types/profile';
 import * as yup from 'yup';
+import { Profile } from '../../../../../entities/Profile/model/types/profile';
 
 const profileSchema = yup.object({
   name: yup.string().required('Имя обязательно'),

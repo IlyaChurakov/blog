@@ -10,10 +10,11 @@ import { ArticlesPageSchema } from 'pages/ArticlesPage/model/types/articlesPage'
 import { ScrollSchema } from 'widgets/Page';
 import { NewCommentSchema } from 'features/addNewComment';
 import { LoginSchema } from 'features/authByUsername';
+import { ProfileSchema } from 'features/editableProfileCard';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { CounterSchema } from 'entities/Counter';
-import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
+import { rtkApi } from 'shared/api/rtkApi';
 import { AxiosInstance } from 'axios';
 
 export type StateSchemaKey = keyof StateSchema;
@@ -33,6 +34,7 @@ export interface StateSchema {
   newComment?: NewCommentSchema;
   articlesPageSlice?: ArticlesPageSchema;
   articleDetailsPage?: ArticleDetailsPageSchema;
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 }
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {

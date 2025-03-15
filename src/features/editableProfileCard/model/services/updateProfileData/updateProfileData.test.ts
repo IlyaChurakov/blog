@@ -1,6 +1,6 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { Profile } from '../../types/profile';
 import { updateProfileData } from './updateProfileData';
+import { Profile } from '../../../../../entities/Profile/model/types/profile';
 
 describe('updateProfileData', () => {
   test('updated', async () => {

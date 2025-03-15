@@ -1,18 +1,16 @@
-import { Button, ButtonColors, ButtonVariants } from 'shared/ui/button/Button';
-import styles from './ProfilePageHeader.module.scss';
-import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useSelector } from 'react-redux';
-import {
-  getProfileReadonly,
-  profileActions,
-  updateProfileData,
-} from 'entities/Profile';
 import { useCallback } from 'react';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { Button, ButtonColors, ButtonVariants } from 'shared/ui/button/Button';
+import styles from './EditableProfileCardHeader.module.scss';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProgileReadonly';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
+import { profileActions } from '../../model/slice/profileSlice';
 
-export const ProfilePageHeader = () => {
+export const EditableProfileCardHeader = () => {
   const { t } = useTranslation('profile');
   const authData = useSelector(getUserAuthData);
   const profileData = useSelector(getUserAuthData);

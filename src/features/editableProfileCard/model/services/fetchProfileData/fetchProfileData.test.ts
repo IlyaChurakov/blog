@@ -1,6 +1,6 @@
+import { Profile } from 'entities/Profile';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { fetchProfileData } from './fetchProfileData';
-import { Profile } from '../../types/profile';
 
 describe('fetchProdileData', () => {
   test('fetched', async () => {

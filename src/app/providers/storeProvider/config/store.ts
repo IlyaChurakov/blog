@@ -8,6 +8,7 @@ import { scrollReducer } from 'widgets/Page';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { $api } from 'shared/api/api';
+import { rtkApi } from 'shared/api/rtkApi';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 import { createReducerManager } from './reducerManager';
 
@@ -20,6 +21,7 @@ export function createReduxStore(
     counter: counterReducer,
     user: userReducer,
     scroll: scrollReducer,
+    [rtkApi.reducerPath]: rtkApi.reducer,
   };
 
   const reducerManager = createReducerManager(rootReducers); // нужен для управления динамическими редюсерами
@@ -37,7 +39,7 @@ export function createReduxStore(
         thunk: {
           extraArgument,
         },
-      }),
+      }).concat(rtkApi.middleware),
   });
 
   // @ts-expect-error fsdf

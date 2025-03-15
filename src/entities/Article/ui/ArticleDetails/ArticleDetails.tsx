@@ -76,14 +76,14 @@ export const ArticleDetails = memo(({ id }: ArticleDetailsProps) => {
 
 export function Block({ block }: { block?: ArticleBlock }) {
   switch (block?.type) {
-    case ArticleBlockType.CODE:
-      return <ArticleCodeBlockComponent block={block} />;
-    case ArticleBlockType.IMAGE:
-      return <ArticleImageBlockComponent block={block} />;
-    case ArticleBlockType.TEXT:
-      return <ArticleTextBlockComponent block={block} />;
-    default:
-      return null;
+  case ArticleBlockType.CODE:
+    return <ArticleCodeBlockComponent block={block} />;
+  case ArticleBlockType.IMAGE:
+    return <ArticleImageBlockComponent block={block} />;
+  case ArticleBlockType.TEXT:
+    return <ArticleTextBlockComponent block={block} />;
+  default:
+    return null;
   }
 }
 

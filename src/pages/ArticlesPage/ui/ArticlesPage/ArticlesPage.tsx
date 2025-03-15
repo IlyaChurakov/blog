@@ -1,7 +1,5 @@
 import { memo, useCallback } from 'react';
-import { useSelector } from 'react-redux';
 import { Page } from 'widgets/Page/ui/Page';
-import { ArticleList } from 'entities/Article';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
   DynamicModuleLoader,
@@ -11,18 +9,11 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { getQueryParams } from 'shared/lib/url/getQueryParams/getQueryParams';
 import styles from './ArticlesPage.module.scss';
+import { ArticlesInfiniteList } from '../ArticlesInfiniteList/ArticlesInfiniteList';
 import { ArticlesPageFilters } from '../ArticlesPageFilters';
-import {
-  getArticlesPageError,
-  getArticlesPageIsLoading,
-  getArticlesPageView,
-} from '../../model/selectors/articlesPage';
 import { fetchNextArticles } from '../../model/services/fetchNextArticles/fetchNextArticles';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
-import {
-  articlesPageReducer,
-  getArticles,
-} from '../../model/slices/articlesPageSlice';
+import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
 
 interface ArticlesPageProps {
   className?: string;
@@ -34,11 +25,6 @@ const reducers: ReducersList = {
 
 const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
   const dispatch = useAppDispatch();
-
-  const articles = useSelector(getArticles.selectAll);
-  const isLoading = useSelector(getArticlesPageIsLoading);
-  const error = useSelector(getArticlesPageError);
-  const view = useSelector(getArticlesPageView);
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticles());
@@ -57,13 +43,7 @@ const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
         className={classNames(styles.articlesPage, {}, [className])}
       >
         <ArticlesPageFilters />
-
-        <ArticleList
-          view={view}
-          articles={articles}
-          isLoading={isLoading}
-          error={error}
-        />
+        <ArticlesInfiniteList />
       </Page>
     </DynamicModuleLoader>
   );

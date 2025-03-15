@@ -1,5 +1,5 @@
-import { Profile } from '../../types/profile';
 import { validateProfileData } from './validateProfileData';
+import { Profile } from '../../../../../entities/Profile/model/types/profile';
 
 describe('validateProdileData', () => {
   test('valid', () => {

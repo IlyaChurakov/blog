@@ -48,11 +48,11 @@ const Navbar = memo(() => {
             trigger={<Avatar size={40} src={authData.avatar} />}
             items={[
               {
-                content: <p>Профиль</p>,
+                content: <p>{t('Профиль')}</p>,
                 href: RoutePath.profile + '/' + authData.id,
               },
               {
-                content: <p>Выход</p>,
+                content: <p>{t('Выход')}</p>,
                 onClick: () => onLogout(),
               },
             ]}

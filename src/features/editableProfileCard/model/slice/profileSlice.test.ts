@@ -1,6 +1,6 @@
-import { ProfileSchema } from '../types/profile';
 import { profileActions, profileReducer } from './profileSlice';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
+import { ProfileSchema } from '../types/profile';
 
 describe('profileSlice', () => {
   test('set username', () => {

@@ -1,22 +1,13 @@
-.menu {
+.popup {
   position: relative;
-  font: var(--font-l) !important;
 }
 
-.button {
+.trigger {
   margin: 0;
   padding: 0;
   border: none;
   background: none;
   outline: none;
-}
-
-.items {
-  background: var(--text-color);
-  border: 1px solid var(--accent-color);
-  position: absolute;
-  z-index: 10;
-  margin-top: 20px;
 }
 
 .topLeft {
@@ -39,21 +30,11 @@
   left: 100%;
 }
 
-.item {
-  cursor: pointer;
-  outline: none;
-  color: var(--accent-color);
-  padding: 10px 20px;
-  width: 100%;
-  border: none;
-  background-color: var(--text-color);
-}
-
 .active {
   color: var(--text-color);
   background-color: var(--accent-color);
 }
 
-.disable {
+.disabled {
   opacity: 0.5;
 }

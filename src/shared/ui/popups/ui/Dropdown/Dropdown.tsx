@@ -1,9 +1,12 @@
 import { Menu } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DropdownDirection } from 'shared/types/ui';
 import styles from './Dropdown.module.scss';
-import AppLink from '../../appLink/AppLink';
+import { classNames } from '../../../../lib/classNames/classNames';
+import { DropdownDirection } from '../../../../types/ui';
+import AppLink from '../../../../ui/appLink/AppLink';
+import { Button } from '../../../../ui/button/Button';
+import { mapDirections } from '../../../../ui/popups/consts';
+import popupStyles from '../../styles/Popup.module.scss';
 
 export interface DropdownPropsItem {
   content: ReactNode;
@@ -19,13 +22,6 @@ interface DropdownProps {
   direction?: DropdownDirection;
 }
 
-const mapDirections: Record<DropdownDirection, string> = {
-  'bottom left': styles.bottomLeft,
-  'bottom right': styles.bottomRight,
-  'top left': styles.topLeft,
-  'top right': styles.topRight,
-};
-
 export function Dropdown({
   className,
   items,
@@ -33,24 +29,31 @@ export function Dropdown({
   direction = 'bottom right',
 }: DropdownProps) {
   return (
-    <Menu as="div" className={classNames(styles.menu, {}, [className])}>
-      <Menu.Button className={classNames(styles.button)} as="div">
+    <Menu
+      as="div"
+      className={classNames(styles.dropdown, {}, [
+        className,
+        popupStyles.popup,
+      ])}
+    >
+      <Menu.Button className={classNames(popupStyles.trigger)} as="div">
         {trigger}
       </Menu.Button>
+
       <Menu.Items
         className={classNames(styles.items, {}, [mapDirections[direction]])}
       >
         {items.map((item) => {
           const content = ({ active }: { active: boolean }) => (
-            <button
+            <Button
               onClick={item.onClick}
               className={classNames(styles.item, {
-                [styles.active]: active,
-                [styles.disable]: item.disable,
+                [popupStyles.active]: active,
+                [popupStyles.disabled]: item.disable,
               })}
             >
               {item.content}
-            </button>
+            </Button>
           );
 
           if (item.href) {

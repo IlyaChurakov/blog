@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux';
+import { ArticleList } from 'entities/Article';
 import {
   getArticlesPageError,
   getArticlesPageIsLoading,
   getArticlesPageView,
-} from 'pages/ArticlesPage/model/selectors/articlesPage';
-import { getArticles } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
-import { ArticleList } from 'entities/Article';
+} from '../../model/selectors/articlesPage';
+import { getArticles } from '../../model/slices/articlesPageSlice';
 
 export const ArticlesInfiniteList = () => {
   const articles = useSelector(getArticles.selectAll);

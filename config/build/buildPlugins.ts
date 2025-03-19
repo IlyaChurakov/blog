@@ -8,7 +8,6 @@ import {
   DefinePlugin,
   HotModuleReplacementPlugin,
   ProgressPlugin,
-  WebpackError,
   WebpackPluginInstance,
 } from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';

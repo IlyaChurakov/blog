@@ -1,0 +1,22 @@
+.dropdown {
+  position: relative;
+  font: var(--font-l) !important;
+}
+
+.items {
+  background: var(--text-color);
+  border: 2px solid var(--accent-color);
+  position: absolute;
+  z-index: 10;
+  margin-top: 20px;
+}
+
+.item {
+  cursor: pointer;
+  outline: none;
+  color: var(--accent-color);
+  padding: 10px 20px;
+  width: 100%;
+  border: none;
+  background-color: var(--text-color);
+}

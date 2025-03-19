@@ -1,0 +1,8 @@
+.NotificationItem {
+  padding: 15px;
+  border-bottom: 2px solid var(--accent-color);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}

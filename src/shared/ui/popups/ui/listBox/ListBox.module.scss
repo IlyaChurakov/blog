@@ -1,0 +1,11 @@
+.options {
+  background-color: var(--accent-color);
+  z-index: 10;
+  margin-top: 20px;
+  position: absolute;
+}
+
+.option {
+  padding: 10px 20px;
+  color: var(--text-color);
+}

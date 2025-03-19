@@ -1,10 +1,12 @@
 import { Listbox as HListBox } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DropdownDirection } from 'shared/types/ui';
 import { Check } from 'lucide-react';
 import styles from './ListBox.module.scss';
-import { Button } from '../button/Button';
+import { classNames } from '../../../../lib/classNames/classNames';
+import { DropdownDirection } from '../../../../types/ui';
+import { Button } from '../../../../ui/button/Button';
+import { mapDirections } from '../../consts';
+import popupStyles from '../../styles/Popup.module.scss';
 
 export interface ListBoxItem {
   value: string;
@@ -21,13 +23,6 @@ interface ListBoxProps {
   direction?: DropdownDirection;
 }
 
-const mapDirections: Record<DropdownDirection, string> = {
-  'bottom left': styles.bottomLeft,
-  'bottom right': styles.bottomRight,
-  'top left': styles.topLeft,
-  'top right': styles.topRight,
-};
-
 export function ListBox({
   className,
   items,
@@ -41,11 +36,12 @@ export function ListBox({
       as="div"
       value={value}
       onChange={onChange}
-      className={classNames(styles.ListBox, {}, [className])}
+      className={classNames(styles.listBox, {}, [className, popupStyles.popup])}
     >
       <HListBox.Button className={styles.button} as="div">
         <Button>{value ?? defaultValue}</Button>
       </HListBox.Button>
+
       <HListBox.Options
         className={classNames(styles.options, {}, [mapDirections[direction]])}
       >
@@ -59,8 +55,8 @@ export function ListBox({
             {({ active, selected }) => (
               <li
                 className={classNames(styles.option, {
-                  [styles.active]: active,
-                  [styles.unavailable]: item.disabled,
+                  [popupStyles.active]: active,
+                  [popupStyles.disabled]: item.disabled,
                 })}
               >
                 {selected && <Check />} {item.value}

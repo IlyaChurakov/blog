@@ -1,5 +1,4 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
-import { ArticleBlockType } from 'entities/Article/model/consts/consts';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useHover } from 'shared/lib/hooks/useHover';
@@ -10,6 +9,7 @@ import { Text } from 'shared/ui/text/Text';
 import { Eye } from 'lucide-react';
 import styles from './ArticleListItem.module.scss';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { ArticleBlockType } from '../../model/consts/consts';
 import {
   Article,
   ArticleTextBlock,

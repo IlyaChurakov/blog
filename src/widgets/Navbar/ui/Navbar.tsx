@@ -2,15 +2,14 @@ import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { LoginModal } from 'features/authByUsername';
-import { getUserAuthData, isUserAdmin } from 'entities/User';
-import { userActions } from 'entities/User/model/slice/userSlice';
+import { AvatarDropdown } from 'features/avatarDropdown';
+import { NotificationButton } from 'features/notificationButton';
+import { getUserAuthData } from 'entities/User';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Dropdown } from 'shared/ui/Dropdown/ui/Dropdown';
 import AppLink, { AppLinkVariants } from 'shared/ui/appLink/AppLink';
-import { Avatar } from 'shared/ui/avatar/Avatar';
 import { Button, ButtonSizes, ButtonVariants } from 'shared/ui/button/Button';
+import { HStack } from 'shared/ui/stack';
 import { Text, TextColors } from 'shared/ui/text/Text';
 import styles from './Navbar.module.scss';
 
@@ -18,8 +17,6 @@ const Navbar = memo(() => {
   const { t } = useTranslation('main');
   const [isOpenModal, setIsOpenModal] = useState(false);
   const authData = useSelector(getUserAuthData);
-  const dispatch = useAppDispatch();
-  const isAdmin = useSelector(isUserAdmin);
 
   const onCloseModal = useCallback(() => {
     setIsOpenModal(false);
@@ -28,10 +25,6 @@ const Navbar = memo(() => {
   const onOpenModal = useCallback(() => {
     setIsOpenModal(true);
   }, []);
-
-  const onLogout = useCallback(() => {
-    dispatch(userActions.logout());
-  }, [dispatch]);
 
   if (authData) {
     return (
@@ -46,28 +39,10 @@ const Navbar = memo(() => {
             {t('Создать статью')}
           </AppLink>
 
-          <Dropdown
-            trigger={<Avatar size={40} src={authData.avatar} />}
-            items={[
-              ...(isAdmin
-                ? [
-                    {
-                      content: <p>{t('Админ панель')}</p>,
-                      href: RoutePath.admin_panel,
-                    },
-                  ]
-                : []),
-              {
-                content: <p>{t('Профиль')}</p>,
-                href: RoutePath.profile + '/' + authData.id,
-              },
-              {
-                content: <p>{t('Выход')}</p>,
-                onClick: () => onLogout(),
-              },
-            ]}
-            direction="bottom left"
-          />
+          <HStack gap="16" className={styles.actions}>
+            <NotificationButton />
+            <AvatarDropdown />
+          </HStack>
         </div>
       </header>
     );

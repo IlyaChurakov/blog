@@ -1,7 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { getUserAuthData } from 'entities/User';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { Home, Info, Notebook, Settings, User } from 'lucide-react';
+import { Home, Info, Notebook, User } from 'lucide-react';
 import { SidebarItemType } from '../types/sidebar';
 
 export const getSidebarItems = createSelector(getUserAuthData, (userData) => {

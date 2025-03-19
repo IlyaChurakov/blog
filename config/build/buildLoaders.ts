@@ -1,7 +1,7 @@
 import { RuleSetRule } from 'webpack';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 import { buildCssLoader } from './loaders/buildCssLoader';
 import { BuildOptions } from './types/config';
-import { buildBabelLoader } from './loaders/buildBabelLoader';
 
 export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
   const fileLoader = {
@@ -18,14 +18,15 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     use: ['@svgr/webpack'],
   };
 
-  const babelLoader = buildBabelLoader(isDev);
+  const codeBabelLoader = buildBabelLoader({ isDev, isTsx: false });
+  const tsxCodeBabelLoader = buildBabelLoader({ isDev, isTsx: true });
   const cssLoader = buildCssLoader(isDev);
 
-  const typescriptLoader = {
-    test: /\.tsx?$/,
-    use: 'ts-loader',
-    exclude: /node_modules/,
-  };
-
-  return [fileLoader, svgLoader, babelLoader, typescriptLoader, cssLoader]; // порядок имеет значение
+  return [
+    fileLoader,
+    svgLoader,
+    codeBabelLoader,
+    tsxCodeBabelLoader,
+    cssLoader,
+  ]; // порядок имеет значение
 }

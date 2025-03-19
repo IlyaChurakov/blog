@@ -1,3 +1,4 @@
+import { SerializedError } from '@reduxjs/toolkit';
 import { ArticleList } from 'entities/Article';
 import { VStack } from 'shared/ui/stack';
 import { Text } from 'shared/ui/text/Text';
@@ -17,8 +18,12 @@ export const ArticleRecommendationsList = () => {
         target="_blank"
         articles={articles}
         isLoading={isLoading}
-        // @ts-ignore
-        error={error}
+        virtualized={false}
+        error={
+          error
+            ? ((error as SerializedError)?.message ?? 'Непредвиденная ошибка')
+            : undefined
+        }
       />
     </VStack>
   );

@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
-import { ArticleBlockType } from 'entities/Article/model/types/article';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ArticleListItem } from './ArticleListItem';
+import { ArticleBlockType } from '../../model/consts/consts';
 
 const meta = {
   title: 'entities/ArticleListItem',

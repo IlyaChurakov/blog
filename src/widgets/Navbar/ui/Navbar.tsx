@@ -2,7 +2,7 @@ import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { LoginModal } from 'features/authByUsername';
-import { getUserAuthData } from 'entities/User';
+import { getUserAuthData, isUserAdmin } from 'entities/User';
 import { userActions } from 'entities/User/model/slice/userSlice';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -19,6 +19,7 @@ const Navbar = memo(() => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const authData = useSelector(getUserAuthData);
   const dispatch = useAppDispatch();
+  const isAdmin = useSelector(isUserAdmin);
 
   const onCloseModal = useCallback(() => {
     setIsOpenModal(false);
@@ -44,9 +45,18 @@ const Navbar = memo(() => {
           >
             {t('Создать статью')}
           </AppLink>
+
           <Dropdown
             trigger={<Avatar size={40} src={authData.avatar} />}
             items={[
+              ...(isAdmin
+                ? [
+                    {
+                      content: <p>{t('Админ панель')}</p>,
+                      href: RoutePath.admin_panel,
+                    },
+                  ]
+                : []),
               {
                 content: <p>{t('Профиль')}</p>,
                 href: RoutePath.profile + '/' + authData.id,

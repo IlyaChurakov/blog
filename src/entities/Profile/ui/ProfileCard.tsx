@@ -63,13 +63,18 @@ export const ProfileCard = ({
           value={data?.username}
         />
         <Input
+          data-testid="EditableProfileCard.Name"
           onChange={onChangeName}
           readonly={readonly}
           placeholder={t('Имя')}
           value={data?.name}
         />
         {validationError?.name && (
-          <Text color={TextColors.ERROR} text={t(validationError.name)} />
+          <Text
+            data-testid="EditableProfileCard.Name.Error"
+            color={TextColors.ERROR}
+            text={t(validationError.name)}
+          />
         )}
         <Input
           onChange={onChangeSurname}
@@ -87,7 +92,11 @@ export const ProfileCard = ({
           value={String(data?.age)}
         />
         {validationError?.age && (
-          <Text color={TextColors.ERROR} text={t(validationError.age)} />
+          <Text
+            data-testid="editableProfileCard.age.error"
+            color={TextColors.ERROR}
+            text={t(validationError.age)}
+          />
         )}
         <CountrySelect
           value={data?.country}
@@ -127,10 +136,11 @@ const ProfileError = memo(() => {
 
   return (
     <Text
+      data-testid="EditableProfileCard.Error"
       justify="center"
       color={TextColors.ERROR}
       title={t('Произошла ошибка при загрузке профиля')}
-      text={t('Поробуйте обновить страницу')}
+      text={t('Попробуйте обновить страницу')}
     />
   );
 });

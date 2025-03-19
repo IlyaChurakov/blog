@@ -1,13 +1,13 @@
-import { render } from 'react-dom';
-import App from './app/App';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import 'app/styles/index.scss';
-import { ThemeProvider } from 'app/providers/ThemeProvider';
-import './shared/config/i18n/i18n';
 import { ErrorBoundary } from 'app/providers/ErrorBoundary';
+import { ThemeProvider } from 'app/providers/ThemeProvider';
 import { StoreProvider } from 'app/providers/storeProvider';
+import 'app/styles/index.scss';
+import App from './app/App';
+import './shared/config/i18n/i18n';
 
-render(
+createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
     <StoreProvider>
       <ErrorBoundary>
@@ -17,5 +17,4 @@ render(
       </ErrorBoundary>
     </StoreProvider>
   </BrowserRouter>,
-  document.getElementById('root'),
 );

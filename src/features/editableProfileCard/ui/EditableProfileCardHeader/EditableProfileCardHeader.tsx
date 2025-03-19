@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { getProfileData } from 'features/editableProfileCard/model/selectors/getProfileData/getProfileData';
 import { getUserAuthData } from 'entities/User';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
@@ -13,7 +14,7 @@ import { profileActions } from '../../model/slice/profileSlice';
 export const EditableProfileCardHeader = () => {
   const { t } = useTranslation('profile');
   const authData = useSelector(getUserAuthData);
-  const profileData = useSelector(getUserAuthData);
+  const profileData = useSelector(getProfileData);
 
   const canEdit = authData?.id === profileData?.id;
 
@@ -32,11 +33,14 @@ export const EditableProfileCardHeader = () => {
     dispatch(updateProfileData());
   }, [dispatch]);
 
+  console.log(readonly);
+
   return (
     <div className={classNames(styles.profilePageHeader, {})}>
       {canEdit &&
         (readonly ? (
           <Button
+            data-testid="EditableProfileCardHeader.EditButton"
             onClick={edit}
             color={ButtonColors.ACCENT}
             variant={ButtonVariants.OUTLINE}
@@ -46,6 +50,7 @@ export const EditableProfileCardHeader = () => {
         ) : (
           <>
             <Button
+              data-testid="EditableProfileCardHeader.SaveButton"
               onClick={save}
               color={ButtonColors.ACCENT}
               variant={ButtonVariants.OUTLINE}
@@ -53,6 +58,7 @@ export const EditableProfileCardHeader = () => {
               {t('Сохранить')}
             </Button>
             <Button
+              data-testid="EditableProfileCardHeader.CancelButton"
               onClick={cancel}
               color={ButtonColors.DANGER}
               variant={ButtonVariants.OUTLINE}

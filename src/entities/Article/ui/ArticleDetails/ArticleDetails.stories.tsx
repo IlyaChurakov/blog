@@ -1,10 +1,10 @@
 // eslint-disable @typescript-eslint/no-unused-vars
 import type { Meta, StoryObj } from '@storybook/react';
-import { ArticleDetails } from './ArticleDetails';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import { ArticleBlockType } from 'entities/Article/model/consts/consts';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ArticleBlockType } from 'entities/Article/model/types/article';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { ArticleDetails } from './ArticleDetails';
 
 const meta = {
   title: 'entities/ArticleDetails',

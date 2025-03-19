@@ -1,3 +1,4 @@
+import { Article } from 'entities/Article';
 import { rtkApi } from 'shared/api/rtkApi';
 
 export const {
@@ -5,7 +6,7 @@ export const {
   useCreateArticleRecommendationMutation,
 } = rtkApi.injectEndpoints({
   endpoints: (builder) => ({
-    fetchArticleRecommendations: builder.query({
+    fetchArticleRecommendations: builder.query<Article[], number>({
       query: (limit) => ({
         url: '/articles',
         params: {

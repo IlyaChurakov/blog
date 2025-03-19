@@ -15,6 +15,7 @@ interface ArticleListProps {
   target?: HTMLAttributeAnchorTarget;
   className?: string;
   error?: string;
+  virtualized?: boolean;
 }
 
 export const ArticleList = memo(
@@ -25,6 +26,7 @@ export const ArticleList = memo(
     target,
     isLoading,
     error,
+    virtualized = true,
   }: ArticleListProps) => {
     const isInitLoading = isLoading && !articles?.length;
     const isEmpty = !articles?.length;
@@ -35,7 +37,7 @@ export const ArticleList = memo(
     const itemsPerRow = isList ? 1 : 3;
     const rowCount = isList ? articles.length : Math.ceil(articles.length / 3);
 
-    const rowRenderer = ({ index, style, key }: ListRowProps) => {
+    const RowRenderer = ({ index, style, key }: ListRowProps) => {
       const items = [];
       const fromIndex = index * itemsPerRow;
       const toIndex = Math.min(fromIndex + itemsPerRow, articles.length);
@@ -85,7 +87,7 @@ export const ArticleList = memo(
               <Text color={TextColors.ERROR} title={error} />
             ) : isEmpty ? (
               <Text color={TextColors.ACCENT} title="Статей еще нет" />
-            ) : (
+            ) : virtualized ? (
               <List
                 height={height}
                 width={width ? width - 50 : 700}
@@ -95,8 +97,24 @@ export const ArticleList = memo(
                 onScroll={onChildScroll}
                 scrollTop={scrollTop}
                 isScrolling={isScrolling}
-                rowRenderer={rowRenderer}
+                rowRenderer={RowRenderer}
               />
+            ) : (
+              <div
+                className={classNames(styles.ArticleList, {}, [
+                  className,
+                  styles[view],
+                ])}
+              >
+                {articles.map((article) => (
+                  <ArticleListItem
+                    key={article.id}
+                    article={article}
+                    target={target}
+                    view={view}
+                  />
+                ))}
+              </div>
             )}
 
             {isNextPageLoading && <ArticleListNextPage />}

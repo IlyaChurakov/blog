@@ -1,7 +1,8 @@
-/build
+build
 node_modules
 .vscode
 *storybook.log
 storybook-static
 reg.json
 .fttemplates
+reports

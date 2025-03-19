@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { Suspense, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { CommentForm } from 'features/addNewComment';
 import { CommentList } from 'entities/Comment';
@@ -31,10 +31,13 @@ export const ArticleDetailsComments = ({ id }: { id: string }) => {
     },
     [dispatch],
   );
+
   return (
     <VStack gap="8">
       <Text title="Комментарии" />
-      <CommentForm onSendComment={onSendComment} />
+      <Suspense fallback={null}>
+        <CommentForm onSendComment={onSendComment} />
+      </Suspense>
       <CommentList comments={comments} isLoading={isLoading} error={error} />
     </VStack>
   );

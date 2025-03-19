@@ -36,6 +36,7 @@ export const Text = memo(
     justify = 'left',
     size = 'm',
     truncate = false,
+    ...props
   }: TextProps) => {
     const HeaderTag = mapSizeToHeaderTag[size];
 
@@ -47,6 +48,7 @@ export const Text = memo(
           styles[justify],
           styles[`size_${size}`],
         ])}
+        {...props}
       >
         {!!title && (
           <HeaderTag

@@ -14,6 +14,7 @@ import { Calendar1Icon, EyeIcon } from 'lucide-react';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { ArticleBlockType } from '../../model/consts/consts';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
@@ -21,7 +22,7 @@ import {
 } from '../../model/selectors/articleDetails';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slices/articleDetailsSlice';
-import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { ArticleBlock } from '../../model/types/article';
 
 const reducers: ReducersList = {
   articleDetails: articleDetailsReducer,
@@ -76,14 +77,14 @@ export const ArticleDetails = memo(({ id }: ArticleDetailsProps) => {
 
 export function Block({ block }: { block?: ArticleBlock }) {
   switch (block?.type) {
-  case ArticleBlockType.CODE:
-    return <ArticleCodeBlockComponent block={block} />;
-  case ArticleBlockType.IMAGE:
-    return <ArticleImageBlockComponent block={block} />;
-  case ArticleBlockType.TEXT:
-    return <ArticleTextBlockComponent block={block} />;
-  default:
-    return null;
+    case ArticleBlockType.CODE:
+      return <ArticleCodeBlockComponent block={block} />;
+    case ArticleBlockType.IMAGE:
+      return <ArticleImageBlockComponent block={block} />;
+    case ArticleBlockType.TEXT:
+      return <ArticleTextBlockComponent block={block} />;
+    default:
+      return null;
   }
 }
 

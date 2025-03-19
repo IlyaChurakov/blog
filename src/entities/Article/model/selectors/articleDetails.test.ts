@@ -1,10 +1,11 @@
-import { Article, ArticleBlock, ArticleBlockType } from '../types/article';
+import { StateSchema } from 'app/providers/storeProvider';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from './articleDetails';
-import { StateSchema } from 'app/providers/storeProvider';
+import { ArticleBlockType } from '../consts/consts';
+import { Article, ArticleBlock } from '../types/article';
 
 describe('getCounter', () => {
   test('get article details data', () => {

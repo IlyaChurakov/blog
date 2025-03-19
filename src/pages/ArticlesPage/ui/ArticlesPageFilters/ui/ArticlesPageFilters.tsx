@@ -1,9 +1,6 @@
 import { memo, useCallback, useMemo } from 'react';
 import { useSelector } from 'react-redux';
-import {
-  ArticleSortField,
-  ArticleType,
-} from 'entities/Article/model/types/article';
+import { ArticleType, ArticleSortField } from 'entities/Article';
 import { ArticleSortSelector } from 'entities/Article/ui/ArticleSortSelector/ui/ArticleSortSelector';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';

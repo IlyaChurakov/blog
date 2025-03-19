@@ -3,7 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { SortOrder } from 'shared/types';
 import { Select, SelectOption } from 'shared/ui/select/Select';
 import styles from './ArticleSortSelector.module.scss';
-import { ArticleSortField } from '../../../model/types/article';
+import { ArticleSortField } from '../../../model/consts/consts';
 
 interface ArticleSortSelectorProps {
   className?: string;

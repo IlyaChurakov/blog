@@ -1,4 +1,4 @@
-export { LoginSchema } from 'features/authByUsername/model/types/loginSchema';
+export type { LoginSchema } from 'features/authByUsername/model/types/loginSchema';
 export { loginReducer, loginActions } from './model/slice/loginSlice';
 export { LoginModal } from './ui/loginModal/LoginModal';
 export { loginByUsername } from './model/services/loginByUsername/loginByUsername';

@@ -1,10 +1,11 @@
-import { StoreDecorator } from './../../src/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { RouterDecorator } from './../../src/shared/config/storybook/RouterDecorator/RouterDecorator';
+import { StoreDecorator } from './../../src/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { SuspenseDecorator } from './../../src/shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
 import { ThemeDecorator } from './../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator';
 import { Preview } from '@storybook/react';
-import { Theme } from '../../src/app/providers/ThemeProvider';
 import 'loki/configure-react';
+import { Theme } from '../../src/app/providers/ThemeProvider';
+import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator';
 
 const preview: Preview = {
   parameters: {
@@ -22,6 +23,7 @@ export const decorators = [
   ThemeDecorator(Theme.LIGHT),
   StyleDecorator,
   RouterDecorator,
+  SuspenseDecorator,
 ];
 
 export default preview;

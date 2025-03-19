@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react';
-import { ArticleCodeBlockComponent } from './ArticleCodeBlockComponent';
 import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
-import { ArticleBlockType } from 'entities/Article/model/types/article';
+import { ArticleCodeBlockComponent } from './ArticleCodeBlockComponent';
+import { ArticleBlockType } from '../../model/consts/consts';
 
 describe('sidebar', () => {
   test('render', () => {

@@ -40,7 +40,7 @@ const CommentForm = ({ onSendComment }: CommentFormProps) => {
   const { validationError, defaultError } = checkErrorType(error);
 
   const onCommentTextChange = useCallback(
-    (value) => dispatch(newCommentActions.setText(value)),
+    (value: string) => dispatch(newCommentActions.setText(value)),
     [dispatch],
   );
 

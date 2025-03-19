@@ -19,6 +19,7 @@ interface InputProps extends HTMLInputProps {
   value?: string | number;
   onChange?: (value: string) => void;
   readonly?: boolean;
+  ['data-testid']?: string;
 }
 
 const FONT_LETTER_WIDTH_COEF = 0.6;
@@ -34,6 +35,7 @@ export const Input = memo(
     onSelect,
     autoFocus,
     readonly,
+    ...props
   }: InputProps) => {
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -91,6 +93,7 @@ export const Input = memo(
             onBlur={blurHandler}
             onChange={changeHandler}
             onSelect={selectHandler}
+            data-testid={props['data-testid']}
           />
 
           {isCaretShowing && (

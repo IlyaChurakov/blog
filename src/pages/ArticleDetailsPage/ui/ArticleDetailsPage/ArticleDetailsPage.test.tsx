@@ -1,7 +1,7 @@
+import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 import { screen } from '@testing-library/react';
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 describe('articleDetailsPage', () => {

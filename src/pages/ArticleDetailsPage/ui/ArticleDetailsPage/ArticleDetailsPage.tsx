@@ -1,13 +1,14 @@
-import { memo } from 'react';
-import { useParams } from 'react-router-dom';
-import { Page } from '@/widgets/Page/ui/Page';
-import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import { ArticleDetails } from '@/entities/Article';
+import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
+import { ArticleRating } from '@/features/rateArticle';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
   DynamicModuleLoader,
   ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { Page } from '@/widgets/Page/ui/Page';
+import { memo } from 'react';
+import { useParams } from 'react-router-dom';
 import styles from './ArticleDetailsPage.module.scss';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleDetailsPageReducer } from '../../model/slice';
@@ -34,6 +35,7 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
         <ArticleRecommendationsList />
+        <ArticleRating id={id} />
         <ArticleDetailsComments id={id} />
       </Page>
     </DynamicModuleLoader>

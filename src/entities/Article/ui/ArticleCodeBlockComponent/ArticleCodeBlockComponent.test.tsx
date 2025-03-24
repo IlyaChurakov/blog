@@ -1,5 +1,5 @@
+import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 import { screen } from '@testing-library/react';
-import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
 import { ArticleCodeBlockComponent } from './ArticleCodeBlockComponent';
 import { ArticleBlockType } from '../../model/consts/consts';
 

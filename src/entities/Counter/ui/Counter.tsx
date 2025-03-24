@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
-import { Button } from 'shared/ui/button/Button';
+import { Button } from '@/shared/ui/button/Button';
 import { counterActions } from '../model/slice/CounterSlice';
 import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 
 export const Counter = () => {
   const { t } = useTranslation('main');

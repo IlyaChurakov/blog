@@ -1,5 +1,5 @@
-import { Profile } from 'entities/Profile';
-import { ErrorTypes } from 'shared/lib/checkErrorType/types';
+import { Profile } from '@/entities/Profile';
+import { ErrorTypes } from '@/shared/lib/checkErrorType/types';
 
 export interface ProfileSchema {
   data?: Profile;

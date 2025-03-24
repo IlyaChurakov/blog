@@ -1,16 +1,17 @@
+import { getUserAuthData } from '@/entities/User';
+import { LoginModal } from '@/features/authByUsername';
+import { AvatarDropdown } from '@/features/avatarDropdown';
+import { NotificationButton } from '@/features/notificationButton';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { AnimationProvider } from '@/shared/lib/components/AnimationProvider';
+import AppLink, { AppLinkVariants } from '@/shared/ui/appLink/AppLink';
+import { Button, ButtonSizes, ButtonVariants } from '@/shared/ui/button/Button';
+import { HStack } from '@/shared/ui/stack';
+import { Text, TextColors } from '@/shared/ui/text/Text';
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { LoginModal } from 'features/authByUsername';
-import { AvatarDropdown } from 'features/avatarDropdown';
-import { NotificationButton } from 'features/notificationButton';
-import { getUserAuthData } from 'entities/User';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { classNames } from 'shared/lib/classNames/classNames';
-import AppLink, { AppLinkVariants } from 'shared/ui/appLink/AppLink';
-import { Button, ButtonSizes, ButtonVariants } from 'shared/ui/button/Button';
-import { HStack } from 'shared/ui/stack';
-import { Text, TextColors } from 'shared/ui/text/Text';
 import styles from './Navbar.module.scss';
 
 const Navbar = memo(() => {

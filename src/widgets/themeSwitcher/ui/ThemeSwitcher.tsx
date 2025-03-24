@@ -1,8 +1,8 @@
 import { memo } from 'react';
-import { Theme } from 'app/providers/ThemeProvider';
-import useTheme from 'app/providers/ThemeProvider/lib/useTheme';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonSizes, ButtonVariants } from 'shared/ui/button/Button';
+import { Theme } from '@/app/providers/ThemeProvider';
+import useTheme from '@/app/providers/ThemeProvider/lib/useTheme';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonSizes, ButtonVariants } from '@/shared/ui/button/Button';
 import { Moon, Sun } from 'lucide-react';
 import styles from './ThemeSwitcher.module.scss';
 

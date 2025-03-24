@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import styles from './LanguageSwitcher.module.scss';
-import { Button, ButtonSizes, ButtonVariants } from 'shared/ui/button/Button';
+import { Button, ButtonSizes, ButtonVariants } from '@/shared/ui/button/Button';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 

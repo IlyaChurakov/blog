@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Text, TextColors } from 'shared/ui/text/Text';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text, TextColors } from '@/shared/ui/text/Text';
 import styles from './ForbiddenPage.module.scss';
 
 const ForbiddenPage = memo(() => {

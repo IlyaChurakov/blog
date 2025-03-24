@@ -1,11 +1,11 @@
 import React, { Suspense, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { CommentForm } from 'features/addNewComment';
-import { CommentList } from 'entities/Comment';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { VStack } from 'shared/ui/stack';
-import { Text } from 'shared/ui/text/Text';
+import { CommentForm } from '@/features/addNewComment';
+import { CommentList } from '@/entities/Comment';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { VStack } from '@/shared/ui/stack';
+import { Text } from '@/shared/ui/text/Text';
 import {
   getArticleDetailsCommentsError,
   getArticleDetailsCommentsIsLoading,

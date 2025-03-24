@@ -8,12 +8,12 @@ import {
 } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { StateSchema } from 'app/providers/storeProvider';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { useThrottle } from 'shared/lib/hooks/useThrottle';
+import { StateSchema } from '@/app/providers/storeProvider';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { useThrottle } from '@/shared/lib/hooks/useThrottle';
 import styles from './Page.module.scss';
 import { getScrollByPage } from '../model/selectors/scroll';
 import { scrollActions } from '../model/slices/scrollSlice';

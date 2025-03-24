@@ -1,16 +1,16 @@
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { checkErrorType } from 'shared/lib/checkErrorType/checkErrorType';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { checkErrorType } from '@/shared/lib/checkErrorType/checkErrorType';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import {
   DynamicModuleLoader,
   ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Button, ButtonColors, ButtonSizes } from 'shared/ui/button/Button';
-import { Input } from 'shared/ui/input/Input';
-import { Text, TextColors } from 'shared/ui/text/Text';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Button, ButtonColors, ButtonSizes } from '@/shared/ui/button/Button';
+import { Input } from '@/shared/ui/input/Input';
+import { Text, TextColors } from '@/shared/ui/text/Text';
 import styles from './CommentForm.module.scss';
 import {
   getNewCommentError,

@@ -1,7 +1,7 @@
 import { memo } from 'react';
-import Loader from 'shared/ui/loader/ui/Loader';
-import { VStack } from 'shared/ui/stack';
-import { Text, TextColors } from 'shared/ui/text/Text';
+import Skeleton from '@/shared/ui/skeleton/Skeleton';
+import { VStack } from '@/shared/ui/stack';
+import { Text, TextColors } from '@/shared/ui/text/Text';
 import { useFetchNotificationsQuery } from '../../../api/notificationApi';
 import { NotificationItem } from '../../NotificationItem/ui/NotificationItem';
 
@@ -15,9 +15,9 @@ export const NotificationList = memo(({ className }: NotificationListProps) => {
   });
 
   return (
-    <VStack justify="start" className={className}>
+    <VStack justify="start" className={className} gap="8">
       {isLoading ? (
-        <Loader />
+        <NotificationSkeleton />
       ) : error ? (
         <Text text="Ошибка" color={TextColors.ERROR} />
       ) : !data?.length ? (
@@ -30,3 +30,16 @@ export const NotificationList = memo(({ className }: NotificationListProps) => {
     </VStack>
   );
 });
+
+const NotificationSkeleton = () => {
+  return (
+    <>
+      <Skeleton width="100%" height={136} borderRadius={5} />
+      <Skeleton width="100%" height={136} borderRadius={5} />
+      <Skeleton width="100%" height={136} borderRadius={5} />
+      <Skeleton width="100%" height={136} borderRadius={5} />
+      <Skeleton width="100%" height={136} borderRadius={5} />
+      <Skeleton width="100%" height={136} borderRadius={5} />
+    </>
+  );
+};

@@ -1,11 +1,11 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useHover } from 'shared/lib/hooks/useHover';
-import AppLink from 'shared/ui/appLink/AppLink';
-import { Button, ButtonVariants } from 'shared/ui/button/Button';
-import { Card } from 'shared/ui/card/Card';
-import { Text } from 'shared/ui/text/Text';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useHover } from '@/shared/lib/hooks/useHover';
+import AppLink from '@/shared/ui/appLink/AppLink';
+import { Button, ButtonVariants } from '@/shared/ui/button/Button';
+import { Card } from '@/shared/ui/card/Card';
+import { Text } from '@/shared/ui/text/Text';
 import { Eye } from 'lucide-react';
 import styles from './ArticleListItem.module.scss';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';

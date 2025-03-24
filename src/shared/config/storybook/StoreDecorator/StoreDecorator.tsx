@@ -1,9 +1,9 @@
 import { StoryFn } from '@storybook/react';
-import { StateSchema, StoreProvider } from 'app/providers/storeProvider';
-import { ArticleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slice';
-import { newCommentReducer } from 'features/addNewComment/model/slice/newCommentSlice';
-import { loginReducer } from 'features/authByUsername';
-import { articleDetailsReducer } from 'entities/Article/model/slices/articleDetailsSlice';
+import { StateSchema, StoreProvider } from '@/app/providers/storeProvider';
+import { ArticleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slice';
+import { newCommentReducer } from '@/features/addNewComment/model/slice/newCommentSlice';
+import { loginReducer } from '@/features/authByUsername';
+import { articleDetailsReducer } from '@/entities/Article/model/slices/articleDetailsSlice';
 
 const defaultAsyncReducers = {
   login: loginReducer,

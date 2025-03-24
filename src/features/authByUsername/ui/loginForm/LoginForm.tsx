@@ -1,15 +1,15 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import {
   DynamicModuleLoader,
   ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Button } from 'shared/ui/button/Button';
-import { Input } from 'shared/ui/input/Input';
-import { Text, TextColors } from 'shared/ui/text/Text';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Button } from '@/shared/ui/button/Button';
+import { Input } from '@/shared/ui/input/Input';
+import { Text, TextColors } from '@/shared/ui/text/Text';
 import styles from './LoginForm.module.scss';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';

@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
-import NotificationButton from './NotificationButton';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { NotificationButton } from './NotificationButton';
 
 const meta = {
   title: 'features/NotificationButton',
   component: NotificationButton,
   tags: ['autodocs'],
-  args: { },
+  args: {},
 } satisfies Meta<typeof NotificationButton>;
 
 export default meta;

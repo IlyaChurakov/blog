@@ -1,5 +1,5 @@
 import { getLoginError } from './getLoginError';
-import { StateSchema } from 'app/providers/storeProvider';
+import { StateSchema } from '@/app/providers/storeProvider';
 
 describe('getLoginError', () => {
   const state: DeepPartial<StateSchema> = {

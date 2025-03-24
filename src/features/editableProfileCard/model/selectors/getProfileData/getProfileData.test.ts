@@ -1,5 +1,5 @@
 import { getProfileData } from './getProfileData';
-import { StateSchema } from 'app/providers/storeProvider';
+import { StateSchema } from '@/app/providers/storeProvider';
 
 describe('getProfileData', () => {
   const state: DeepPartial<StateSchema> = {

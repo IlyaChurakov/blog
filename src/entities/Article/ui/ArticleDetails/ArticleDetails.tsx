@@ -3,13 +3,13 @@ import { useSelector } from 'react-redux';
 import {
   DynamicModuleLoader,
   ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Avatar } from 'shared/ui/avatar/Avatar';
-import Skeleton from 'shared/ui/skeleton/Skeleton';
-import { HStack } from 'shared/ui/stack';
-import { VStack } from 'shared/ui/stack';
-import { Text, TextColors } from 'shared/ui/text/Text';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Avatar } from '@/shared/ui/avatar/Avatar';
+import Skeleton from '@/shared/ui/skeleton/Skeleton';
+import { HStack } from '@/shared/ui/stack';
+import { VStack } from '@/shared/ui/stack';
+import { Text, TextColors } from '@/shared/ui/text/Text';
 import { Calendar1Icon, EyeIcon } from 'lucide-react';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';

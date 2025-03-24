@@ -1,8 +1,8 @@
 import { memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import AppLink from 'shared/ui/appLink/AppLink';
-import { VStack } from 'shared/ui/stack';
-import { Text, TextColors } from 'shared/ui/text/Text';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import AppLink from '@/shared/ui/appLink/AppLink';
+import { VStack } from '@/shared/ui/stack';
+import { Text, TextColors } from '@/shared/ui/text/Text';
 import styles from './NotificationItem.module.scss';
 import { Notification } from '../../../model/types/notifications';
 
@@ -14,7 +14,7 @@ interface NotificationItemProps {
 export const NotificationItem = memo(
   ({ className, notification }: NotificationItemProps) => {
     const content = (
-      <VStack gap="4">
+      <VStack gap="4" align="start">
         <Text
           title={notification.title}
           text={notification.description}

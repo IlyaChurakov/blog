@@ -11,7 +11,7 @@ export { type Article, type ArticleView } from './model/types/article';
 export {
   articleDetailsActions,
   articleDetailsReducer,
-} from 'pages/ArticleDetailsPage';
+} from '@/pages/ArticleDetailsPage';
 export {
   getArticleDetailsData,
   getArticleDetailsIsLoading,

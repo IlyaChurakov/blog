@@ -1,5 +1,5 @@
 import { getLoginPassword } from './getLoginPassword';
-import { StateSchema } from 'app/providers/storeProvider';
+import { StateSchema } from '@/app/providers/storeProvider';
 
 describe('getLoginPassword', () => {
   const state: DeepPartial<StateSchema> = {

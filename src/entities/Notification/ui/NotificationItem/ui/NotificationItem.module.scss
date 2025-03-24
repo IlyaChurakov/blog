@@ -1,6 +1,7 @@
 .NotificationItem {
   padding: 15px;
   border-bottom: 2px solid var(--accent-color);
+  width: 100%;
 
   &:last-child {
     border-bottom: none;

@@ -1,4 +1,4 @@
-import { Comment } from 'entities/Comment';
+import { Comment } from '@/entities/Comment';
 import * as yup from 'yup';
 
 const newCommentSchema = yup.object({

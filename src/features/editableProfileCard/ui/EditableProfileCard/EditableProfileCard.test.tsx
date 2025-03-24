@@ -1,8 +1,8 @@
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { profileReducer } from 'features/editableProfileCard/model/slice/profileSlice';
-import { $api } from 'shared/api/api';
-import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
+import { profileReducer } from '@/features/editableProfileCard/model/slice/profileSlice';
+import { $api } from '@/shared/api/api';
+import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 import { EditableProfileCard } from './EditableProfileCard';
 
 describe('editableProfileCard', () => {

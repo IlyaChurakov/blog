@@ -1,9 +1,9 @@
 import { memo, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
-import { ThemeSwitcher } from 'widgets/themeSwitcher';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonSizes, ButtonVariants } from 'shared/ui/button/Button';
+import { LanguageSwitcher } from '@/widgets/LanguageSwitcher';
+import { ThemeSwitcher } from '@/widgets/themeSwitcher';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonSizes, ButtonVariants } from '@/shared/ui/button/Button';
 import { PanelRightClose, PanelRightOpen } from 'lucide-react';
 import styles from './Sidebar.module.scss';
 import { SidebarItem } from './components/sidebarItem/SidebarItem';

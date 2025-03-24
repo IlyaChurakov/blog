@@ -4,11 +4,11 @@ import {
   Reducer,
   ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { scrollReducer } from 'widgets/Page';
-import { counterReducer } from 'entities/Counter';
-import { userReducer } from 'entities/User';
-import { $api } from 'shared/api/api';
-import { rtkApi } from 'shared/api/rtkApi';
+import { scrollReducer } from '@/widgets/Page';
+import { counterReducer } from '@/entities/Counter';
+import { userReducer } from '@/entities/User';
+import { $api } from '@/shared/api/api';
+import { rtkApi } from '@/shared/api/rtkApi';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 import { createReducerManager } from './reducerManager';
 

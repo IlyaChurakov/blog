@@ -1,7 +1,7 @@
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DropdownDirection } from '@/shared/types/ui';
 import { Popover as HPopover } from '@headlessui/react';
 import { memo, ReactNode } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DropdownDirection } from 'shared/types/ui';
 import styles from './Popover.module.scss';
 import { mapDirections } from '../../consts';
 import popupStyles from '../../styles/Popup.module.scss';
@@ -28,7 +28,7 @@ export const Popover = memo(
           popupStyles.popup,
         ])}
       >
-        <HPopover.Button className={classNames(popupStyles.trigger)}>
+        <HPopover.Button as="div" className={classNames(popupStyles.trigger)}>
           {trigger}
         </HPopover.Button>
 

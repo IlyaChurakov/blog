@@ -1,5 +1,5 @@
 import { memo, MouseEvent, useEffect, useState } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { Copy } from 'lucide-react';
 import styles from './Code.module.scss';
 import { Button, ButtonColors } from '../button/Button';

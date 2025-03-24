@@ -43,7 +43,7 @@ export function Dropdown({
       <Menu.Items
         className={classNames(styles.items, {}, [mapDirections[direction]])}
       >
-        {items.map((item) => {
+        {items.map((item, index) => {
           const content = ({ active }: { active: boolean }) => (
             <Button
               onClick={item.onClick}
@@ -58,13 +58,17 @@ export function Dropdown({
 
           if (item.href) {
             return (
-              <Menu.Item as={AppLink} to={item.href}>
+              <Menu.Item key={index} as={AppLink} to={item.href}>
                 {content}
               </Menu.Item>
             );
           }
 
-          return <Menu.Item as={Fragment}>{content}</Menu.Item>;
+          return (
+            <Menu.Item key={index} as={Fragment} disabled={item.disable}>
+              {content}
+            </Menu.Item>
+          );
         })}
       </Menu.Items>
     </Menu>

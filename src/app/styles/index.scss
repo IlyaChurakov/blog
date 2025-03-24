@@ -1,7 +1,7 @@
-@import './variables/global';
-@import './themes/light';
-@import './themes/dark';
-@import './themes/orange';
+@use './variables/global';
+@use './themes/light';
+@use './themes/dark';
+@use './themes/orange';
 
 * {
   box-sizing: border-box;

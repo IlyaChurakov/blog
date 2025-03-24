@@ -1,14 +1,14 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Country, CountrySelect } from 'entities/Country';
-import { Currency, CurrencySelect } from 'entities/Currency';
-import { checkErrorType } from 'shared/lib/checkErrorType/checkErrorType';
-import { ErrorTypes } from 'shared/lib/checkErrorType/types';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Avatar } from 'shared/ui/avatar/Avatar';
-import { Input } from 'shared/ui/input/Input';
-import Loader from 'shared/ui/loader/ui/Loader';
-import { Text, TextColors } from 'shared/ui/text/Text';
+import { Country, CountrySelect } from '@/entities/Country';
+import { Currency, CurrencySelect } from '@/entities/Currency';
+import { checkErrorType } from '@/shared/lib/checkErrorType/checkErrorType';
+import { ErrorTypes } from '@/shared/lib/checkErrorType/types';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Avatar } from '@/shared/ui/avatar/Avatar';
+import { Input } from '@/shared/ui/input/Input';
+import Loader from '@/shared/ui/loader/ui/Loader';
+import { Text, TextColors } from '@/shared/ui/text/Text';
 import styles from './ProfileCard.module.scss';
 import { Profile } from '../model/types/profile';
 

@@ -10,7 +10,7 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "*": ["./src/*"]
+      "@/*": ["./src/*"]
     },
     "esModuleInterop": true, // позволяет работать с common js пакетами используя import
     "allowSyntheticDefaultImports": true, // позволяет импортировать по дефолту из библиотек которые не имеют дефолтных импортов

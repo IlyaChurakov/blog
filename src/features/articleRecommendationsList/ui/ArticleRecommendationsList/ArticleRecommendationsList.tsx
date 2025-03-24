@@ -1,7 +1,7 @@
+import { ArticleList } from '@/entities/Article';
+import { VStack } from '@/shared/ui/stack';
+import { Text } from '@/shared/ui/text/Text';
 import { SerializedError } from '@reduxjs/toolkit';
-import { ArticleList } from 'entities/Article';
-import { VStack } from 'shared/ui/stack';
-import { Text } from 'shared/ui/text/Text';
 import { useFetchArticleRecommendationsQuery } from '../../api/articleRecommendationsApi';
 
 export const ArticleRecommendationsList = () => {
@@ -18,7 +18,6 @@ export const ArticleRecommendationsList = () => {
         target="_blank"
         articles={articles}
         isLoading={isLoading}
-        virtualized={false}
         error={
           error
             ? ((error as SerializedError)?.message ?? 'Непредвиденная ошибка')

@@ -1,15 +1,15 @@
 import { memo, useCallback, useMemo } from 'react';
 import { useSelector } from 'react-redux';
-import { ArticleType, ArticleSortField } from 'entities/Article';
-import { ArticleSortSelector } from 'entities/Article/ui/ArticleSortSelector/ui/ArticleSortSelector';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import useDebounce from 'shared/lib/hooks/useDebounce';
-import { SortOrder } from 'shared/types';
-import { Button } from 'shared/ui/button/Button';
-import { Card } from 'shared/ui/card/Card';
-import { Input } from 'shared/ui/input/Input';
-import { Tabs } from 'shared/ui/tabs/Tabs';
+import { ArticleType, ArticleSortField } from '@/entities/Article';
+import { ArticleSortSelector } from '@/entities/Article/ui/ArticleSortSelector/ui/ArticleSortSelector';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import useDebounce from '@/shared/lib/hooks/useDebounce';
+import { SortOrder } from '@/shared/types';
+import { Button } from '@/shared/ui/button/Button';
+import { Card } from '@/shared/ui/card/Card';
+import { Input } from '@/shared/ui/input/Input';
+import { Tabs } from '@/shared/ui/tabs/Tabs';
 import { AlignJustify, LayoutGrid } from 'lucide-react';
 import styles from './ArticlesPageFilters.module.scss';
 import {

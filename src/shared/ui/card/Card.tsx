@@ -1,6 +1,6 @@
-import { HTMLAttributes, memo, ReactNode } from 'react';
-import { ArticleView } from '@/entities/Article/model/types/article';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ArticleView } from '@/shared/types';
+import { HTMLAttributes, memo, ReactNode } from 'react';
 import styles from './Card.module.scss';
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {

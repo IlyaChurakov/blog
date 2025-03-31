@@ -1,4 +1,5 @@
-import { StateSchema, StoreProvider } from '@/app/providers/storeProvider';
+import { StoreProvider } from '@/app/providers/storeProvider';
+import { StateSchema } from '@/app/providers/storeProvider/config/StateSchema';
 import i18nForTests from '@/shared/config/i18n/i18nForTests';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { render } from '@testing-library/react';

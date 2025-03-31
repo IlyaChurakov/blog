@@ -1,10 +1,10 @@
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
 import type { Meta, StoryObj } from '@storybook/react';
 import ArticlesPage from './ArticlesPage';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 
 const meta = {
-  title: 'example/ArticlesPage',
+  title: 'pages/ArticlesPage',
   component: ArticlesPage,
   tags: ['autodocs'],
 } satisfies Meta<typeof ArticlesPage>;

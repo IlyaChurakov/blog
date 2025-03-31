@@ -1,9 +1,9 @@
-import { screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { profileReducer } from '@/features/editableProfileCard/model/slice/profileSlice';
 import { $api } from '@/shared/api/api';
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
+import { screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { EditableProfileCard } from './EditableProfileCard';
+import { profileReducer } from '../../model/slice/profileSlice';
 
 describe('editableProfileCard', () => {
   test('Кнопки Сохранить и Отменить появляются при редактировании, кнопка Редактировать возвращается при отмене редактирования', async () => {

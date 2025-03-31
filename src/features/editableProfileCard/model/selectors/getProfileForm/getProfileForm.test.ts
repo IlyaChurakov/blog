@@ -1,4 +1,4 @@
-import { StateSchema } from '@/app/providers/storeProvider';
+import { StateSchema } from '@/app/providers/storeProvider/config/StateSchema';
 import { getProfileData } from '../getProfileData/getProfileData';
 
 describe('getProfileData', () => {

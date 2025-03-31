@@ -1,5 +1,5 @@
+import { StateSchema } from '@/app/providers/storeProvider/config/StateSchema';
 import { getLoginUsername } from './getLoginUsername';
-import { StateSchema } from '@/app/providers/storeProvider';
 
 describe('getLoginUsername', () => {
   const state: DeepPartial<StateSchema> = {

@@ -1,8 +1,8 @@
-import { memo } from 'react';
-import { useParams } from 'react-router-dom';
-import { Page } from '@/widgets/Page/ui/Page';
 import { EditableProfileCard } from '@/features/editableProfileCard';
 import { VStack } from '@/shared/ui/stack';
+import { Page } from '@/widgets/Page';
+import { memo } from 'react';
+import { useParams } from 'react-router-dom';
 
 const ProfilePage = memo(() => {
   const { id } = useParams();

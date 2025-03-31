@@ -1,7 +1,7 @@
-import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import Skeleton from '@/shared/ui/skeleton/Skeleton';
 import { Text, TextColors } from '@/shared/ui/text/Text';
+import { memo } from 'react';
 import styles from './CommentList.module.scss';
 import { CommentCard } from '../CommentCard/CommentCard';
 import { Comment } from '../../model/types/comment';

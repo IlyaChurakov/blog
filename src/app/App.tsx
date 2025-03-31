@@ -1,12 +1,12 @@
-import { Suspense, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { AppRouter } from '@/app/providers/router';
-import { Navbar } from '@/widgets/Navbar';
-import { Sidebar } from '@/widgets/Sidebar';
 import { getUserInitialized } from '@/entities/User';
-import { userActions } from '@/entities/User/model/slice/userSlice';
+import { userActions } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Navbar } from '@/widgets/Navbar';
+import { Sidebar } from '@/widgets/Sidebar';
+import { Suspense, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 const App = () => {
   const dispatch = useAppDispatch();

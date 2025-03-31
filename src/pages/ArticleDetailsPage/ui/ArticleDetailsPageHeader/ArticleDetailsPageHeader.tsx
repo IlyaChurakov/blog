@@ -1,9 +1,9 @@
+import { getArticleDetailsData } from '@/entities/Article';
+import { RoutePath } from '@/shared/const/router';
+import { Button } from '@/shared/ui/button/Button';
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getArticleDetailsData } from '@/entities/Article';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
-import { Button } from '@/shared/ui/button/Button';
 import { ArrowLeft, Edit } from 'lucide-react';
 import styles from './ArticleDetailsPageHeader.module.scss';
 import { getCanEdit } from '../../model/selectors/article';

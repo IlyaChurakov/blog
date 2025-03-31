@@ -27,8 +27,8 @@ export default [
       '.github',
       '.husky',
       '.loki',
-      '**/src/**/*.test.{ts,tsx}',
-      '**/src/**/*.stories.{ts,tsx}',
+      // '**/src/**/*.test.{ts,tsx}',
+      // '**/src/**/*.stories.{ts,tsx}',
       '**/*.d.ts',
     ],
   },
@@ -66,7 +66,26 @@ export default [
         'error',
         { markupOnly: true, ignoreAttribute: 'data-testid' },
       ],
-      'ic-fsd-path-checker/path-checker': 'error',
+      'no-extra-boolean-cast': 'off',
+      'ic-fsd-path-checker/path-checker': ['error', { alias: '@' }],
+      'ic-fsd-path-checker/public-api-imports': [
+        'error',
+        {
+          alias: '@',
+          testFilesPatterns: [
+            '**/*.test.ts',
+            '**/*.story.ts',
+            '**/StoreDecorator.tsx',
+          ],
+        },
+      ],
+      'ic-fsd-path-checker/layer-imports': [
+        'error',
+        {
+          alias: '@',
+          ignoreImportPatterns: ['**/storeProvider/*'],
+        },
+      ],
     },
   },
 ];

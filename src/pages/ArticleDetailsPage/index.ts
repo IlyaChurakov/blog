@@ -1,3 +1,4 @@
+export { ArticleDetailsPageReducer } from './model/slice';
 export { ArticleDetailsComments } from './ui/ArticleDetailsComments/ArticleDetailsComments';
 export type { ArticleDetailsPageSchema } from './model/types/index';
 export {

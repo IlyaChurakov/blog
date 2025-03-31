@@ -1,12 +1,12 @@
-import { useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 import { getUserAuthData, isUserAdmin } from '@/entities/User';
-import { userActions } from '@/entities/User/model/slice/userSlice';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { userActions } from '@/entities/User';
+import { RoutePath } from '@/shared/const/router';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Avatar } from '@/shared/ui/avatar/Avatar';
 import { Dropdown } from '@/shared/ui/popups';
+import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
 export const AvatarDropdown = () => {
   const { t } = useTranslation();

@@ -1,11 +1,11 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '@/app/providers/storeProvider';
-import { validateNewComment } from '@/features/addNewComment/model/services/validateNewComment';
-import { newCommentActions } from '@/features/addNewComment/model/slice/newCommentSlice';
-import { getArticleDetailsData } from '@/entities/Article/model/selectors/articleDetails';
+import { getArticleDetailsData } from '@/entities/Article';
 import { Comment } from '@/entities/Comment';
 import { getUserAuthData } from '@/entities/User';
+import { validateNewComment } from '@/features/addNewComment';
+import { newCommentActions } from '@/features/addNewComment';
 import { ErrorTypes } from '@/shared/lib/checkErrorType/types';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import { fetchCommentsByArticleId } from './fetchCommentsByArticleId';
 
 export const addCommentForArticle = createAsyncThunk<

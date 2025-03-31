@@ -6,12 +6,8 @@ export {
   ArticleBlockType,
 } from './model/consts/consts';
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
-export { type Article, type ArticleView } from './model/types/article';
+export { type Article } from './model/types/article';
 
-export {
-  articleDetailsActions,
-  articleDetailsReducer,
-} from '@/pages/ArticleDetailsPage';
 export {
   getArticleDetailsData,
   getArticleDetailsIsLoading,

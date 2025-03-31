@@ -1,11 +1,12 @@
+import { PAGE_ID } from '@/shared/const/pages';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ArticleView } from '@/shared/types';
 import Skeleton from '@/shared/ui/skeleton/Skeleton';
 import { Text, TextColors } from '@/shared/ui/text/Text';
-import { PAGE_ID } from '@/widgets/Page/ui/Page';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import styles from './ArticleList.module.scss';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
-import { Article, ArticleView } from '../../model/types/article';
+import { Article } from '../../model/types/article';
 
 interface ArticleListProps {
   articles: Article[];

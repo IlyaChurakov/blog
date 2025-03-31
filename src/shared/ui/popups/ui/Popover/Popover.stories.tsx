@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Button } from '@/shared/ui/button/Button';
+import { Theme } from '@/shared/const/theme';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Popover } from './Popover';
+import { Button } from '../../../button/Button';
 
 const meta = {
   title: 'entities/Popover',

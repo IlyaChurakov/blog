@@ -6,7 +6,7 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Page } from '@/widgets/Page/ui/Page';
+import { Page } from '@/widgets/Page';
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './ArticleDetailsPage.module.scss';

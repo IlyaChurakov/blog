@@ -1,5 +1,3 @@
-import { memo, useCallback } from 'react';
-import { Page } from '@/widgets/Page/ui/Page';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
   DynamicModuleLoader,
@@ -8,6 +6,8 @@ import {
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { getQueryParams } from '@/shared/lib/url/getQueryParams/getQueryParams';
+import { Page } from '@/widgets/Page';
+import { memo, useCallback } from 'react';
 import styles from './ArticlesPage.module.scss';
 import { ArticlesInfiniteList } from '../ArticlesInfiniteList/ArticlesInfiniteList';
 import { ArticlesPageFilters } from '../ArticlesPageFilters';

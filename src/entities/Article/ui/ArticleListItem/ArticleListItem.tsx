@@ -1,20 +1,17 @@
-import { HTMLAttributeAnchorTarget, memo } from 'react';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { RoutePath } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useHover } from '@/shared/lib/hooks/useHover';
+import { ArticleView } from '@/shared/types';
 import AppLink from '@/shared/ui/appLink/AppLink';
 import { Button, ButtonVariants } from '@/shared/ui/button/Button';
 import { Card } from '@/shared/ui/card/Card';
 import { Text } from '@/shared/ui/text/Text';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { Eye } from 'lucide-react';
 import styles from './ArticleListItem.module.scss';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleBlockType } from '../../model/consts/consts';
-import {
-  Article,
-  ArticleTextBlock,
-  ArticleView,
-} from '../../model/types/article';
+import { Article, ArticleTextBlock } from '../../model/types/article';
 
 interface ArticleListItemProps {
   article: Article;

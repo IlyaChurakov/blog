@@ -1,3 +1,10 @@
+import { StateSchema } from '@/app/providers/storeProvider/config/StateSchema';
+import { PAGE_ID } from '@/shared/const/pages';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { useThrottle } from '@/shared/lib/hooks/useThrottle';
 import {
   HTMLAttributes,
   memo,
@@ -8,12 +15,6 @@ import {
 } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { StateSchema } from '@/app/providers/storeProvider';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
-import { useThrottle } from '@/shared/lib/hooks/useThrottle';
 import styles from './Page.module.scss';
 import { getScrollByPage } from '../model/selectors/scroll';
 import { scrollActions } from '../model/slices/scrollSlice';
@@ -23,8 +24,6 @@ interface PageProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   onScrollEnd?: () => void;
 }
-
-export const PAGE_ID = 'PAGE_ID';
 
 export const Page = memo(
   ({ className, children, onScrollEnd, ...props }: PageProps) => {

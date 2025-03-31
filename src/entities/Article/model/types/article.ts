@@ -38,5 +38,3 @@ export type ArticleBlock =
   | ArticleCodeBlock
   | ArticleImageBlock
   | ArticleTextBlock;
-
-export type ArticleView = 'list' | 'tile';

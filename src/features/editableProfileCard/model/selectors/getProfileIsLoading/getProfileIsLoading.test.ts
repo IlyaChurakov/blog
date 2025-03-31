@@ -1,5 +1,5 @@
+import { StateSchema } from '@/app/providers/storeProvider/config/StateSchema';
 import { getProfileIsLoading } from './getProfileIsLoading';
-import { StateSchema } from '@/app/providers/storeProvider';
 
 describe('getProfileIsLoading', () => {
   test('should return error', () => {

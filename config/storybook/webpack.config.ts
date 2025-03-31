@@ -1,5 +1,5 @@
-import path from 'path';
 import { BuildPaths } from './../build/types/config';
+import path from 'path';
 import { Configuration, DefinePlugin, RuleSetRule } from 'webpack';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 
@@ -9,6 +9,8 @@ export default ({ config }: { config: Configuration }) => {
     html: '',
     entry: '',
     src: path.resolve(__dirname, '..', '..', 'src'),
+    locales: '',
+    buildLocales: '',
   };
 
   config.resolve?.modules?.push(paths.src);
@@ -16,8 +18,9 @@ export default ({ config }: { config: Configuration }) => {
   if (!config.resolve) config.resolve = {};
   if (!config.resolve.alias) config.resolve.alias = {};
 
-  config.resolve.alias['entities'] = path.resolve(paths.src, 'entities');
-  config.resolve.alias['shared'] = path.resolve(paths.src, 'shared');
+  config.resolve.alias['@'] = path.resolve(paths.src);
+  // config.resolve.alias['entities'] = path.resolve(paths.src, 'entities');
+  // config.resolve.alias['shared'] = path.resolve(paths.src, 'shared');
 
   const fileLoaderRule = config.module?.rules?.find(
     (rule) =>

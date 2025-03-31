@@ -1,4 +1,4 @@
-export type UserRole = 'ADMIN' | 'USER';
+import { UserRole } from '@/shared/types';
 
 export interface User {
   id: string;

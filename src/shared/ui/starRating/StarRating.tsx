@@ -1,5 +1,5 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { memo, useCallback, useState } from 'react';
+import { memo, useState } from 'react';
 import { Star } from 'lucide-react';
 import styles from './StarRating.module.scss';
 

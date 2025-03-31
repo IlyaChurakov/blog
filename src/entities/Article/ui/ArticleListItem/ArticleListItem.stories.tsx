@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
+import type { Meta, StoryObj } from '@storybook/react';
 import { ArticleListItem } from './ArticleListItem';
 import { ArticleBlockType } from '../../model/consts/consts';
 
@@ -15,6 +15,7 @@ const meta = {
         id: '1',
         username: 'ilyachurakov',
       },
+      rating: 5,
       title: 'Javascript news',
       subtitle: 'Что нового в JS за 2022 год?',
       img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',

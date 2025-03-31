@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
-import { ProfileCard } from './ProfileCard';
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
 import avatar from '@/shared/assets/storybook/avatar.jpg';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
+import type { Meta, StoryObj } from '@storybook/react';
+import { ProfileCard } from './ProfileCard';
 
 const meta = {
   title: 'entities/ProfileCard',

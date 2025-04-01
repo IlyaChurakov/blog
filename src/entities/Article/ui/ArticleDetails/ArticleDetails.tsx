@@ -1,15 +1,15 @@
-import { memo, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import {
   DynamicModuleLoader,
   ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Avatar } from '@/shared/ui/avatar/Avatar';
-import Skeleton from '@/shared/ui/skeleton/Skeleton';
+import { Avatar } from '@/shared/ui/avatar';
+import { Skeleton } from '@/shared/ui/skeleton';
 import { HStack } from '@/shared/ui/stack';
 import { VStack } from '@/shared/ui/stack';
-import { Text, TextColors } from '@/shared/ui/text/Text';
+import { Text, TextColors } from '@/shared/ui/text';
+import { memo, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Calendar1Icon, EyeIcon } from 'lucide-react';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';

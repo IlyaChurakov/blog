@@ -1,14 +1,14 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import styles from './LanguageSwitcher.module.scss';
-import { Button, ButtonSizes, ButtonVariants } from '@/shared/ui/button/Button';
-import { useTranslation } from 'react-i18next';
+import { Button, ButtonSizes, ButtonVariants } from '@/shared/ui/button';
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
+import styles from './LanguageSwitcher.module.scss';
 
 interface LanguageSwitcherProps {
   className?: string;
 }
 
-const LanguageSwitcher = memo(({ className }: LanguageSwitcherProps) => {
+export const LanguageSwitcher = memo(({ className }: LanguageSwitcherProps) => {
   const { i18n } = useTranslation();
   const toggle = () =>
     i18n.changeLanguage(i18n.language === 'en' ? 'ru' : 'en');
@@ -25,5 +25,3 @@ const LanguageSwitcher = memo(({ className }: LanguageSwitcherProps) => {
     </Button>
   );
 });
-
-export default LanguageSwitcher;

@@ -2,12 +2,12 @@ import { getUserAuthData } from '@/entities/User';
 import { LoginModal } from '@/features/authByUsername';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import { NotificationButton } from '@/features/notificationButton';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleCreate } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import AppLink, { AppLinkVariants } from '@/shared/ui/appLink/AppLink';
-import { Button, ButtonSizes, ButtonVariants } from '@/shared/ui/button/Button';
+import { AppLink, AppLinkVariants } from '@/shared/ui/appLink';
+import { Button, ButtonSizes, ButtonVariants } from '@/shared/ui/button';
 import { HStack } from '@/shared/ui/stack';
-import { Text, TextColors } from '@/shared/ui/text/Text';
+import { Text, TextColors } from '@/shared/ui/text';
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -34,7 +34,7 @@ const Navbar = memo(() => {
         <div className={classNames(styles.links)}>
           <AppLink
             variant={AppLinkVariants.SECONDARY}
-            to={RoutePath.article_create}
+            to={getRouteArticleCreate()}
           >
             {t('Создать статью')}
           </AppLink>

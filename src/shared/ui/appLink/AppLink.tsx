@@ -14,7 +14,7 @@ interface AppLinkProps extends LinkProps {
   variant?: AppLinkVariants;
 }
 
-const AppLink: FC<AppLinkProps> = memo(
+export const AppLink: FC<AppLinkProps> = memo(
   ({
     to,
     className,
@@ -33,5 +33,3 @@ const AppLink: FC<AppLinkProps> = memo(
     );
   },
 );
-
-export default AppLink;

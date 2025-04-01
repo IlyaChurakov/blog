@@ -4,6 +4,7 @@ import eslintI18next from 'eslint-plugin-i18next';
 import eslintFsdPathChecker from 'eslint-plugin-ic-fsd-path-checker';
 import eslintReact from 'eslint-plugin-react';
 import eslintReactHooks from 'eslint-plugin-react-hooks';
+import eslintUnusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
@@ -16,6 +17,7 @@ export default [
       'react-hooks': eslintReactHooks,
       'typescript-eslint': tseslintPlugin,
       'ic-fsd-path-checker': eslintFsdPathChecker,
+      'unused-imports': eslintUnusedImports,
     },
   },
   {
@@ -86,6 +88,7 @@ export default [
           ignoreImportPatterns: ['**/storeProvider/*'],
         },
       ],
+      'unused-imports/no-unused-imports': 'error',
     },
   },
 ];

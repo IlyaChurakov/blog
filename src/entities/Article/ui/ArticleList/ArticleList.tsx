@@ -1,8 +1,8 @@
 import { PAGE_ID } from '@/shared/const/pages';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleView } from '@/shared/types';
-import Skeleton from '@/shared/ui/skeleton/Skeleton';
-import { Text, TextColors } from '@/shared/ui/text/Text';
+import { Skeleton } from '@/shared/ui/skeleton';
+import { Text, TextColors } from '@/shared/ui/text';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import styles from './ArticleList.module.scss';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';

@@ -6,9 +6,10 @@ import {
   ArticleDetailsPageReducer,
   articleDetailsReducer,
 } from '@/pages/ArticleDetailsPage';
+import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { StoryFn } from '@storybook/react';
 
-const defaultAsyncReducers = {
+const defaultAsyncReducers: ReducersList = {
   login: loginReducer,
   articleDetails: articleDetailsReducer,
   newComment: newCommentReducer,

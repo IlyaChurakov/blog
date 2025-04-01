@@ -2,7 +2,7 @@ import { Rating } from '@/entities/Rating';
 import { getUserAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { HStack, VStack } from '@/shared/ui/stack';
-import { Text, TextColors } from '@/shared/ui/text/Text';
+import { Text, TextColors } from '@/shared/ui/text';
 import { useSelector } from 'react-redux';
 import styles from './ArticleRating.module.scss';
 import {

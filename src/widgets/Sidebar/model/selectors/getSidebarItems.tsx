@@ -1,5 +1,10 @@
 import { getUserAuthData } from '@/entities/User';
-import { RoutePath } from '@/shared/const/router';
+import {
+  getRouteAbout,
+  getRouteArticles,
+  getRouteMain,
+  getRouteProfile,
+} from '@/shared/const/router';
 import { createSelector } from '@reduxjs/toolkit';
 import { Home, Info, Notebook, User } from 'lucide-react';
 import { SidebarItemType } from '../types/sidebar';
@@ -7,12 +12,12 @@ import { SidebarItemType } from '../types/sidebar';
 export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
   const sidebarItemsList: SidebarItemType[] = [
     {
-      path: RoutePath.main,
+      path: getRouteMain(),
       icon: <Home />,
       text: 'Главная',
     },
     {
-      path: RoutePath.about,
+      path: getRouteAbout(),
       icon: <Info />,
       text: 'О сайте',
     },
@@ -21,12 +26,12 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
   if (userData) {
     sidebarItemsList.push(
       {
-        path: RoutePath.articles,
+        path: getRouteArticles(),
         icon: <Notebook />,
         text: 'Статьи',
       },
       {
-        path: RoutePath.profile + '/' + userData?.id,
+        path: getRouteProfile(userData?.id),
         icon: <User />,
         text: 'Профиль',
         authOnly: true,

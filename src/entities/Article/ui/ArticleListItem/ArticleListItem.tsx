@@ -1,11 +1,11 @@
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleDetails } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useHover } from '@/shared/lib/hooks/useHover';
 import { ArticleView } from '@/shared/types';
-import AppLink from '@/shared/ui/appLink/AppLink';
-import { Button, ButtonVariants } from '@/shared/ui/button/Button';
-import { Card } from '@/shared/ui/card/Card';
-import { Text } from '@/shared/ui/text/Text';
+import { AppLink } from '@/shared/ui/appLink';
+import { Button, ButtonVariants } from '@/shared/ui/button';
+import { Card } from '@/shared/ui/card';
+import { Text } from '@/shared/ui/text';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { Eye } from 'lucide-react';
 import styles from './ArticleListItem.module.scss';
@@ -60,7 +60,7 @@ export const ArticleListItem = memo(
           {view === 'list' && (
             <AppLink
               target={target}
-              to={RoutePath.article_details + '/' + article.id}
+              to={getRouteArticleDetails(article.id)}
               className={styles.button}
             >
               <Button variant={ButtonVariants.CONTAINED}>
@@ -73,10 +73,7 @@ export const ArticleListItem = memo(
     );
 
     return view === 'tile' ? (
-      <AppLink
-        target={target}
-        to={RoutePath.article_details + '/' + article.id}
-      >
+      <AppLink target={target} to={getRouteArticleDetails(article.id)}>
         {content}
       </AppLink>
     ) : (

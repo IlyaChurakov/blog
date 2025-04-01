@@ -1,5 +1,5 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/text/Text';
+import { Text } from '@/shared/ui/text';
 import { memo } from 'react';
 import styles from './ArticleImageBlockComponent.module.scss';
 import { ArticleImageBlock } from '../../model/types/article';

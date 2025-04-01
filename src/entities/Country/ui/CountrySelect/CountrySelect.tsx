@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Select } from '@/shared/ui/select/Select';
+import { Select } from '@/shared/ui/select';
 import { Country } from '../../model/consts/consts';
 
 interface CountrySelectProps {

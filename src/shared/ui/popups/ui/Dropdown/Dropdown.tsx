@@ -3,7 +3,7 @@ import { Fragment, ReactNode } from 'react';
 import styles from './Dropdown.module.scss';
 import { classNames } from '../../../../lib/classNames/classNames';
 import { DropdownDirection } from '../../../../types/ui';
-import AppLink from '../../../../ui/appLink/AppLink';
+import { AppLink } from '../../../../ui/appLink/AppLink';
 import { Button } from '../../../../ui/button/Button';
 import { mapDirections } from '../../../../ui/popups/consts';
 import popupStyles from '../../styles/Popup.module.scss';

@@ -1,7 +1,7 @@
-import { memo } from 'react';
-import Skeleton from '@/shared/ui/skeleton/Skeleton';
+import { Skeleton } from '@/shared/ui/skeleton';
 import { VStack } from '@/shared/ui/stack';
-import { Text, TextColors } from '@/shared/ui/text/Text';
+import { Text, TextColors } from '@/shared/ui/text';
+import { memo } from 'react';
 import { useFetchNotificationsQuery } from '../../../api/notificationApi';
 import { NotificationItem } from '../../NotificationItem/ui/NotificationItem';
 

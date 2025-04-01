@@ -1,5 +1,5 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/button/Button';
+import { Button } from '@/shared/ui/button';
 import { useTranslation } from 'react-i18next';
 import styles from './PageError.module.scss';
 

@@ -1,10 +1,10 @@
-import path, { isAbsolute } from 'path';
+import path from 'path';
 import { Project } from 'ts-morph';
 
 const project = new Project({});
 
-project.addSourceFilesAtPaths('src/shared/ui/**/*.ts');
-project.addSourceFilesAtPaths('src/shared/ui/**/*.tsx');
+project.addSourceFilesAtPaths('src/**/*.ts');
+project.addSourceFilesAtPaths('src/**/*.tsx');
 
 const uiPath = path.resolve(__dirname, '..', '..', 'src', 'shared', 'ui');
 const sharedUiDirectory = project.getDirectory(uiPath);
@@ -41,7 +41,7 @@ files.forEach((file) => {
     const isSharedLayer = segments?.[0] === 'shared';
     const isUiSlice = segments?.[1] === 'ui';
 
-    if (isAbsolute(value) && isSharedLayer && isUiSlice) {
+    if (isAbsolute(valueWithoutAlias) && isSharedLayer && isUiSlice) {
       const result = valueWithoutAlias.split('/').slice(0, 3).join('/');
       importDeclaration.setModuleSpecifier(`@/${result}`);
     }
@@ -49,3 +49,8 @@ files.forEach((file) => {
 });
 
 project.save();
+
+function isAbsolute(value: string) {
+  const layers = ['app', 'shared', 'entities', 'features', 'widgets', 'pages'];
+  return layers.some((layer) => value.startsWith(layer));
+}

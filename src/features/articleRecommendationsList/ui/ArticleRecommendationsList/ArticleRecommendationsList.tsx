@@ -1,6 +1,6 @@
 import { ArticleList } from '@/entities/Article';
 import { VStack } from '@/shared/ui/stack';
-import { Text } from '@/shared/ui/text/Text';
+import { Text } from '@/shared/ui/text';
 import { SerializedError } from '@reduxjs/toolkit';
 import { useFetchArticleRecommendationsQuery } from '../../api/articleRecommendationsApi';
 

@@ -1,5 +1,5 @@
 import { getUserAuthData, isUserAdmin } from '@/entities/User';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteForbidden, getRouteMain } from '@/shared/const/router';
 import { UserRole } from '@/shared/types';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
@@ -16,12 +16,12 @@ export default function RequireAuth({ children, roles }: RequireAuthProps) {
   const isAdmin = useSelector(isUserAdmin);
 
   if (!user) {
-    return <Navigate to={RoutePath.main} state={{ from: location }} replace />;
+    return <Navigate to={getRouteMain()} state={{ from: location }} replace />;
   }
 
   if (isAdminRoute && !isAdmin) {
     return (
-      <Navigate to={RoutePath.forbidden} state={{ from: location }} replace />
+      <Navigate to={getRouteForbidden()} state={{ from: location }} replace />
     );
   }
 

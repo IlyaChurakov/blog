@@ -1,6 +1,6 @@
 import { getArticleDetailsData } from '@/entities/Article';
-import { RoutePath } from '@/shared/const/router';
-import { Button } from '@/shared/ui/button/Button';
+import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
+import { Button } from '@/shared/ui/button';
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -14,8 +14,12 @@ const ArticleDetailsPageHeader = memo(() => {
   const article = useSelector(getArticleDetailsData);
   const canEdit = useSelector(getCanEdit);
 
-  const back = () => navigate(RoutePath.articles);
-  const edit = () => navigate(`${RoutePath.articles}/${article?.id}/edit`);
+  const back = () => navigate(getRouteArticles());
+  const edit = () => {
+    if (article?.id) {
+      navigate(getRouteArticleEdit(article.id));
+    }
+  };
 
   return (
     <div className={styles.ArticleDetailsPageHeader}>

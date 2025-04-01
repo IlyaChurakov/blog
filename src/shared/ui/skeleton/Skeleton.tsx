@@ -1,6 +1,6 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import css from './Skeleton.module.scss';
 import { CSSProperties } from 'react';
+import css from './Skeleton.module.scss';
 
 interface SkeletonProps {
   className?: string;
@@ -9,7 +9,7 @@ interface SkeletonProps {
   borderRadius?: string | number;
 }
 
-const Skeleton = ({
+export const Skeleton = ({
   className,
   width,
   height,
@@ -25,5 +25,3 @@ const Skeleton = ({
     <div className={classNames(css.skeleton, {}, [className])} style={styles} />
   );
 };
-
-export default Skeleton;

@@ -7,9 +7,9 @@ import {
   ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Button } from '@/shared/ui/button/Button';
-import { Input } from '@/shared/ui/input/Input';
-import { Text, TextColors } from '@/shared/ui/text/Text';
+import { Button } from '@/shared/ui/button';
+import { Input } from '@/shared/ui/input';
+import { Text, TextColors } from '@/shared/ui/text';
 import styles from './LoginForm.module.scss';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';

@@ -8,9 +8,9 @@ import {
   ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Button, ButtonColors, ButtonSizes } from '@/shared/ui/button/Button';
-import { Input } from '@/shared/ui/input/Input';
-import { Text, TextColors } from '@/shared/ui/text/Text';
+import { Button, ButtonColors, ButtonSizes } from '@/shared/ui/button';
+import { Input } from '@/shared/ui/input';
+import { Text, TextColors } from '@/shared/ui/text';
 import styles from './CommentForm.module.scss';
 import {
   getNewCommentError,

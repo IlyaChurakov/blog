@@ -1,7 +1,7 @@
-import { Button } from '@/shared/ui/button/Button';
+import { Button } from '@/shared/ui/button';
 import { HStack, VStack } from '@/shared/ui/stack';
-import { StarRating } from '@/shared/ui/starRating/StarRating';
-import { Text, TextColors } from '@/shared/ui/text/Text';
+import { StarRating } from '@/shared/ui/starRating';
+import { Text, TextColors } from '@/shared/ui/text';
 import { useState } from 'react';
 
 interface RatingProps {

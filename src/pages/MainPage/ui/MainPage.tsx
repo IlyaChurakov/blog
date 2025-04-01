@@ -1,5 +1,5 @@
 import { Counter } from '@/entities/Counter';
-import { Input } from '@/shared/ui/input/Input';
+import { Input } from '@/shared/ui/input';
 import { Page } from '@/widgets/Page';
 import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';

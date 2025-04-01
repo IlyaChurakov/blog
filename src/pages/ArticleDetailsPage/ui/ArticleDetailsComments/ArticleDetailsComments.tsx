@@ -5,7 +5,7 @@ import { CommentList } from '@/entities/Comment';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { VStack } from '@/shared/ui/stack';
-import { Text } from '@/shared/ui/text/Text';
+import { Text } from '@/shared/ui/text';
 import {
   getArticleDetailsCommentsError,
   getArticleDetailsCommentsIsLoading,

@@ -1,8 +1,8 @@
-import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import AppLink from '@/shared/ui/appLink/AppLink';
+import { AppLink } from '@/shared/ui/appLink';
 import { VStack } from '@/shared/ui/stack';
-import { Text, TextColors } from '@/shared/ui/text/Text';
+import { Text, TextColors } from '@/shared/ui/text';
+import { memo } from 'react';
 import styles from './NotificationItem.module.scss';
 import { Notification } from '../../../model/types/notifications';
 

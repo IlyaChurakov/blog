@@ -1,7 +1,7 @@
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 import type { Meta, StoryObj } from '@storybook/react';
-import AppLink, { AppLinkVariants } from './AppLink';
+import { AppLink, AppLinkVariants } from './AppLink';
 
 const meta = {
   title: 'shared/AppLink',

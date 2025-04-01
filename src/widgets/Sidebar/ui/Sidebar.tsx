@@ -1,7 +1,7 @@
 import { LanguageSwitcher } from '@/features/LanguageSwitcher';
 import { ThemeSwitcher } from '@/features/themeSwitcher';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonSizes, ButtonVariants } from '@/shared/ui/button/Button';
+import { Button, ButtonSizes, ButtonVariants } from '@/shared/ui/button';
 import { memo, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { PanelRightClose, PanelRightOpen } from 'lucide-react';
@@ -13,7 +13,7 @@ interface SidebarProps {
   className?: string;
 }
 
-const Sidebar = memo(({ className }: SidebarProps) => {
+export const Sidebar = memo(({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
   const onToggle = () => setCollapsed((prev) => !prev);
 
@@ -55,5 +55,3 @@ const Sidebar = memo(({ className }: SidebarProps) => {
     </aside>
   );
 });
-
-export default Sidebar;

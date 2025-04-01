@@ -5,9 +5,15 @@ const config: StorybookConfig = {
   addons: [
     '@storybook/addon-webpack5-compiler-babel',
     '@storybook/addon-onboarding',
-    '@storybook/addon-essentials',
+    {
+      name: '@storybook/addon-essentials',
+      options: {
+        backgrounds: false,
+      },
+    },
     '@storybook/addon-interactions',
     'storybook-addon-mock',
+    'storybook-addon-themes',
   ],
   framework: {
     name: '@storybook/react-webpack5',

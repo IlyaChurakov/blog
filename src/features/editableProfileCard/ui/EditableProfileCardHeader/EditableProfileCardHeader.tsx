@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Button, ButtonColors, ButtonVariants } from '@/shared/ui/button/Button';
+import { Button, ButtonColors, ButtonVariants } from '@/shared/ui/button';
 import styles from './EditableProfileCardHeader.module.scss';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProgileReadonly';

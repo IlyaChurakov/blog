@@ -1,5 +1,5 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ArticleView } from '@/shared/types';
+import { ArticleView } from '@/shared/types/sort';
 import { HTMLAttributes, memo, ReactNode } from 'react';
 import styles from './Card.module.scss';
 

@@ -3,6 +3,7 @@ import { HStack, VStack } from '@/shared/ui/stack';
 import { StarRating } from '@/shared/ui/starRating';
 import { Text, TextColors } from '@/shared/ui/text';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface RatingProps {
   feedback?: string;
@@ -17,11 +18,12 @@ export const Rating = ({
   isLoading,
   value,
 }: RatingProps) => {
+  const { t } = useTranslation();
   const [rating, setRating] = useState<number | null>(null);
 
   return (
     <VStack gap="16" align="start">
-      {!!feedback ? (
+      {feedback ? (
         <Text color={TextColors.ACCENT} text={feedback} />
       ) : (
         <VStack align="center" gap="16">
@@ -32,8 +34,8 @@ export const Rating = ({
           />
 
           <HStack gap="16">
-            <Button onClick={send}>Отправить</Button>
-            <Button onClick={cancel}>Отменить</Button>
+            <Button onClick={send}>{t('Отправить')}</Button>
+            <Button onClick={cancel}>{t('Отменить')}</Button>
           </HStack>
         </VStack>
       )}

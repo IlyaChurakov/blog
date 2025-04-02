@@ -28,11 +28,11 @@ export const AvatarDropdown = () => {
       items={[
         ...(isAdmin
           ? [
-              {
-                content: <p>{t('Админ панель')}</p>,
-                href: getRouteAdminPanel(),
-              },
-            ]
+            {
+              content: <p>{t('Админ панель')}</p>,
+              href: getRouteAdminPanel(),
+            },
+          ]
           : []),
         {
           content: <p>{t('Профиль')}</p>,

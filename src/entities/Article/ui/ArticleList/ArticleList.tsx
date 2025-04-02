@@ -1,6 +1,6 @@
 import { PAGE_ID } from '@/shared/const/pages';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ArticleView } from '@/shared/types';
+import { ArticleView } from '@/shared/types/sort';
 import { Skeleton } from '@/shared/ui/skeleton';
 import { Text, TextColors } from '@/shared/ui/text';
 import { HTMLAttributeAnchorTarget, memo } from 'react';

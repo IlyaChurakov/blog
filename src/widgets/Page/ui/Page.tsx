@@ -5,21 +5,15 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle';
-import {
-  HTMLAttributes,
-  memo,
-  MutableRefObject,
-  ReactNode,
-  UIEvent,
-  useRef,
-} from 'react';
+import { TestProps } from '@/shared/types/tests';
+import { memo, MutableRefObject, ReactNode, UIEvent, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import styles from './Page.module.scss';
 import { getScrollByPage } from '../model/selectors/scroll';
 import { scrollActions } from '../model/slices/scrollSlice';
 
-interface PageProps extends HTMLAttributes<HTMLDivElement> {
+interface PageProps extends TestProps {
   className?: string;
   children: ReactNode;
   onScrollEnd?: () => void;
@@ -64,8 +58,8 @@ export const Page = memo(
         id={PAGE_ID}
         ref={wrapperRef}
         className={classNames(styles.Page, {}, [className])}
-        {...props}
         onScroll={onScroll}
+        {...props}
       >
         {children}
         {!!onScrollEnd && <div className={styles.trigger} ref={triggerRef} />}

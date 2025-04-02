@@ -9,7 +9,7 @@ const ProfilePage = memo(() => {
   if (!id) return null;
 
   return (
-    <Page>
+    <Page data-testid={'ProfilePage'}>
       <VStack gap="16">
         <EditableProfileCard id={id} />
       </VStack>

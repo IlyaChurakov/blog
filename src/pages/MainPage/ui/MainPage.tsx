@@ -12,7 +12,7 @@ const MainPage = memo(() => {
   const onChange = (val: string) => setValue(val);
 
   return (
-    <Page>
+    <Page data-testid="MainPage">
       {t('Главная')}
       <Counter />
       <Input

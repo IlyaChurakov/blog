@@ -1,6 +1,6 @@
 import { getUserAuthData, isUserAdmin } from '@/entities/User';
 import { getRouteForbidden, getRouteMain } from '@/shared/const/router';
-import { UserRole } from '@/shared/types';
+import { UserRole } from '@/shared/types/sort';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
 

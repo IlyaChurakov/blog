@@ -1,7 +1,7 @@
 import { StateSchema } from '@/app/providers/storeProvider/config/StateSchema';
 import { Article, ArticleSortField } from '@/entities/Article';
 import { ARTICLES_VIEW_LS_KEY } from '@/shared/const/localstorage';
-import { ArticleView, SortOrder } from '@/shared/types/index';
+import { ArticleView, SortOrder } from '@/shared/types/sort';
 import {
   createEntityAdapter,
   createSlice,

@@ -1,10 +1,12 @@
 import { getRouteArticleDetails } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useHover } from '@/shared/lib/hooks/useHover';
-import { ArticleView } from '@/shared/types';
+import { ArticleView } from '@/shared/types/sort';
+import { AppImage } from '@/shared/ui/appImage';
 import { AppLink } from '@/shared/ui/appLink';
 import { Button, ButtonVariants } from '@/shared/ui/button';
 import { Card } from '@/shared/ui/card';
+import { Skeleton } from '@/shared/ui/skeleton';
 import { Text } from '@/shared/ui/text';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { Eye } from 'lucide-react';
@@ -32,7 +34,12 @@ export const ArticleListItem = memo(
           styles[view],
         ])}
       >
-        <img src={article.img} className={styles.image} />
+        <AppImage
+          src={article.img}
+          fallback={<Skeleton width="100" height={250} />}
+          className={styles.image}
+          alt={article.title}
+        />
 
         <div className={styles.description}>
           <div className={styles.description_meta}>

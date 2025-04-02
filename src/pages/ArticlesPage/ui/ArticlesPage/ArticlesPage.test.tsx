@@ -1,7 +1,7 @@
+import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 import { screen } from '@testing-library/react';
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 import ArticlesPage from './ArticlesPage';
 
 describe('sidebar', () => {
@@ -14,7 +14,7 @@ describe('sidebar', () => {
     } as any;
   });
 
-  test('render', () => {
+  test('render', async () => {
     componentRender(
       <Routes>
         <Route
@@ -28,6 +28,7 @@ describe('sidebar', () => {
       </Routes>,
       { route: '/articles' },
     );
-    expect(screen.getByTestId('articlesPage')).toBeInTheDocument();
+
+    expect(await screen.findByTestId('articlesPage')).toBeInTheDocument();
   });
 });

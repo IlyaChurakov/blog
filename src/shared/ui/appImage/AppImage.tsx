@@ -6,12 +6,11 @@ import {
   useLayoutEffect,
   useState,
 } from 'react';
-import styles from './AppImage.module.scss';
 
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   fallback?: ReactElement;
   errorFallback?: ReactElement;
-  className: string;
+  className?: string;
 }
 
 export const AppImage = memo(
@@ -48,7 +47,7 @@ export const AppImage = memo(
       <img
         src={src}
         alt={alt}
-        className={classNames(styles.AppImage, {}, [className])}
+        className={classNames('', {}, [className])}
         {...props}
       />
     );

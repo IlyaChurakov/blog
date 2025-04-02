@@ -25,7 +25,7 @@
     "postinstall": "rm -rf node_modules/.cache"
   },
   "lint-staged": {
-    "**/*.{tsx,ts}": "eslint"
+    "**/*.{tsx,ts}": "eslint --config ./config/eslint/eslint.config.mjs"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",

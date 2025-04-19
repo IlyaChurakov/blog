@@ -81,6 +81,9 @@ jobs:
       - name: unit testing
         run: npm run test:unit
         if: always()
+      - name: e2e testing
+        run: npm run test:e2e
+        if: always()
       - name: Generate HTML report
         run: npm run test:ui:report
         if: always()

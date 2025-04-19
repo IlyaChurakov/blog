@@ -89,12 +89,21 @@ const ArticlesPageFilters = memo(({ className }: ArticlesPageFiltersProps) => {
           onChangeOrder={onChangeOrder}
           onChangeSort={onChangeSort}
         />
-        <Button onClick={toggleView} className={styles.viewButton}>
+        <Button
+          data-testid="articlesListViewSwitcher"
+          onClick={toggleView}
+          className={styles.viewButton}
+        >
           {view === 'list' ? <AlignJustify /> : <LayoutGrid />}
         </Button>
       </div>
       <Card view="list" className={styles.search}>
-        <Input value={search} placeholder="Search" onChange={onChangeSearch} />
+        <Input
+          data-testid="articlesListFilter"
+          value={search}
+          placeholder="Search"
+          onChange={onChangeSearch}
+        />
       </Card>
       <Tabs
         tabs={tabs}

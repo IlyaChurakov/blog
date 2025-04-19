@@ -1,5 +1,5 @@
-import { ChangeEvent, SelectHTMLAttributes, useCallback, useMemo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ChangeEvent, SelectHTMLAttributes, useCallback, useMemo } from 'react';
 import styles from './Select.module.scss';
 
 export interface SelectOption<T extends string> {
@@ -16,6 +16,7 @@ interface SelectProps<T extends string> extends HTMLSelectProps {
   value?: T;
   onChange?: (value: T) => void;
   options?: SelectOption<T>[];
+  placeholder?: string;
 }
 
 export const Select = <T extends string>({

@@ -11,7 +11,7 @@ export interface Article {
   createdAt: string;
   type: string[];
   blocks: ArticleBlock[];
-  rating: number;
+  rating?: number;
 }
 
 export interface ArticleCodeBlock extends ArticleBlockBase {

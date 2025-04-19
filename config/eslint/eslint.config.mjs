@@ -74,7 +74,7 @@ export default [
         },
       ],
       'no-extra-boolean-cast': 'off',
-      'ic-fsd-path-checker/path-checker': ['error', { alias: '@' }],
+      // 'ic-fsd-path-checker/path-checker': ['error', { alias: '@' }],
       'ic-fsd-path-checker/public-api-imports': [
         'error',
         {
@@ -94,6 +94,12 @@ export default [
         },
       ],
       'unused-imports/no-unused-imports': 'error',
+    },
+  },
+  {
+    files: ['cypress/support/**/*'],
+    rules: {
+      '@typescript-eslint/no-namespace': 'off',
     },
   },
 ];

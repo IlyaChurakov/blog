@@ -14,7 +14,7 @@ interface CommentCardProps {
 
 export const CommentCard = memo(({ comment, isLoading }: CommentCardProps) => {
   return (
-    <div className={classNames(styles.commentCard)}>
+    <div data-testid="CommentCard" className={classNames(styles.commentCard)}>
       {isLoading ? (
         <CommentCardSkeleton />
       ) : (

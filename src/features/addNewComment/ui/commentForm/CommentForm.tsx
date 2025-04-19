@@ -1,6 +1,3 @@
-import { useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 import { checkErrorType } from '@/shared/lib/checkErrorType/checkErrorType';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
@@ -11,6 +8,9 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Button, ButtonColors, ButtonSizes } from '@/shared/ui/button';
 import { Input } from '@/shared/ui/input';
 import { Text, TextColors } from '@/shared/ui/text';
+import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import styles from './CommentForm.module.scss';
 import {
   getNewCommentError,
@@ -50,12 +50,16 @@ const CommentForm = ({ onSendComment }: CommentFormProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(styles.commentForm)}>
+      <div
+        className={classNames(styles.commentForm)}
+        data-testid="addCommentForm"
+      >
         {defaultError ? (
           <Text color={TextColors.ERROR} text={defaultError} />
         ) : (
           <>
             <Input
+              data-testid="addCommentForm.Input"
               placeholder="Введите сообщение"
               value={text}
               onChange={onCommentTextChange}
@@ -65,6 +69,7 @@ const CommentForm = ({ onSendComment }: CommentFormProps) => {
               <Text color={TextColors.ERROR} text={validationError.text} />
             )}
             <Button
+              data-testid="addCommentForm.Button"
               disabled={isLoading}
               onClick={onSendCommentChange}
               size={ButtonSizes.M}

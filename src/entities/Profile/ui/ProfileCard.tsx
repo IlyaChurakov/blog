@@ -77,6 +77,7 @@ export const ProfileCard = ({
           />
         )}
         <Input
+          data-testid="EditableProfileCard.Surname"
           onChange={onChangeSurname}
           readonly={readonly}
           placeholder={t('Фамилия')}
@@ -93,7 +94,7 @@ export const ProfileCard = ({
         />
         {validationError?.age && (
           <Text
-            data-testid="editableProfileCard.age.error"
+            data-testid="editableProfileCard.Age.Error"
             color={TextColors.ERROR}
             text={t(validationError.age)}
           />

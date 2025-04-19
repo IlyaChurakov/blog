@@ -27,11 +27,15 @@ export const ArticleListItem = memo(
 
     const content = (
       <Card
+        data-testid="ArticleItem"
         view={view}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         className={classNames('', { [styles.isHover]: isHover }, [
           styles[view],
+          view === 'tile'
+            ? 'testArticleListItemTileView'
+            : 'testArticleListItemListView',
         ])}
       >
         <AppImage

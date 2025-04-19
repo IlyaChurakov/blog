@@ -6,7 +6,7 @@ export const getArticlesPageIsLoading = (state: StateSchema) =>
 export const getArticlesPageError = (state: StateSchema) =>
   state.articlesPageSlice?.error;
 export const getArticlesPageView = (state: StateSchema) =>
-  state.articlesPageSlice?.view;
+  state.articlesPageSlice?.view ?? 'tile';
 export const getArticlesPagePage = (state: StateSchema) =>
   state.articlesPageSlice?.page ?? 1;
 export const getArticlesPageLimit = (state: StateSchema) =>

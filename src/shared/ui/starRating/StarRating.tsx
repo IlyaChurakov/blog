@@ -20,11 +20,15 @@ export const StarRating = memo(
     selected = 0,
     onSelect,
     disable,
+    ...props
   }: StarRatingProps) => {
     const [hover, setHover] = useState(0);
 
     return (
-      <div className={classNames(styles.StarRating, {}, [className])}>
+      <div
+        className={classNames(styles.StarRating, {}, [className])}
+        {...props}
+      >
         {stars.map((s) => (
           <Star
             key={s}

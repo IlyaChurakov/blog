@@ -28,13 +28,16 @@ export const Rating = ({
       ) : (
         <VStack align="center" gap="16">
           <StarRating
+            data-testid="starRating"
             disable={isLoading}
             selected={rating ?? value}
             onSelect={setRating}
           />
 
           <HStack gap="16">
-            <Button onClick={send}>{t('Отправить')}</Button>
+            <Button data-testid="ratingButton" onClick={send}>
+              {t('Отправить')}
+            </Button>
             <Button onClick={cancel}>{t('Отменить')}</Button>
           </HStack>
         </VStack>

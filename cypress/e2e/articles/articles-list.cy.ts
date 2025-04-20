@@ -1,10 +1,17 @@
 describe('template spec', () => {
   beforeEach(() => {
-    cy.login('admin', '1234');
-    cy.visit('/articles');
+    cy.login('admin', '1234').then(() => {
+      cy.visit('/articles');
+    });
   });
 
   it('статьи загрузились', () => {
+    cy.getByTestId('ArticleItem').should('have.length.greaterThan', 0);
+  });
+
+  // фикстуры нужны, чтобы мокать запросы, например, при тестах в CI, чтобы не спамить запросами в API
+  it('статьи загрузились на фикстурах', () => {
+    cy.intercept('GET', '**/articles/?*', { fixture: 'articles-list.json' });
     cy.getByTestId('ArticleItem').should('have.length.greaterThan', 0);
   });
 

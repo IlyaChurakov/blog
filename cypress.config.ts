@@ -1,5 +1,4 @@
 import { defineConfig } from 'cypress';
-import path from 'path';
 
 export default defineConfig({
   e2e: {
@@ -10,18 +9,5 @@ export default defineConfig({
     reportDir: 'reports/cypress',
     overwrite: true,
     html: true,
-  },
-  component: {
-    devServer: {
-      framework: 'react',
-      bundler: 'vite',
-      viteConfig: {
-        resolve: {
-          alias: {
-            '@': path.resolve(__dirname, 'src'),
-          },
-        },
-      },
-    },
   },
 });

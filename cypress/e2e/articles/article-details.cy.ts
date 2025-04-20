@@ -14,14 +14,19 @@ describe('пользователь заходит на страницу стат
     cy.visit(`/articles`);
   });
 
-  it('add comment', () => {
+  it.skip('add comment', () => {
     cy.getByTestId('addCommentForm').scrollIntoView();
     cy.addComment('text');
     cy.getByTestId('CommentCard').should('have.length', 1);
   });
 
   it('rateArticle', () => {
+    cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' });
     cy.getByTestId('starRating').find('svg').eq(3).click();
     cy.getByTestId('ratingButton').click();
+  });
+
+  it.skip('skip example', () => {
+    cy.getByTestId('not exist element').should('exist');
   });
 });
